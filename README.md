@@ -1,0 +1,2 @@
+# dotfiles
+Declarative system configuration
