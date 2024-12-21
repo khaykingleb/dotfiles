@@ -1,5 +1,5 @@
-{
-  description = "Personal configuration for MacOS";
+ {
+  description = "Personal nix-darwin system flake";
 
   inputs = {
     # Main package supplier
@@ -51,8 +51,8 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#khaykingleb-mac
-    darwinConfigurations."khaykingleb-mac" = darwin.lib.darwinSystem {
+    # $ darwin-rebuild build --flake .#khaykingleb-macbook
+    darwinConfigurations."khaykingleb-macbook" = darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
   };
