@@ -24,14 +24,6 @@ apply-configuration:  ## Apply Nix Darwin configuration
 	@darwin-rebuild switch --flake .#khaykingleb-macbook
 .PHONY: apply-configuration
 
-# .ONESHELL:
-# install-nix-darwin:  ## Install Nix Darwin
-# 	@echo "Installing Nix Darwin."
-# 	@mkdir -p ~/.config/nix-darwin
-# 	@cd ~/.config/nix-darwin
-# 	@nix flake init -t nix-darwin
-# 	@sed -i '' "s/simple/$(scutil --get LocalHostName)/" flake.nix
-
 ##=============================================================================
 ##@ Helper
 ##=============================================================================
