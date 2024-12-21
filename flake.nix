@@ -10,50 +10,33 @@
       ref = "nixpkgs-unstable";
     };
 
+    # Reduces the boilerplate code for the flake
+    flake-parts = {
+      type = "github";
+      owner = "hercules-ci";
+      repo = "flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     # Support for MacOS specific features
-    darwin = {
+    nix-darwin = {
       type = "github";
       owner = "lnl7";
       repo = "nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Manage userspace with nix
+    home-manager = {
+      type = "github";
+      owner = "nix-community";
+      repo = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs }:
-  let
-    configuration = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs; [
-        vim
-        neovim
-        git
-        curl
-        wget
-      ];
-
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-
-      # Enable alternative shell support in nix-darwin.
-      # programs.fish.enable = true;
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 5;
-
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
-    };
-  in
-  {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#khaykingleb-macbook
-    darwinConfigurations."khaykingleb-macbook" = darwin.lib.darwinSystem {
-      modules = [ configuration ];
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    systems = [ "aarch64-darwin" ];
+    imports = [ ./parts ];
   };
 }
