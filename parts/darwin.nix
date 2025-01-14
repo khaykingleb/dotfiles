@@ -1,3 +1,4 @@
+# https://github.com/LnL7/nix-darwin
 { inputs, ... }: {
   flake = {
     # Build darwin flake using:
