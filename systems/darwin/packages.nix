@@ -6,6 +6,5 @@
     git
     curl
     wget
-    tmux
   ];
 }
