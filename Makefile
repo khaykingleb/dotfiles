@@ -23,15 +23,10 @@ uninstall-nix:  ## Uninstall Nix
 ##@ Darwin
 ##=============================================================================
 
-apply-darwin-macbook-m1: ## Apply Nix Darwin configuration for Macbook M1
-	@echo "Applying Nix Darwin configuration for Macbook M1."
-	@nix run nix-darwin -- switch --flake .#macbook-m1 --show-trace
-.PHONY: apply-darwin-macbook-m1
-
-apply-darwin-macbook-m4: ## Apply Nix Darwin configuration for Macbook M4
-	@echo "Applying Nix Darwin configuration for Macbook M4."
-	@nix run nix-darwin -- switch --flake .#macbook-m4 --show-trace
-.PHONY: apply-darwin-macbook-m4
+apply-darwin-macbook: ## Apply Nix Darwin configuration for Macbook
+	@echo "Applying Nix Darwin configuration for Macbook."
+	@nix run nix-darwin -- switch --flake .#macbook --show-trace
+.PHONY: apply-darwin-macbook
 
 ##=============================================================================
 ##@ Misc
@@ -83,28 +78,3 @@ help: ## Display help
 			printf "\n\033[1m%s\033[0m\n", substr($$0, 5) \
 		}' $(MAKEFILE_LIST)
 .PHONY: help
-
-
-
-
-
-
-# install-darwin:  ## Install Nix Darwin
-# 	@echo "Installing Nix Darwin."
-# 	@nix run nix-darwin -- switch --flake .
-# .PHONY: install-darwin
-
-# uninstall-darwin:  ## Uninstall Nix Darwin
-# 	@echo "Uninstalling Nix Darwin."
-# 	@darwin-uninstaller
-# .PHONY: uninstall-darwin
-
-# apply-darwin-configuration:  ## Apply Nix Darwin configuration
-# 	@echo "Applying Nix Darwin configuration."
-# 	@darwin-rebuild switch --flake .#khaykingleb-macbook
-# .PHONY: apply-darwin-configuration
-
-# apply-home-manager:  ## Apply Nix Home Manager configuration
-# 	@echo "Applying Nix Home Manager configuration."
-# 	@home-manager switch --flake .#khaykingleb-macbook
-# .PHONY: apply-home-manager
