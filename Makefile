@@ -66,6 +66,10 @@ pre-commit-autoupdate: ## Update pre-commit hooks
 	@pre-commit autoupdate
 .PHONY: pre-commit-autoupdate
 
+pre-commit-run-all: ## Run pre-commit hooks
+	@pre-commit run --all-files
+.PHONY: pre-commit-run-all
+
 ##@ Helper
 ##=============================================================================
 

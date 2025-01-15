@@ -4,7 +4,7 @@
     enable = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-  
+
     oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
@@ -15,7 +15,7 @@
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
       preexec() { echo -e -n "\x1b[\x35 q" ; }  # Use beam shape cursor for each new prompt
-      
+
       # Navigation by words
       bindkey "^[[1;3D" backward-word  # Option + Left Arrow
       bindkey "^[[1;3C" forward-word   # Option + Right Arrow
@@ -28,4 +28,4 @@
       bindkey "Ω" undo                 # Option + z: undo last edit
     '';
   };
-} 
+}
