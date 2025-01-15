@@ -6,6 +6,10 @@ DS_NIX_INSTALLER_VERSION := "v0.32.2"
 ##@ Initialization
 ##=============================================================================
 
+init-pre-commit: ## Initialize pre-commit hooks
+	@pre-commit install --hook-type commit-msg
+.PHONY: init-pre-commit
+
 install-nix:  ## Install Nix with Determinate Systems Nix Installer
 	@echo "Installing Nix using Determinate Systems installer (${DS_NIX_INSTALLER_VERSION})."
 	@if command -v nix >/dev/null 2>&1; then echo "Nix is already installed. Run 'nix --version' to check version." && exit 0; else \
