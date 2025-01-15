@@ -15,4 +15,9 @@
     # You should stay at the version you originally installed
     stateVersion = "24.11";
   };
+
+  imports = [
+    ./programs/zsh.nix
+    ./programs/git.nix
+  ];
 }
