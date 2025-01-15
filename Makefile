@@ -3,12 +3,8 @@
 DS_NIX_INSTALLER_VERSION := "v0.32.2"
 
 ##=============================================================================
-##@ Initialization
+##@ Nix
 ##=============================================================================
-
-init-pre-commit: ## Initialize pre-commit hooks
-	@pre-commit install --hook-type commit-msg
-.PHONY: init-pre-commit
 
 install-nix:  ## Install Nix with Determinate Systems Nix Installer
 	@echo "Installing Nix using Determinate Systems installer (${DS_NIX_INSTALLER_VERSION})."
@@ -40,6 +36,31 @@ apply-darwin-macbook-m4: ## Apply Nix Darwin configuration for Macbook M4
 ##=============================================================================
 ##@ Misc
 ##=============================================================================
+
+PLUGINS := \
+	pre-commit https://github.com/jonathanmorley/asdf-pre-commit.git
+
+init-prerequisites: ## Initialize pre-commit hooks
+	@echo "Checking and installing required plugins."
+	@echo "${PLUGINS}" | tr ' ' '\n' | paste - - | while read -r plugin url; do \
+		if asdf plugin-list | grep -q $$plugin; then \
+			echo "Plugin '$$plugin' is already installed."; \
+		else \
+			echo "Adding plugin '$$plugin'."; \
+			asdf plugin-add $$plugin $$url; \
+		fi; \
+	done
+	@echo  "Installing specified versions."
+	asdf install
+	@echo  "Currently installed versions:"
+	asdf current
+.PHONY: init-prerequisites
+
+init-pre-commit: init-prerequisites  ## Initialize pre-commit hooks
+	@echo "Installing pre-commit hooks."
+	@pre-commit install
+	@pre-commit install --hook-type commit-msg
+.PHONY: init-pre-commit
 
 pre-commit-autoupdate: ## Update pre-commit hooks
 	@pre-commit autoupdate
