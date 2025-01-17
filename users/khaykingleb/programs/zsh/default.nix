@@ -49,7 +49,7 @@
   # Save Powerlevel10k config to the user's home directory
   home.file = {
     ".p10k.zsh" = {
-      source = ./config/p10k.zsh;
+      source = ./p10k.zsh;
     };
   };
 }
