@@ -36,24 +36,6 @@
       repo = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Nix code formatter
-    # https://github.com/nix-community/nixpkgs-fmt
-    nixpkgs-fmt = {
-      type = "github";
-      owner = "nix-community";
-      repo = "nixpkgs-fmt";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Nix Language Server for https://github.com/nix-community/vscode-nix-ide
-    # https://github.com/oxalica/nil
-    nil = {
-      type = "github";
-      owner = "oxalica";
-      repo = "nil";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
