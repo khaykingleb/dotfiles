@@ -19,5 +19,7 @@
   imports = [
     ./programs
     ./apps
+
+    ./fonts.nix
   ];
 }
