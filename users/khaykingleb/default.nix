@@ -17,7 +17,7 @@
   };
 
   imports = [
-    ./programs/zsh.nix
-    ./programs/git.nix
+    ./programs
+    ./apps
   ];
 }
