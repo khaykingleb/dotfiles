@@ -1,5 +1,5 @@
 # Shell designed for interactive use
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;

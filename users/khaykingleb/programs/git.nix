@@ -1,8 +1,5 @@
 # Version control system
-{ config
-, pkgs
-, ...
-}: {
+{ ... }: {
   programs.git = {
     enable = true;
     userName = "Gleb Khaykin";
