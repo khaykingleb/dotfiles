@@ -3,6 +3,7 @@
     ./zsh
     ./terminals
 
+    ./asdf.nix
     ./git.nix
   ];
 }
