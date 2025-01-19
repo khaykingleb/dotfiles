@@ -5,5 +5,6 @@
 
     ./asdf.nix
     ./git.nix
+    ./nix.nix
   ];
 }
