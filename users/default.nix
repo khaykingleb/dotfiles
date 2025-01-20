@@ -4,7 +4,7 @@
 # * Handles dotfiles and user packages
 # * Runs with user permissions
 
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   config = {
     home-manager = {
