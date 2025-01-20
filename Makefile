@@ -34,14 +34,9 @@ uninstall-nix-darwin:  ## Uninstall nix-darwin
 	@darwin-uninstaller
 .PHONY: uninstall-nix-darwin
 
-#TODO: move to user packages
-install-nil: ## Install Nix Language Server
-	@nix profile install nixpkgs#nil
-.PHONY: install-nil
-
-uninstall-nil: ## Uninstall Nix Language Server
-	@nix profile remove nixpkgs#nil
-.PHONY: uninstall-nil
+collect-nix-garbage: ## Collect Nix garbage (remove unused packages)
+	@nix-collect-garbage
+.PHONY: collect-nix-garbage
 
 ##=============================================================================
 ##@ Misc
