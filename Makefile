@@ -14,19 +14,29 @@ install-nix:  ## Install Nix with Determinate Systems Nix Installer
 	fi
 .PHONY: install-nix
 
+upgrade-nix:  ## Upgrade Nix
+	@echo "Upgrading Nix."
+	@sudo -i nix upgrade-nix
+.PHONY: upgrade-nix
+
 uninstall-nix:  ## Uninstall Nix
 	@echo "Uninstalling Nix."
 	@/nix/nix-installer uninstall
 .PHONY: uninstall-nix
 
-##=============================================================================
-##@ Darwin
-##=============================================================================
+apply-nix-darwin: ## Apply nix-darwin configuration
+	@echo "Applying nix-darwin configuration."
+	@darwin-rebuild switch --flake .#macbook --show-trace
+.PHONY: apply-nix-darwin
 
-apply-darwin-macbook: ## Apply Nix Darwin configuration for Macbook
-	@echo "Applying Nix Darwin configuration for Macbook."
-	@nix run nix-darwin -- switch --flake .#macbook --show-trace
-.PHONY: apply-darwin-macbook
+uninstall-nix-darwin:  ## Uninstall nix-darwin
+	@echo "Uninstalling nix-darwin."
+	@darwin-uninstaller
+.PHONY: uninstall-nix-darwin
+
+collect-nix-garbage: ## Collect Nix garbage (remove unused packages)
+	@nix-collect-garbage
+.PHONY: collect-nix-garbage
 
 ##=============================================================================
 ##@ Misc
@@ -46,9 +56,9 @@ init-prerequisites: ## Initialize pre-commit hooks
 		fi; \
 	done
 	@echo  "Installing specified versions."
-	asdf install
+	@asdf install
 	@echo  "Currently installed versions:"
-	asdf current
+	@asdf current
 .PHONY: init-prerequisites
 
 init-pre-commit: init-prerequisites  ## Initialize pre-commit hooks

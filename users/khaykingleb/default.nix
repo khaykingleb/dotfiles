@@ -1,9 +1,4 @@
-{ pkgs
-, config
-, inputs
-, osConfig
-, ...
-}:
+{ ... }:
 {
   # Enable HM to manage itself when in standalone mode
   programs.home-manager.enable = true;
@@ -17,7 +12,7 @@
   };
 
   imports = [
-    ./programs/zsh.nix
-    ./programs/git.nix
+    ./programs
+    ./fonts.nix
   ];
 }

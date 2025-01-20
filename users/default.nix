@@ -4,13 +4,14 @@
 # * Handles dotfiles and user packages
 # * Runs with user permissions
 
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   config = {
     home-manager = {
       verbose = true;
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "home-manager-backup";
 
       extraSpecialArgs = {
         inherit inputs;

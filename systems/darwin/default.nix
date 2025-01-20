@@ -3,9 +3,15 @@
 # * Manages system-wide settings
 # * Handles OS-level configurations
 
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports = [
     ./packages.nix
+  ];
+
+  # Allow some unfree packages
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "vscode"
+    "vscode-with-extensions"
   ];
 
   # Necessary for using flakes on this system
