@@ -11,6 +11,7 @@
       verbose = true;
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "home-manager-backup";
 
       extraSpecialArgs = {
         inherit inputs;
