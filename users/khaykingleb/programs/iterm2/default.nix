@@ -4,12 +4,13 @@
     iterm2
   ];
 
-  # iTerm2 has an option to load the preferences from a custom location
-  # (iTerm2 → Preferences → General → Preferences → Load preferences from a custom folder or URL)
-  # Set the location to ~/.config/iterm2/nix_config.plist
   home.file = {
-    ".config/iterm2/nix_config.plist" = {
-      source = ./config.plist;
+    # iTerm2 has an option to export the preferences to a custom location
+    # (iTerm2 → Settings → General → Settings → Load settings from a custom folder or URL
+    #  → Specify a custom folder or URL → Save changes)
+    # Then move this file here
+    "Library/Preferences/com.googlecode.iterm2.plist" = {
+      source = ./com.googlecode.iterm2.plist;
     };
   };
 }
