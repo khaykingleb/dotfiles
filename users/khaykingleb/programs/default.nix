@@ -6,6 +6,7 @@
     ./asdf.nix
     ./git.nix
     ./nix.nix
+    ./ssh.nix
     ./vscode.nix
   ];
 }
