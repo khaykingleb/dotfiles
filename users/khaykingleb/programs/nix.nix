@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    nil # Nix Language Server
+    nil # nix language server
+    nixpkgs-fmt # nix formatter
   ];
 }
