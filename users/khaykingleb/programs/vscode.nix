@@ -317,6 +317,7 @@
       "files.trimFinalNewlines" = true;
 
       "workbench.colorTheme" = "Default Dark Modern";
+      "workbench.iconTheme" = "icons";
 
       # Languages
       ## Nix
