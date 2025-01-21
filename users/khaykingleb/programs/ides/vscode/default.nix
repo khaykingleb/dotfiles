@@ -314,6 +314,8 @@
       "files.insertFinalNewline" = true;
       "files.trimFinalNewlines" = true;
 
+      "workbench.colorTheme" = "Default Dark Modern";
+
       # Languages
       ## Nix
       "nix.enableLanguageServer" = true;
