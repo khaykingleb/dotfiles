@@ -8,5 +8,8 @@
     wget
     neofetch
     tldr
+    htop
+    jq
+    yq
   ];
 }
