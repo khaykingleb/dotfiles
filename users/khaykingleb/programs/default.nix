@@ -7,6 +7,5 @@
     ./asdf.nix
     ./git.nix
     ./nix.nix
-    ./neofetch.nix
   ];
 }

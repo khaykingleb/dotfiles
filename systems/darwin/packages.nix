@@ -6,5 +6,7 @@
     git
     curl
     wget
+    neofetch
+    tldr
   ];
 }
