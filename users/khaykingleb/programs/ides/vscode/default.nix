@@ -146,18 +146,18 @@
         version = "0.12.18";
         sha256 = "fom4hQ+2pWKSTgFEB3cycKQLyaJPEPmf5t2/Y+GierM=";
       }
-      # {
-      #   name = "vscode-eslint";
-      #   publisher = "dbaeumer";
-      #   version = "3.0.10";
-      #   sha256 = "EVmexnTIQQDmj25/rql3eCfJd47zRui3TpHol6l0Vgs=";
-      # }
-      # {
-      #   name = "prettier-vscode";
-      #   publisher = "esbenp";
-      #   version = "11.0.0";
-      #   sha256 = "pNjkJhof19cuK0PsXJ/Q/Zb2H7eoIkfXJMLZJ4lDn7k=";
-      # }
+      {
+        name = "vscode-eslint";
+        publisher = "dbaeumer";
+        version = "3.0.10";
+        sha256 = "EVmexnTIQQDmj25/rql3eCfJd47zRui3TpHol6l0Vgs=";
+      }
+      {
+        name = "prettier-vscode";
+        publisher = "esbenp";
+        version = "11.0.0";
+        sha256 = "pNjkJhof19cuK0PsXJ/Q/Zb2H7eoIkfXJMLZJ4lDn7k=";
+      }
       {
         name = "code-spell-checker";
         publisher = "streetsidesoftware";
