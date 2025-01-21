@@ -306,6 +306,8 @@
       "editor.rulers" = [ 79 100 ];
       "editor.formatOnSave" = true;
       "editor.formatOnPaste" = true;
+      # Cmd + Option + Up/Down = add cursor to line above/below
+      "editor.multiCursorModifier" = "ctrlCmd";
 
       "terminal.integrated.fontFamily" = "MesloLGM Nerd Font Mono";
 
