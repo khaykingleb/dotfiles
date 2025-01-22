@@ -17,11 +17,9 @@
   "workbench.editorAssociations": {
     "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
   },
-
   /* Terminal */
   "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
   "terminal.integrated.fontSize": 13,
-
   /* Formatting & LSP  */
   "nix.enableLanguageServer": true,
   "nix.serverSettings": {
