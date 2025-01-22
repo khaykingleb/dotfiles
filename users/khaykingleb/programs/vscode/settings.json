@@ -3,6 +3,7 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.multiCursorModifier": "ctrlCmd",
+  "editor.fontSize": 13,
   "editor.rulers": [
     79,
     100
@@ -19,6 +20,7 @@
 
   /* Terminal */
   "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
+  "terminal.integrated.fontSize": 13,
 
   /* Formatting & LSP  */
   "nix.enableLanguageServer": true,
