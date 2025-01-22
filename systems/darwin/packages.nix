@@ -11,5 +11,6 @@
     htop
     jq
     yq
+    tree
   ];
 }
