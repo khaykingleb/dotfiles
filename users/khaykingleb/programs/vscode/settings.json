@@ -13,6 +13,9 @@
   "files.trimTrailingWhitespace": true,
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.iconTheme": "icons",
+  "workbench.editorAssociations": {
+    "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
+  },
 
   /* Terminal */
   "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
