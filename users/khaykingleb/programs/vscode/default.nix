@@ -63,7 +63,7 @@ let
     "mikestead.dotenv"
     "fill-labs.dependi"
     "sukumo28.wav-preview"
-    "tal7aouy.icons"
+    "pkief.material-icon-theme"
   ];
 in
 {

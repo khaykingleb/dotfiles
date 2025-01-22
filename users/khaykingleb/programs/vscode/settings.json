@@ -13,7 +13,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "workbench.colorTheme": "Default Dark Modern",
-  "workbench.iconTheme": "icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.editorAssociations": {
     "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
   },
