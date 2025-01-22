@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }:
+{
   programs.vscode = {
     enable = true;
     extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -60,6 +61,12 @@
         publisher = "josetr";
         version = "0.0.9";
         sha256 = "LNtXYZ65Lka1lpxeKozK6LB0yaxAjHsfVsCJ8ILX8io=";
+      }
+      {
+        name = "vscode-dotnet-runtime"; # needed for cmake-language-support-vscode
+        publisher = "ms-dotnettools";
+        version = "2.2.5";
+        sha256 = "r2RcBrMkHGHkl9mt83hwOU47LdxAoYZGHmx6gkroEDE=";
       }
       ## Nix
       {
@@ -301,36 +308,14 @@
         sha256 = "sha256-VTRTQpIiFUxc3qF+E1py1+ns93i918QeTAoWAf7NLP0=";
       }
     ];
+  };
 
-    userSettings = {
-      "editor.rulers" = [ 79 100 ];
-      "editor.formatOnSave" = true;
-      "editor.formatOnPaste" = true;
-      # Cmd + Option + Up/Down = add cursor to line above/below
-      "editor.multiCursorModifier" = "ctrlCmd";
-
-      "terminal.integrated.fontFamily" = "MesloLGM Nerd Font Mono";
-
-      "files.autoSave" = "onFocusChange";
-      "files.trimTrailingWhitespace" = true;
-      "files.insertFinalNewline" = true;
-      "files.trimFinalNewlines" = true;
-
-      "workbench.colorTheme" = "Default Dark Modern";
-      "workbench.iconTheme" = "icons";
-
-      # Languages
-      ## Nix
-      "nix.enableLanguageServer" = true;
-      "nix.serverSettings" = {
-        "nil" = {
-          "formatting" = {
-            "command" = [
-              "nixpkgs-fmt"
-            ];
-          };
-        };
-      };
+  home = {
+    # NOTE: This creates a symlink from ~/Library/Application Support/Code/User/settings.json
+    # to the settings.json file in the repo and not copies the file into the Nix store
+    # Thus, the settings.json is writable by the user
+    file."Library/Application Support/Code/User/settings.json" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/khaykingleb/programs/vscode/settings.json";
     };
   };
 }

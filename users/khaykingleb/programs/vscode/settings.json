@@ -1,0 +1,31 @@
+{
+  /* UI & Interface */
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.rulers": [
+    79,
+    100
+  ],
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.iconTheme": "icons",
+
+  /* Terminal */
+  "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
+
+  /* Formatting & LSP  */
+  "nix.enableLanguageServer": true,
+  "nix.serverSettings": {
+    "nil": {
+      "formatting": {
+        "command": [
+          "nixpkgs-fmt"
+        ]
+      }
+    }
+  },
+}
