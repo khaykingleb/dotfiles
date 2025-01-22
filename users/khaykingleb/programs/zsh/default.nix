@@ -46,7 +46,8 @@
     '';
   };
 
-  # Save Powerlevel10k config to the user's home directory
+  # NOTE: This creates a symlink from ~/.p10k.zsh to the p10k.zsh file in the repo
+  # and not copies the file into the Nix store. Thus, the ~/.p10k.zsh is writable by the user
   home = {
     file.".p10k.zsh" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/khaykingleb/programs/zsh/p10k.zsh";
