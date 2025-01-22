@@ -1,11 +1,12 @@
 { ... }: {
   imports = [
+    ./iterm2
+    ./vscode
     ./zsh
-    ./terminals
-    ./ides
 
     ./asdf.nix
     ./git.nix
     ./nix.nix
+    ./ssh.nix
   ];
 }

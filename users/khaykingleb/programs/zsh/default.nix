@@ -1,5 +1,5 @@
 # Shell designed for interactive use
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -27,8 +27,7 @@
     # Custom ZSH settings
     initExtra = ''
       # Source powerlevel10k
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      source ~/.p10k.zsh
 
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
@@ -47,10 +46,11 @@
     '';
   };
 
-  # Save Powerlevel10k config to the user's home directory
-  home.file = {
-    ".p10k.zsh" = {
-      source = ./p10k.zsh;
+  # NOTE: This creates a symlink from ~/.p10k.zsh to the p10k.zsh file in the repo
+  # and not copies the file into the Nix store. Thus, the ~/.p10k.zsh is writable by the user
+  home = {
+    file.".p10k.zsh" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/khaykingleb/programs/zsh/p10k.zsh";
     };
   };
 }
