@@ -1,7 +1,7 @@
 { pkgs, config, ... }: {
   # NOTE: You can save the preferences to a custom folder or URL:
   # iTerm2 → Settings → General → Settings → Load settings from a custom folder or URL
-  #  → Specify a custom folder or URL → Save changes
+  #        → Choose path to this folder
 
   home.packages = with pkgs; [
     iterm2
