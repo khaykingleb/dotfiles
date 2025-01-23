@@ -31,8 +31,10 @@ let
     "wholroyd.jinja"
     "ms-vscode.makefile-tools"
     "jnoortheen.nix-ide"
-    "waderyan.gitblame"
     "codezombiech.gitignore"
+    "eamodio.gitlens"
+    "waderyan.gitblame"
+    "donjayamanne.githistory"
     "mhutchie.git-graph"
 
     # Backend
