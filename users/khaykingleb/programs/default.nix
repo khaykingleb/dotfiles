@@ -6,6 +6,7 @@
 
     ./asdf.nix
     ./git.nix
+    ./ngrok.nix
     ./nix.nix
     ./ssh.nix
   ];

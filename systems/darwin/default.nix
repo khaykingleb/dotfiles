@@ -12,6 +12,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "vscode"
     "vscode-with-extensions"
+    "ngrok"
   ];
 
   # Necessary for using flakes on this system
