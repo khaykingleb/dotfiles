@@ -20,6 +20,8 @@
   /* Terminal */
   "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
   "terminal.integrated.fontSize": 13,
+  /* Jupyter */
+  "notebook.output.textLineLimit": 120,
   /* Formatting & LSP  */
   "nix.enableLanguageServer": true,
   "nix.serverSettings": {
