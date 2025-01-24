@@ -1,4 +1,10 @@
-{ ... }: {
+{ pkgs, ... }: {
+  # General user packages
+  home.packages = with pkgs; [
+    ngrok
+  ];
+
+  # Program specific packages
   imports = [
     ./iterm2
     ./vscode
@@ -6,7 +12,6 @@
 
     ./asdf.nix
     ./git.nix
-    ./ngrok.nix
     ./nix.nix
     ./ssh.nix
   ];
