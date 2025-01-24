@@ -26,7 +26,7 @@
 
     # Custom ZSH settings
     initExtra = ''
-      # Source powerlevel10k
+      # Initialize powerlevel10k
       source ~/.p10k.zsh
 
       # Cursor style
@@ -43,6 +43,19 @@
 
       # Undo
       bindkey "Ω" undo                 # Option + z: undo last edit
+
+      # Conda initialize
+      __conda_setup="$('/Users/khaykingleb/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+      if [ $? -eq 0 ]; then
+          eval "$__conda_setup"
+      else
+          if [ -f "/Users/khaykingleb/anaconda3/etc/profile.d/conda.sh" ]; then
+              . "/Users/khaykingleb/anaconda3/etc/profile.d/conda.sh"
+          else
+              export PATH="/Users/khaykingleb/anaconda3/bin:$PATH"
+          fi
+      fi
+      unset __conda_setup
     '';
   };
 
