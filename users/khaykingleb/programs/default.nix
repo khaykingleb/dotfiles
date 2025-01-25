@@ -11,6 +11,7 @@
     ./zsh
 
     ./asdf.nix
+    ./conda.nix
     ./git.nix
     ./nix.nix
     ./ssh.nix
