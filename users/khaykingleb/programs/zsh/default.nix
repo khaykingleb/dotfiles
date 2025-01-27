@@ -26,7 +26,7 @@
 
     # Custom ZSH settings
     initExtra = ''
-      # Source powerlevel10k
+      # Initialize powerlevel10k
       source ~/.p10k.zsh
 
       # Cursor style

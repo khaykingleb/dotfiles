@@ -1,4 +1,4 @@
-{
+{ config, ... }: {
   programs.ssh = {
     enable = true;
     matchBlocks = {
@@ -7,17 +7,17 @@
           "AddKeysToAgent" = "yes";
           "UseKeychain" = "yes";
         };
-        identityFile = "~/.ssh/id_ed25519";
+        identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519";
       };
 
       "*.vast.ai" = {
-        identityFile = "~/.ssh/vastai";
+        identityFile = "${config.home.homeDirectory}/.ssh/vastai";
       };
 
       "red" = {
         hostname = "64.247.196.50";
         user = "shadeform";
-        identityFile = "~/Users/khaykingleb/projects/iclerk/gpu-access/shadeform_private_key.pem";
+        identityFile = "${config.home.homeDirectory}/Desktop/projects/iclerk/gpu-access/shadeform_private_key.pem";
       };
 
       "alabama alaska" = {

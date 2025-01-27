@@ -60,6 +60,10 @@ asdf-setup: ## Setup asdf
 	@sh users/khaykingleb/scripts/asdf.sh
 .PHONY: asdf-setup
 
+conda-macos-silicon-setup: ## Setup conda for macOS Silicon
+	@sh users/khaykingleb/scripts/conda.sh install_conda_macos_silicon
+.PHONY: conda-macos-silicon-setup
+
 ##=============================================================================
 ##@ Helper
 ##=============================================================================
