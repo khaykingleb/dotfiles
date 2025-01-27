@@ -11,11 +11,11 @@ git clone https://github.com/khaykingleb/dotfiles.git \
 Install Nix with Determinate Nix Installer and restart the shell:
 
 ```shell
-make install-nix
+make nix-install
 ```
 
 Apply the nix-darwin configuration:
 
 ```shell
-make apply-darwin-macbook
+make nix-darwin-apply
 ```
