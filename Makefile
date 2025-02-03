@@ -62,6 +62,7 @@ asdf-setup: ## Setup asdf
 
 conda-macos-silicon-setup: ## Setup conda for macOS Silicon
 	@sh users/khaykingleb/scripts/conda.sh install_conda_macos_silicon
+	@conda config --set auto_activate_base false
 .PHONY: conda-macos-silicon-setup
 
 ##=============================================================================

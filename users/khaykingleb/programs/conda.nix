@@ -1,5 +1,6 @@
 { config, ... }: {
   programs.zsh.initExtra = ''
+    # Conda initialization
     __conda_setup="$(${config.home.homeDirectory}/anaconda3/bin/conda 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
@@ -11,5 +12,9 @@
         fi
     fi
     unset __conda_setup
+
+    # Force deactivation of base environment for conda
+    # (otherwise, it's activated in Cursor IDE for some reason)
+    conda deactivate
   '';
 }
