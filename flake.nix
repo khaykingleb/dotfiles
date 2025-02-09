@@ -10,15 +10,6 @@
       ref = "nixpkgs-unstable";
     };
 
-    # Reduces the boilerplate code for the flake
-    # https://github.com/hercules-ci/flake-parts
-    flake-parts = {
-      type = "github";
-      owner = "hercules-ci";
-      repo = "flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
     # Support for MacOS specific features
     # https://github.com/LnL7/nix-darwin
     nix-darwin = {
@@ -38,8 +29,27 @@
     };
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-    systems = [ "aarch64-darwin" ];
-    imports = [ ./machines ];
-  };
+  outputs = { self, nix-darwin, home-manager, nixpkgs, ... } @inputs:
+    let
+      darwinArch = {
+        macbook-pro-m1 = {
+          system = "aarch64-darwin";
+          user = "khaykingleb";
+        };
+      };
+      mkDarwin = name: { system, user }: nix-darwin.lib.darwinSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs user;
+          hostName = name;
+        };
+        modules = [
+          ./hosts/${name}
+          home-manager.darwinModules.home-manager # NOTE: integrates home-manager with nix-darwin
+        ];
+      };
+    in
+    {
+      darwinConfigurations = builtins.mapAttrs mkDarwin darwinArch;
+    };
 }

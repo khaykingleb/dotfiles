@@ -13,5 +13,10 @@
     yq
     tree
     bat
+    ngrok
+
+    # Nix-related packages
+    nil
+    nixpkgs-fmt
   ];
 }

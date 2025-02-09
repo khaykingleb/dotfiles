@@ -8,6 +8,7 @@
 
     shellAliases = {
       vim = "nvim";
+      cat = "bat";
     };
 
     # Community-driven framework for managing the zsh configuration

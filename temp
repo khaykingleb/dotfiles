@@ -1,0 +1,19 @@
+https://github.com/isabelroses/dotfiles
+https://github.com/uncenter/flake
+https://github.com/dustinlyons/nixos-config
+
+
+gpustat + nvidia-smi
+
+alacritty + fish?
+
+
+├── flake.nix # Entry point
+├── hosts/ # Host-specific configurations
+│ └── macbook-m1/
+├── modules/ # Reusable configuration modules
+│ ├── darwin/ # macOS-specific modules
+│ └── nixos/ # NixOS-specific modules
+│ └── common/ # Cross-platform modules
+├── users/ # User environments
+│ └── khaykingleb/ # User-specific configs

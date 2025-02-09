@@ -24,10 +24,9 @@ nix-uninstall:  ## Uninstall Nix
 	@/nix/nix-installer uninstall
 .PHONY: nix-uninstall
 
-nix-darwin-apply: ## Apply nix-darwin configuration
-	@echo "Applying nix-darwin configuration."
-	@darwin-rebuild switch --flake .#macbook --show-trace
-.PHONY: nix-darwin-apply
+nix-darwin-apply-%: ## Apply nix-darwin configuration (e.g. `make nix-darwin-apply-macbook-pro-m1`)
+	@echo "Applying nix-darwin configuration for $*"
+	@darwin-rebuild switch --flake .#$* --show-trace
 
 nix-darwin-uninstall:  ## Uninstall nix-darwin
 	@echo "Uninstalling nix-darwin."
@@ -60,11 +59,6 @@ asdf-setup: ## Setup asdf
 	@sh users/khaykingleb/scripts/asdf.sh
 .PHONY: asdf-setup
 
-conda-macos-silicon-setup: ## Setup conda for macOS Silicon
-	@sh users/khaykingleb/scripts/conda.sh install_conda_macos_silicon
-	@conda config --set auto_activate_base false
-.PHONY: conda-macos-silicon-setup
-
 ##=============================================================================
 ##@ Helper
 ##=============================================================================
@@ -72,7 +66,7 @@ conda-macos-silicon-setup: ## Setup conda for macOS Silicon
 help: ## Display help
 	@awk 'BEGIN {FS = ":.*##"; \
 		printf "\nUsage:\n  make \033[36m<target>\033[0m\n\n"} \
-		/^[a-zA-Z0-9_-]+:.*?##/ { \
+		/^[a-zA-Z0-9_-]+%?:.*?##/ { \
 			printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2 \
 		} \
 		/^##@/ { \
