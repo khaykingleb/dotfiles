@@ -1,5 +1,5 @@
 {
-  description = "Personal nix-darwin system flake";
+  description = "Personal configuration for macOS and NixOS";
 
   inputs = {
     # Main package supplier
@@ -39,10 +39,7 @@
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-    # TODO(khaykingleb): add NixOS support for Linux later
-    systems = [
-      "aarch64-darwin"
-    ];
+    systems = [ "aarch64-darwin" ];
     imports = [ ./machines ];
   };
 }
