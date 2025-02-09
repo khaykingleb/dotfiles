@@ -56,7 +56,8 @@ pre-commit-run-all: ## Run pre-commit hooks
 .PHONY: pre-commit-run-all
 
 asdf-setup: ## Setup asdf
-	@sh users/khaykingleb/scripts/asdf.sh
+	@echo "Setting up asdf..."
+	@nix develop --command sh users/khaykingleb/scripts/asdf.sh
 .PHONY: asdf-setup
 
 ##=============================================================================

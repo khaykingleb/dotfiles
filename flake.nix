@@ -48,8 +48,27 @@
           home-manager.darwinModules.home-manager # NOTE: integrates home-manager with nix-darwin
         ];
       };
+      forAllSystems = f: nixpkgs.lib.genAttrs
+        (builtins.attrValues (builtins.mapAttrs (name: value: value.system) darwinArch))
+        f;
+      devShell = system:
+        let pkgs = nixpkgs.legacyPackages.${system}; in {
+          default = with pkgs; mkShell {
+            nativeBuildInputs = with pkgs; [
+              openssl
+              gnupg
+              xz
+              zlib
+              ncurses
+              bzip2
+              libffi
+              sqlite
+            ];
+          };
+        };
     in
     {
+      devShells = forAllSystems devShell;
       darwinConfigurations = builtins.mapAttrs mkDarwin darwinArch;
     };
 }
