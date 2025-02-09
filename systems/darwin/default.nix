@@ -1,11 +1,11 @@
 # System level configuration for MacOS
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   user = "khaykingleb";
 in
 {
   imports = [
-    ./packages.nix
+    ../common
   ];
 
   # Used for backwards compatibility
@@ -21,13 +21,6 @@ in
       experimental-features = "nix-command flakes";
     };
   };
-
-  # Allow some unfree packages
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "vscode"
-    "vscode-with-extensions"
-    "ngrok"
-  ];
 
   # Tell nix-darwin about the existing user
   # (you need to create the user in the "System Preferences" -> "Users & Groups" first)
