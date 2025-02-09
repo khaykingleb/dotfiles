@@ -1,5 +1,5 @@
 {
-  description = "Personal nix-darwin system flake";
+  description = "Personal configuration for macOS and NixOS";
 
   inputs = {
     # Main package supplier
@@ -8,15 +8,6 @@
       owner = "NixOS";
       repo = "nixpkgs";
       ref = "nixpkgs-unstable";
-    };
-
-    # Reduces the boilerplate code for the flake
-    # https://github.com/hercules-ci/flake-parts
-    flake-parts = {
-      type = "github";
-      owner = "hercules-ci";
-      repo = "flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     # Support for MacOS specific features
@@ -38,11 +29,46 @@
     };
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-    # TODO(khaykingleb): add NixOS support for Linux later
-    systems = [
-      "aarch64-darwin"
-    ];
-    imports = [ ./machines ];
-  };
+  outputs = { self, nix-darwin, home-manager, nixpkgs, ... } @inputs:
+    let
+      darwinArch = {
+        macbook-pro-m1 = {
+          system = "aarch64-darwin";
+          user = "khaykingleb";
+        };
+      };
+      mkDarwin = name: { system, user }: nix-darwin.lib.darwinSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs user;
+          hostName = name;
+        };
+        modules = [
+          ./hosts/${name}
+          home-manager.darwinModules.home-manager # NOTE: integrates home-manager with nix-darwin
+        ];
+      };
+      forAllSystems = f: nixpkgs.lib.genAttrs
+        (builtins.attrValues (builtins.mapAttrs (name: value: value.system) darwinArch))
+        f;
+      devShell = system:
+        let pkgs = nixpkgs.legacyPackages.${system}; in {
+          default = with pkgs; mkShell {
+            nativeBuildInputs = with pkgs; [
+              openssl
+              gnupg
+              xz
+              zlib
+              ncurses
+              bzip2
+              libffi
+              sqlite
+            ];
+          };
+        };
+    in
+    {
+      devShells = forAllSystems devShell;
+      darwinConfigurations = builtins.mapAttrs mkDarwin darwinArch;
+    };
 }

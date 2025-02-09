@@ -1,5 +1,5 @@
+# List packages installed in system profile
 { pkgs, ... }: {
-  # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     vim
     neovim
@@ -12,5 +12,11 @@
     jq
     yq
     tree
+    bat
+    ngrok
+
+    # Nix-related packages
+    nil
+    nixpkgs-fmt
   ];
 }
