@@ -13,5 +13,10 @@
       "xz"
       "zlib"
     ];
+
+    casks = [
+      "visual-studio-code"
+      "cursor"
+    ];
   };
 }
