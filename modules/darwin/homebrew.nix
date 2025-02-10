@@ -17,6 +17,7 @@
     casks = [
       "visual-studio-code"
       "cursor"
+      "iterm2"
     ];
   };
 }
