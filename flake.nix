@@ -27,9 +27,39 @@
       repo = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Integrates homebrew with nix-darwin
+    # https://github.com/zhaofengli-wip/nix-homebrew
+    nix-homebrew = {
+      type = "github";
+      owner = "zhaofengli-wip";
+      repo = "nix-homebrew";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    homebrew-bundle = {
+      type = "github";
+      owner = "homebrew";
+      repo = "homebrew-bundle";
+      flake = false;
+    };
+
+    homebrew-core = {
+      type = "github";
+      owner = "homebrew";
+      repo = "homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      type = "github";
+      owner = "homebrew";
+      repo = "homebrew-cask";
+      flake = false;
+    };
   };
 
-  outputs = { self, nix-darwin, home-manager, nixpkgs, ... } @inputs:
+  outputs = { self, nix-darwin, home-manager, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, nixpkgs, ... } @inputs:
     let
       darwinArch = {
         macbook-pro-m1 = {
@@ -44,8 +74,22 @@
           hostName = name;
         };
         modules = [
-          ./hosts/${name}
           home-manager.darwinModules.home-manager # NOTE: integrates home-manager with nix-darwin
+          nix-homebrew.darwinModules.nix-homebrew # NOTE: integrates homebrew with nix-darwin
+          {
+            nix-homebrew = {
+              inherit user;
+              enable = true;
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+                "homebrew/homebrew-bundle" = homebrew-bundle;
+              };
+              mutableTaps = false;
+              autoMigrate = true;
+            };
+          }
+          ./systems/${name}
         ];
       };
       forAllSystems = f: nixpkgs.lib.genAttrs
@@ -54,9 +98,11 @@
       mkDevShell = system:
         let pkgs = nixpkgs.legacyPackages.${system}; in {
           default = with pkgs; mkShell {
-            nativeBuildInputs = with pkgs; [
+            buildInputs = [
+              git
               openssl
               gnupg
+              gnutar
               xz
               zlib
               ncurses
