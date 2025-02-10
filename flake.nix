@@ -51,7 +51,7 @@
       forAllSystems = f: nixpkgs.lib.genAttrs
         (builtins.attrValues (builtins.mapAttrs (name: value: value.system) darwinArch))
         f;
-      devShell = system:
+      mkDevShell = system:
         let pkgs = nixpkgs.legacyPackages.${system}; in {
           default = with pkgs; mkShell {
             nativeBuildInputs = with pkgs; [
@@ -68,7 +68,7 @@
         };
     in
     {
-      devShells = forAllSystems devShell;
+      devShells = forAllSystems mkDevShell;
       darwinConfigurations = builtins.mapAttrs mkDarwin darwinArch;
     };
 }
