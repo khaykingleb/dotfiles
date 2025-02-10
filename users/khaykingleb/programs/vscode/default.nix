@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, ... }:
 let
   extensions = [
     # Python
@@ -52,6 +52,9 @@ let
     # Research
     "ms-toolsai.jupyter"
     "ms-toolsai.jupyter-renderers"
+    "ms-toolsai.jupyter-keymap"
+    "ms-toolsai.vscode-jupyter-slideshow"
+    "ms-toolsai.vscode-jupyter-cell-tags"
     "yy0931.mplstyle"
 
     # Misc
@@ -69,10 +72,6 @@ let
   ];
 in
 {
-  programs.vscode = {
-    enable = true;
-  };
-
   home = {
     # NOTE: This creates a symlink from ~/Library/Application Support/Code/User/settings.json
     # to the settings.json file in the repo and not copies the file into the Nix store
@@ -84,31 +83,31 @@ in
     # Adapted from https://github.com/ryanccn/flake/blob/b9832c59cf9d0362c2d20f838220bed434a0b45a/home/apps/vscode.nix#L214-L244.
     activation = {
       vscodeExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        code_cmd="${lib.getExe pkgs.vscode}"
+        code_bin="/opt/homebrew/bin/code"
 
-        if ! command -v "$code_cmd" &> /dev/null; then
-          echo "`code` command not found at $code_cmd"
-          exit 1
+        if ! command -v "$code_bin" &> /dev/null; then
+          echo "VSCode CLI is not available"
+          exit 0
         fi
 
         declare -A currentExtensions
-        for extension in $("$code_cmd" --list-extensions); do
+        for extension in $("$code_bin" --list-extensions); do
           currentExtensions["$extension"]=1;
         done
 
         ${builtins.concatStringsSep "\n" (
           builtins.map (ext: ''
             if [[ -z "''${currentExtensions[${ext}]+unset}" ]]; then
-              echo "Installing ${ext}..."
-              $DRY_RUN_CMD "$code_cmd" --install-extension ${ext} &> /dev/null
+              echo "Installing ${ext}"
+              $DRY_RUN_CMD "$code_bin" --install-extension ${ext} &> /dev/null
             fi
             unset 'currentExtensions[${ext}]'
           '') extensions
         )}
 
         for ext in "''${!currentExtensions[@]}"; do
-          echo "Uninstalling $ext..."
-          $DRY_RUN_CMD "$code_cmd" --uninstall-extension $ext &> /dev/null
+          echo "Uninstalling $ext"
+          $DRY_RUN_CMD "$code_bin" --uninstall-extension $ext &> /dev/null
           unset 'currentExtensions[$ext]'
         done
       '';

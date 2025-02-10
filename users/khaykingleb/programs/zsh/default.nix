@@ -9,6 +9,7 @@
     shellAliases = {
       vim = "nvim";
       cat = "bat";
+      devshell = "nix develop ~/.config/dotfiles#";
     };
 
     # Community-driven framework for managing the zsh configuration

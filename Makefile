@@ -24,7 +24,11 @@ nix-uninstall:  ## Uninstall Nix
 	@/nix/nix-installer uninstall
 .PHONY: nix-uninstall
 
-nix-darwin-apply-%: ## Apply nix-darwin configuration (e.g. `make nix-darwin-apply-macbook-pro-m1`)
+nix-darwin-install-%: ## Install nix-darwin configuration
+	@echo "Installing nix-darwin configuration for $*"
+	@nix run nix-darwin -- switch --flake ~/.config/dotfiles#$*
+
+nix-darwin-apply-%: ## Apply nix-darwin configuration
 	@echo "Applying nix-darwin configuration for $*"
 	@darwin-rebuild switch --flake .#$* --show-trace
 
@@ -54,11 +58,6 @@ pre-commit-autoupdate: ## Update pre-commit hooks
 pre-commit-run-all: ## Run pre-commit hooks
 	@pre-commit run --all-files
 .PHONY: pre-commit-run-all
-
-asdf-setup: ## Setup asdf
-	@echo "Setting up asdf..."
-	@nix develop --command sh users/khaykingleb/scripts/asdf.sh
-.PHONY: asdf-setup
 
 ##=============================================================================
 ##@ Helper

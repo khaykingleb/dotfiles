@@ -22,7 +22,6 @@
     # Force deactivation of base environment for conda
     # (otherwise, it's activated in Cursor IDE for some reason)
     conda deactivate
-
     # <<< Conda initialization >>>
   '';
 }
