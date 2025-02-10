@@ -52,6 +52,9 @@ let
     # Research
     "ms-toolsai.jupyter"
     "ms-toolsai.jupyter-renderers"
+    "ms-toolsai.jupyter-keymap"
+    "ms-toolsai.vscode-jupyter-slideshow"
+    "ms-toolsai.vscode-jupyter-cell-tags"
     "yy0931.mplstyle"
 
     # Misc
