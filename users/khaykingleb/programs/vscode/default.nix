@@ -5,6 +5,7 @@ let
     "ms-python.python"
     "magicstack.magicpython"
     "ms-python.debugpy"
+    "charliermarsh.ruff"
     "ms-python.vscode-pylance"
 
     # Rust
