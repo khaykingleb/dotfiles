@@ -59,6 +59,7 @@ let
     "yy0931.mplstyle"
 
     # Misc
+    "ms-vsliveshare.vsliveshare"
     "ms-vscode-remote.remote-ssh"
     "ms-vscode-remote.remote-ssh-edit"
     "ms-vscode.remote-explorer"
