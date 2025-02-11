@@ -14,8 +14,9 @@ done
 declare -A plugins_to_install=(
     ["direnv"]="2.35.0"
     ["pre-commit"]="4.1.0"
-    ["python"]="3.12.8"
+    ["python"]="3.12.9"
     ["poetry"]="2.0.1"
+    ["rust"]="1.84.1"
     ["golang"]="1.23.5"
     ["opentofu"]="1.9.0"
     ["terraform"]="1.5.7"
