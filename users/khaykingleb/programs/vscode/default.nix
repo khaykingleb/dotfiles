@@ -22,6 +22,7 @@ let
 
     # DevOps
     "ms-azuretools.vscode-docker"
+    "ms-vscode-remote.remote-containers"
     "ms-kubernetes-tools.vscode-kubernetes-tools"
     "hashicorp.hcl"
     "hashicorp.terraform"
