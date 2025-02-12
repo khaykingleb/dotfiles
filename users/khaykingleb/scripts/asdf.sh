@@ -4,7 +4,7 @@ custom_plugins_to_add=(
     "supabase-cli https://github.com/gavinying/asdf-supabase-cli.git"
 )
 for plugin in "${custom_plugins_to_add[@]}"; do
-    asdf plugin-add $plugin
+    asdf plugin-add "$plugin"
 done
 
 declare -A plugins_to_install=(
@@ -32,7 +32,7 @@ declare -A plugins_to_install=(
     ["pre-commit"]="4.1.0"
 )
 for plugin in "${!plugins_to_install[@]}"; do
-    asdf plugin-add $plugin
-    asdf install $plugin "${plugins_to_install[$plugin]}"
-    asdf global $plugin "${plugins_to_install[$plugin]}"
+    asdf plugin-add "$plugin"
+    asdf install "$plugin" "${plugins_to_install[$plugin]}"
+    asdf global "$plugin" "${plugins_to_install[$plugin]}"
 done

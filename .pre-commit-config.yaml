@@ -1,11 +1,23 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v5.0.0
     hooks:
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
       - id: end-of-file-fixer
       - id: trailing-whitespace
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+        exclude: "users/khaykingleb/programs/zsh/p10k.zsh"
+
+  - repo: https://github.com/openstack/bashate
+    rev: 2.1.1
+    hooks:
+      - id: bashate
+        exclude: "users/khaykingleb/programs/zsh/p10k.zsh"
 
   # Use https://github.com/NixOS/nixfmt later on
   - repo: https://github.com/nix-community/nixpkgs-fmt
