@@ -15,11 +15,29 @@
     ];
 
     casks = [
+      # Development
       "visual-studio-code"
       "cursor"
       "iterm2"
       "tailscale"
       "postman"
+      "slack"
+
+      # Productivity
+      "anki"
+      "readdle-spark"
+      "todoist"
+      "notion"
+      "notion-calendar"
+
+      # Research
+      "texifier"
+      "zotero"
+      "mathpix-snipping-tool"
+
+      # Misc
+      "telegram"
+      "spotify"
     ];
   };
 }
