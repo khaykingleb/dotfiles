@@ -24,18 +24,9 @@ nix-uninstall:  ## Uninstall Nix
 	@/nix/nix-installer uninstall
 .PHONY: nix-uninstall
 
-nix-darwin-install-%: ## Install nix-darwin configuration
-	@echo "Installing nix-darwin configuration for $*"
-	@nix run nix-darwin -- switch --flake ~/.config/dotfiles#$*
-
 nix-darwin-apply-%: ## Apply nix-darwin configuration
 	@echo "Applying nix-darwin configuration for $*"
-	@darwin-rebuild switch --flake .#$* --show-trace
-
-nix-darwin-uninstall:  ## Uninstall nix-darwin
-	@echo "Uninstalling nix-darwin."
-	@darwin-uninstaller
-.PHONY: nix-darwin-uninstall
+	@nix run nix-darwin -- switch --flake .#$* --show-trace
 
 nix-garbage-collect: ## Collect Nix garbage (remove unused packages)
 	@nix-collect-garbage
@@ -55,7 +46,7 @@ pre-commit-autoupdate: ## Update pre-commit hooks
 	@pre-commit autoupdate
 .PHONY: pre-commit-autoupdate
 
-pre-commit-run-all: ## Run pre-commit hooks
+pre-commit-run-all: ## Run pre-commit hooks on all files
 	@pre-commit run --all-files
 .PHONY: pre-commit-run-all
 

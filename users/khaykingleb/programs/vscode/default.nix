@@ -5,6 +5,7 @@ let
     "ms-python.python"
     "magicstack.magicpython"
     "ms-python.debugpy"
+    "charliermarsh.ruff"
     "ms-python.vscode-pylance"
 
     # Rust
@@ -22,6 +23,7 @@ let
 
     # DevOps
     "ms-azuretools.vscode-docker"
+    "ms-vscode-remote.remote-containers"
     "ms-kubernetes-tools.vscode-kubernetes-tools"
     "hashicorp.hcl"
     "hashicorp.terraform"
@@ -58,6 +60,7 @@ let
     "yy0931.mplstyle"
 
     # Misc
+    "ms-vsliveshare.vsliveshare"
     "ms-vscode-remote.remote-ssh"
     "ms-vscode-remote.remote-ssh-edit"
     "ms-vscode.remote-explorer"
