@@ -17,13 +17,19 @@ declare -A plugins_to_install=(
     ["tflint"]="0.55.1"
     ["terraform-docs"]="0.19.0"
     ["kubectl"]="1.32.1"
+    ["helm"]="3.17.0"
+    ["k3s"]="1.31.5+k3s1"
+    ["k3d"]="5.8.1"
+    ["tilt"]="0.33.22"
     ["awscli"]="2.23.3"
     ["nodejs"]="23.6.1"
     ["pnpm"]="9.15.5"
     ["yarn"]="1.22.22"
     ["supabase-cli"]="2.9.1"
+    ["postgres"]="17.2"
     ["direnv"]="2.35.0"
     ["pre-commit"]="4.1.0"
+    ["ffmpeg"]="7.1"
 )
 for plugin in "${!plugins_to_install[@]}"; do
     asdf plugin-add $plugin
