@@ -8,8 +8,14 @@
 
     shellAliases = {
       vim = "nvim";
+      cd = "z";
       cat = "bat";
-      devshell = "nix develop ~/.config/dotfiles#";
+      du = "dua";
+      df = "duf";
+      ls = "eza";
+      ll = "eza --long --header";
+      la = "eza --all --long --header";
+      tree = "eza --tree";
     };
 
     # Community-driven framework for managing the zsh configuration
@@ -30,6 +36,9 @@
     initExtra = ''
       # Initialize powerlevel10k
       source ~/.p10k.zsh
+
+      # Initialize zoxide to replace cd
+      eval "$(zoxide init zsh)"
 
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
