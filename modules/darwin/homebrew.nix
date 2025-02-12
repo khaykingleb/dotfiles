@@ -18,6 +18,8 @@
       "visual-studio-code"
       "cursor"
       "iterm2"
+      "tailscale"
+      "postman"
     ];
   };
 }
