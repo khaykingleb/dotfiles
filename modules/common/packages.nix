@@ -42,6 +42,7 @@
     bandwhich # network bandwidth monitor
     doggo # dns lookup tool (replacement for dig)
     gping # ping replacement
+    tailscale # networking tool
     ngrok # tunneling tool
     wireshark # network analyzer and capture tool
     nmap # network auditing
