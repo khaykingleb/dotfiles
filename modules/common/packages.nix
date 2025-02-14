@@ -14,6 +14,7 @@
     # CLI
     curl
     wget
+    watch # watch a command and refresh the output after a certain interval
     rsync # file transfer to or from a remote host (but not between two remote hosts)
     tree # directory tree viewer
     tldr # simplified man pages
