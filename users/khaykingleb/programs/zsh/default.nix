@@ -35,7 +35,7 @@
 
     # Custom ZSH settings
     initExtra = ''
-      # <<< General customizations >>>
+      # >>> General initializations
       # Initialize powerlevel10k
       source ~/.p10k.zsh
 
@@ -56,7 +56,7 @@
 
       # Undo
       bindkey "Ω" undo                 # Option + z: undo last edit
-      # <<< General customizations >>>
+      # <<< General initializations
     '';
   };
 

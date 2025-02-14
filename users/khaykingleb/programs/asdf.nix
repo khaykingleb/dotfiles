@@ -6,10 +6,10 @@
   programs.zsh = {
     # NOTE: https://asdf-vm.com/guide/getting-started.html
     initExtra = ''
-      # <<< ASDF initialization >>>
+      # >>> ASDF initialization
       . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
       . "${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.bash"
-      # <<< ASDF initialization >>>
+      # <<< ASDF initialization
     '';
   };
 }
