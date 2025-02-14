@@ -16,6 +16,7 @@
       ll = "eza --long --header";
       la = "eza --all --long --header";
       tree = "eza --tree";
+      dig = "doggo";
     };
 
     # Community-driven framework for managing the zsh configuration

@@ -40,6 +40,7 @@
     # Networking
     speedtest-cli # internet speed test
     bandwhich # network bandwidth monitor
+    doggo # dns lookup tool (replacement for dig)
     gping # ping replacement
     ngrok # tunneling tool
     wireshark # network analyzer and capture tool
