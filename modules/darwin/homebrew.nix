@@ -21,6 +21,7 @@
       "visual-studio-code"
       "cursor"
       "iterm2"
+      "docker"
       "tailscale"
       "postman"
       "chatgpt"
