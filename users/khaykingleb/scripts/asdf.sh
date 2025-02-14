@@ -29,7 +29,6 @@ declare -A plugins_to_install=(
     ["yarn"]="1.22.22"
     ["supabase-cli"]="2.9.1"
     ["postgres"]="17.2"
-    ["direnv"]="2.35.0"
     ["pre-commit"]="4.1.0"
 )
 for plugin in "${!plugins_to_install[@]}"; do

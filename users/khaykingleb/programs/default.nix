@@ -6,6 +6,7 @@
 
     ./asdf.nix
     ./conda.nix
+    ./direnv.nix
     ./git.nix
     ./ssh.nix
   ];
