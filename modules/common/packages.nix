@@ -14,6 +14,7 @@
     # CLI
     curl
     wget
+    watch # watch a command and refresh the output after a certain interval
     rsync # file transfer to or from a remote host (but not between two remote hosts)
     tree # directory tree viewer
     tldr # simplified man pages
@@ -39,7 +40,9 @@
     # Networking
     speedtest-cli # internet speed test
     bandwhich # network bandwidth monitor
+    doggo # dns lookup tool (replacement for dig)
     gping # ping replacement
+    tailscale # networking tool
     ngrok # tunneling tool
     wireshark # network analyzer and capture tool
     nmap # network auditing

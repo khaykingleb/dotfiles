@@ -6,7 +6,10 @@
 
     ./asdf.nix
     ./conda.nix
+    ./direnv.nix
+    ./docker.nix
     ./git.nix
     ./ssh.nix
+    ./zoxide.nix
   ];
 }
