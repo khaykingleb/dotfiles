@@ -10,7 +10,11 @@
       "sqlite3"
       "xz"
       "zlib"
+      "gcc@14"
       "llvm@19"
+      "ossp-uuid"
+      "pkg-config"
+      "icu4c"
 
       # Security
       "gnupg"
@@ -52,6 +56,8 @@
       "spotify"
       "keepassxc"
       "obs"
+
+      # "google-chrome"
     ];
   };
 }

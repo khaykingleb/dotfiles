@@ -17,6 +17,11 @@
       la = "eza --all --long --header";
       tree = "eza --tree";
       dig = "doggo";
+
+      # Update gcc compiler to version 14
+      gcc = "gcc-14";
+      cpp = "cpp-14";
+      "c++" = "c++-14";
     };
 
     # Community-driven framework for managing the zsh configuration
@@ -39,8 +44,9 @@
       # Initialize powerlevel10k
       source ~/.p10k.zsh
 
-      # Initialize llvm/clang toolchain
-      export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+      # Initialize gcc/clang compilers
+      export PATH="/opt/homebrew/opt/gcc/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+      export PKG_CONFIG_PATH="/opt/homebrew/bin/pkg-config:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix curl)/lib/pkgconfig:$(brew --prefix zlib)/lib/pkgconfig"
 
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
