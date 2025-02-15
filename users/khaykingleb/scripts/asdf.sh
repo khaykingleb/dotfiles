@@ -27,7 +27,7 @@ declare -A plugins_to_install=(
     ["nodejs"]="23.6.1"
     ["pnpm"]="9.15.5"
     ["yarn"]="1.22.22"
-    ["supabase-cli"]="2.9.1"
+    ["supabase-cli"]="2.12.1"
     ["postgres"]="17.2"
     ["pre-commit"]="4.1.0"
 )
