@@ -6,7 +6,7 @@
       sh ${config.home.homeDirectory}/.config/dotfiles/users/khaykingleb/scripts/conda.sh install_conda_linux
     '';
   programs.zsh.initExtra = ''
-    # >>> Conda initialization
+    # >>> Conda
     __conda_setup="$(${config.home.homeDirectory}/anaconda3/bin/conda 'shell.zsh' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
@@ -22,6 +22,6 @@
     # Force deactivation of base environment for conda
     # (otherwise, it's activated in Cursor IDE for some reason)
     conda deactivate
-    # <<< Conda initialization
+    # <<< Conda
   '';
 }
