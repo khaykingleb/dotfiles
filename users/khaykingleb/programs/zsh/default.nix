@@ -35,12 +35,9 @@
 
     # Custom ZSH settings
     initExtra = ''
-      # >>> General initializations
+      # >>> General
       # Initialize powerlevel10k
       source ~/.p10k.zsh
-
-      # Initialize zoxide to replace cd
-      eval "$(zoxide init zsh)"
 
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
@@ -56,7 +53,7 @@
 
       # Undo
       bindkey "Ω" undo                 # Option + z: undo last edit
-      # <<< General initializations
+      # <<< General
     '';
   };
 

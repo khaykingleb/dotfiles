@@ -10,5 +10,6 @@
     ./docker.nix
     ./git.nix
     ./ssh.nix
+    ./zoxide.nix
   ];
 }
