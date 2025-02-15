@@ -39,6 +39,9 @@
       # Initialize powerlevel10k
       source ~/.p10k.zsh
 
+      # Initialize llvm/clang toolchain
+      export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
       preexec() { echo -e -n "\x1b[\x35 q" ; }  # Use beam shape cursor for each new prompt

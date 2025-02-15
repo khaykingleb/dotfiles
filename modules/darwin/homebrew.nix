@@ -10,6 +10,7 @@
       "sqlite3"
       "xz"
       "zlib"
+      "llvm@19"
 
       # Security
       "gnupg"
