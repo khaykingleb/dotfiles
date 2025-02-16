@@ -48,6 +48,9 @@
       export PATH="/opt/homebrew/opt/gcc/bin:/opt/homebrew/opt/llvm/bin:$PATH"
       export PKG_CONFIG_PATH="/opt/homebrew/bin/pkg-config:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix curl)/lib/pkgconfig:$(brew --prefix zlib)/lib/pkgconfig"
 
+      # Update PATH for MacTeX binaries
+      eval "$(/usr/libexec/path_helper)"
+
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
       preexec() { echo -e -n "\x1b[\x35 q" ; }  # Use beam shape cursor for each new prompt

@@ -45,6 +45,7 @@
 
       # Research
       "texifier"
+      "mactex"
       "zotero"
       "mathpix-snipping-tool"
 
