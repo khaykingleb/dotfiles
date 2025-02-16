@@ -52,12 +52,11 @@
       "ibkr"
 
       # Misc
+      "google-chrome"
       "telegram"
       "spotify"
       "keepassxc"
       "obs"
-
-      # "google-chrome"
     ];
   };
 }
