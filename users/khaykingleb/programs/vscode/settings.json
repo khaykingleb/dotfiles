@@ -33,4 +33,5 @@
       }
     }
   },
+  "latex-workshop.formatting.latex": "tex-fmt"
 }
