@@ -45,6 +45,7 @@
 
       # Research
       "texifier"
+      "mactex"
       "zotero"
       "mathpix-snipping-tool"
 
@@ -52,12 +53,11 @@
       "ibkr"
 
       # Misc
+      "google-chrome"
       "telegram"
       "spotify"
       "keepassxc"
       "obs"
-
-      # "google-chrome"
     ];
   };
 }

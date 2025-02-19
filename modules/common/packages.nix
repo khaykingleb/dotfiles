@@ -28,6 +28,7 @@
     eza # ls replacement
     scc # code counter with complexity calculations and COCOMO estimates
     fzf # fuzzy finder
+    tex-fmt # latex formatter
 
     # Monitoring
     neofetch # system information viewer

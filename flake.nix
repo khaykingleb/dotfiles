@@ -1,5 +1,5 @@
 {
-  description = "Personal configuration for macOS and NixOS";
+  description = "Declarative system configuration and package management for macOS and NixOS";
 
   inputs = {
     # Main package supplier
@@ -59,7 +59,7 @@
     };
   };
 
-  outputs = { self, nix-darwin, home-manager, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, nixpkgs, ... } @inputs:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, ... } @inputs:
     let
       darwinArch = {
         macbook-pro-m1 = {
