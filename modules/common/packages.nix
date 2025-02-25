@@ -28,6 +28,7 @@
     eza # ls replacement
     scc # code counter with complexity calculations and COCOMO estimates
     fzf # fuzzy finder
+    graphviz # graph visualization software
     tex-fmt # latex formatter
 
     # Monitoring

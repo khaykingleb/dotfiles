@@ -51,7 +51,7 @@ let
     "naumovs.color-highlight"
     "streetsidesoftware.code-spell-checker"
 
-    # Research
+    # Research and writing
     "ms-toolsai.jupyter"
     "ms-toolsai.jupyter-renderers"
     "ms-toolsai.jupyter-keymap"
@@ -59,6 +59,7 @@ let
     "ms-toolsai.vscode-jupyter-cell-tags"
     "yy0931.mplstyle"
     "james-yu.latex-workshop"
+    "tintinweb.graphviz-interactive-preview"
 
     # Misc
     "ms-vsliveshare.vsliveshare"
