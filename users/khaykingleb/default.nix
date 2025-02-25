@@ -2,6 +2,8 @@
 {
   imports = [
     ./programs
+
+    ./completions.nix
     ./fonts.nix
   ];
 
