@@ -29,6 +29,7 @@
     scc # code counter with complexity calculations and COCOMO estimates
     fzf # fuzzy finder
     graphviz # graph visualization software
+    cwebp # webp image converter
     tex-fmt # latex formatter
 
     # Monitoring
