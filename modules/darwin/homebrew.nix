@@ -43,11 +43,13 @@
       "slack"
       "zoom"
 
-      # Research
+      # Research and writing
       "texifier"
       "mactex"
       "zotero"
       "mathpix-snipping-tool"
+      "excalidrawz"
+      "drawio"
 
       # Finance
       "ibkr"

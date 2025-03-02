@@ -8,7 +8,6 @@
     initExtra = ''
       # >>> ASDF
       . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
-      . "${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.bash"
       # <<< ASDF
     '';
   };
