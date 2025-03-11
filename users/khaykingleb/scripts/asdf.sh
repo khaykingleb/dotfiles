@@ -12,6 +12,7 @@ install_plugin() {
 }
 
 install_plugin "python" "3.12.9"
+install_plugin "poetry" "1.8.5"
 install_plugin "uv" "0.5.31"
 install_plugin "rust" "1.84.1"
 install_plugin "golang" "1.23.5"
