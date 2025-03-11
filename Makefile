@@ -50,6 +50,11 @@ pre-commit-run-all: ## Run pre-commit hooks on all files
 	@pre-commit run --all-files
 .PHONY: pre-commit-run-all
 
+USER ?= khaykingleb
+asdf-install: ## Install asdf plugins (use make USER=<username> to install for a different user)
+	@./users/$(USER)/scripts/asdf.sh
+.PHONY: asdf-install
+
 ##=============================================================================
 ##@ Helper
 ##=============================================================================
