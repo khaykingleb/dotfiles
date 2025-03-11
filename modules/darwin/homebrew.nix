@@ -60,6 +60,7 @@
       "spotify"
       "keepassxc"
       "obs"
+      "steam"
     ];
   };
 }
