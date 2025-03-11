@@ -4,10 +4,7 @@
   "editor.formatOnSave": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.fontSize": 13,
-  "editor.rulers": [
-    79,
-    100
-  ],
+  "editor.rulers": [79, 100],
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -27,11 +24,9 @@
   "nix.serverSettings": {
     "nil": {
       "formatting": {
-        "command": [
-          "nixpkgs-fmt"
-        ]
+        "command": ["nixpkgs-fmt"]
       }
     }
   },
-  "latex-workshop.formatting.latex": "tex-fmt"
+  "latex-workshop.formatting.latex": "tex-fmt",
 }
