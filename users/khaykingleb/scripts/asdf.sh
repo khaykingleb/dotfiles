@@ -1,6 +1,7 @@
 #!/bin/bash
 
-asdf plugin-add supabase-cli https://github.com/gavinying/asdf-supabase-cli.git 2>/dev/null || true
+asdf plugin add supabase-cli https://github.com/gavinying/asdf-supabase-cli.git 2>/dev/null || true
+asdf plugin add direnv
 
 install_plugin() {
     plugin=$1
@@ -12,8 +13,7 @@ install_plugin() {
 }
 
 install_plugin "python" "3.12.9"
-install_plugin "poetry" "1.8.5"
-install_plugin "uv" "0.5.31"
+install_plugin "uv" "0.6.6"
 install_plugin "rust" "1.84.1"
 install_plugin "golang" "1.23.5"
 install_plugin "terraform" "1.5.7"
