@@ -5,10 +5,9 @@
     ./zsh
 
     ./asdf.nix
-    ./conda.nix
+    # ./conda.nix
     ./direnv.nix
     ./git.nix
-    ./poetry.nix
     ./ssh.nix
     ./zoxide.nix
   ];
