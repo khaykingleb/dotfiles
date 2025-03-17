@@ -5,7 +5,7 @@
     ./zsh
 
     ./asdf.nix
-    # ./conda.nix
+    ./conda.nix
     ./direnv.nix
     ./git.nix
     ./ssh.nix
