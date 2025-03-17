@@ -9,7 +9,7 @@
     shellAliases = {
       vim = "nvim";
       cd = "z";
-      cat = "bat";
+      cat = "bat --paging=never --style=plain";
       du = "dua";
       df = "duf";
       ls = "eza";
