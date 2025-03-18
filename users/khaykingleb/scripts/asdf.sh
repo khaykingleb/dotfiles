@@ -1,7 +1,6 @@
 #!/bin/bash
 
 asdf plugin add supabase-cli https://github.com/gavinying/asdf-supabase-cli.git 2>/dev/null || true
-asdf plugin add direnv
 
 install_plugin() {
     plugin=$1
@@ -26,6 +25,7 @@ install_plugin "k3s" "1.31.5+k3s1"
 install_plugin "k3d" "5.8.1"
 install_plugin "k9s" "0.32.7"
 install_plugin "tilt" "0.33.22"
+install_plugin "argocd" "2.10.1"
 install_plugin "awscli" "2.23.3"
 install_plugin "nodejs" "23.6.1"
 install_plugin "pnpm" "9.15.5"
@@ -33,3 +33,5 @@ install_plugin "yarn" "1.22.22"
 install_plugin "supabase-cli" "2.12.1"
 install_plugin "postgres" "17.2"
 install_plugin "pre-commit" "4.1.0"
+install_plugin "direnv" "2.35.0"
+install_plugin "1password-cli" "2.30.3"
