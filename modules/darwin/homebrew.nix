@@ -56,6 +56,7 @@
 
       # Finance
       "ibkr"
+      "tradingview"
 
       # Misc
       "google-chrome"
