@@ -30,6 +30,8 @@
       "tailscale"
       "postman"
       "chatgpt"
+      "langgraph-studio"
+      "1password"
 
       # Productivity
       "todoist"
@@ -43,6 +45,7 @@
       "slack"
       "zoom"
 
+      # TODO(khaykingleb): add preplexity cask when it's available in homebrew
       # Research and writing
       "texifier"
       "mactex"
