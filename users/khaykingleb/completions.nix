@@ -26,5 +26,10 @@
     # https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/
     source <(kubectl completion zsh)
     # <<< Kubectl completions
+
+    # >>> uv completions
+    # https://docs.astral.sh/uv/cli/completion/
+    source <(uv generate-shell-completion zsh)
+    # <<< uv completions
   '';
 }
