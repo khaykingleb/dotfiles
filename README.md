@@ -17,5 +17,5 @@ make nix-install
 Apply the nix-darwin configuration:
 
 ```shell
-make nix-darwin-apply-macbook-pro-m1
+make nix-darwin-apply-macbook-pro-m4
 ```
