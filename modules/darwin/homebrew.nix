@@ -32,7 +32,6 @@
       "tailscale"
       "postman"
       "chatgpt"
-      "langgraph-studio"
       "1password"
 
       # Productivity
