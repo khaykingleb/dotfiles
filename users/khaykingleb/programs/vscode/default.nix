@@ -66,6 +66,7 @@ let
     "ms-vscode-remote.remote-ssh-edit"
     "ms-vscode-remote.remote-ssh"
     "ms-vscode.remote-explorer"
+    "shd101wyy.markdown-preview-enhanced"
     "yzhang.markdown-all-in-one"
     "davidanson.vscode-markdownlint"
     "ms-dotnettools.vscode-dotnet-runtime"
