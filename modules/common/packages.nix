@@ -30,7 +30,6 @@
     scc # code counter with complexity calculations and COCOMO estimates
     fzf # fuzzy finder
     graphviz # graph visualization software
-    libwebp # webp image converter (includes cwebp)
     tex-fmt # latex formatter
 
     # Monitoring
@@ -54,6 +53,8 @@
     # Media
     ffmpeg # audio/video converter (e.g. convert wav to mp3)
     yt-dlp # audio/video downloader for youtube and other sites
+    libwebp # webp image converter (includes cwebp)
+    imagemagick # image processing tool
 
     # Nix-related packages
     nil
