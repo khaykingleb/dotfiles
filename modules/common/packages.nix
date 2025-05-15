@@ -20,6 +20,7 @@
     tree # directory tree viewer
     tldr # simplified man pages
     tmux # terminal multiplexer
+    moreutils # collection of tools
     bat # cat replacement
     dua # du replacement
     duf # df replacement
