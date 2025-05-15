@@ -8,6 +8,7 @@
     ./conda.nix
     ./direnv.nix
     ./git.nix
+    ./krew.nix
     ./ssh.nix
     ./zoxide.nix
   ];
