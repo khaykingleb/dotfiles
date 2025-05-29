@@ -22,6 +22,11 @@
     compinit
     # <<< Docker completions
 
+    # >>> Terraform completions
+    autoload -U +X bashcompinit && bashcompinit
+    complete -o nospace -C terraform terraform
+    # <<< Terraform completions
+
     # >>> Kubectl completions
     # https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/
     source <(kubectl completion zsh)
