@@ -10,35 +10,36 @@ install_plugin() {
 }
 
 plugins=(
-    "python 3.12.9"
-    "uv 0.6.6"
-    "rust 1.84.1"
-    "golang 1.23.5"
-    "terraform 1.5.7"
-    "opentofu 1.9.0"
-    "tflint 0.55.1"
-    "terraform-docs 0.19.0"
-    "kubectl 1.32.1"
-    "helm 3.17.0"
-    "k3s 1.31.5+k3s1"
-    "k3d 5.8.1"
-    "k9s 0.32.7"
-    "krew 0.4.5"
-    "kubeconform 0.7.0"
-    "kube-linter 0.7.2"
-    "kustomize 5.6.0"
-    "tilt 0.33.22"
-    "argocd 2.10.1"
-    "awscli 2.23.3"
-    "nodejs 23.6.1"
-    "pnpm 9.15.5"
-    "yarn 1.22.22"
-    "supabase-cli 2.12.1"
-    "postgres 17.2"
-    "ollama 0.6.3"
-    "pre-commit 4.1.0"
-    "direnv 2.35.0"
-    "1password-cli 2.30.3"
+    "python 3.12.9"  # programming language
+    "uv 0.6.6"  # python package manager
+    "rust 1.84.1"  # programming language
+    "golang 1.23.5"  # programming language
+    "terraform 1.12.1"  # IaC provisioning
+    "opentofu 1.9.0"  # fork of terraform since license changed
+    "tflint 0.55.1"  # terraform linter
+    "terraform-docs 0.19.0"  # terraform documentation generator
+    "kubectl 1.32.1"  # k8s cli
+    "helm 3.17.0"  # k8s package manager
+    "k3s 1.31.5+k3s1"  # lightweight k8s
+    "k3d 5.8.1"  # wrapper to run k3s in docker
+    "k9s 0.32.7"  # UI to interact with k8s clusters
+    "krew 0.4.5"  # k8s plugin manager
+    "kubeconform 0.7.0"  # k8s schema validator
+    "kube-linter 0.7.2"  # k8s linter
+    "kustomize 5.6.0"  # k8s manifest generator
+    "tilt 0.33.22"  # k8s developer experience
+    "argocd 2.10.1"  # k8s gitops
+    "awscli 2.23.3"  # aws cli
+    "nodejs 23.6.1"  # javascript runtime
+    "pnpm 9.15.5"  # javascript package manager
+    "yarn 1.22.22"  # javascript package manager
+    "supabase-cli 2.12.1"  # baas with postgres
+    "postgres 17.2"  # postgres database client
+    "ollama 0.6.3"  # local llm hosting
+    "pre-commit 4.1.0"  # git commit hook manager
+    "direnv 2.35.0"  # environment manager
+    "1password-cli 2.30.3"  # password manager
+    # "make 4.4.1"
 )
 asdf plugin add supabase-cli https://github.com/gavinying/asdf-supabase-cli.git 2>/dev/null || true
 for plugin in "${plugins[@]}"; do
@@ -46,5 +47,5 @@ for plugin in "${plugins[@]}"; do
     install_plugin "$name" "$version"
 done
 
-# Install krew plugins
+# Install krew plugins for k8s
 kubectl krew install neat
