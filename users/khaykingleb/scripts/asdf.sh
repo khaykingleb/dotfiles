@@ -14,7 +14,7 @@ plugins=(
     "uv 0.6.6"  # python package manager
     "rust 1.84.1"  # programming language
     "golang 1.23.5"  # programming language
-    "terraform 1.5.7"  # IaC provisioning
+    "terraform 1.12.1"  # IaC provisioning
     "opentofu 1.9.0"  # fork of terraform since license changed
     "tflint 0.55.1"  # terraform linter
     "terraform-docs 0.19.0"  # terraform documentation generator
@@ -34,11 +34,12 @@ plugins=(
     "pnpm 9.15.5"  # javascript package manager
     "yarn 1.22.22"  # javascript package manager
     "supabase-cli 2.12.1"  # baas with postgres
-    "postgres 17.2"  # postgres database
+    "postgres 17.2"  # postgres database client
     "ollama 0.6.3"  # local llm hosting
     "pre-commit 4.1.0"  # git commit hook manager
     "direnv 2.35.0"  # environment manager
     "1password-cli 2.30.3"  # password manager
+    # "make 4.4.1"
 )
 asdf plugin add supabase-cli https://github.com/gavinying/asdf-supabase-cli.git 2>/dev/null || true
 for plugin in "${plugins[@]}"; do
@@ -46,5 +47,5 @@ for plugin in "${plugins[@]}"; do
     install_plugin "$name" "$version"
 done
 
-# Install krew plugins
+# Install krew plugins for k8s
 kubectl krew install neat
