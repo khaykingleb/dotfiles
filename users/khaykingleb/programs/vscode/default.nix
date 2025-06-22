@@ -23,6 +23,7 @@ let
 
     # DevOps
     "ms-azuretools.vscode-docker"
+    "ms-azuretools.vscode-containers"
     "ms-kubernetes-tools.vscode-kubernetes-tools"
     "hashicorp.hcl"
     "hashicorp.terraform"
@@ -46,6 +47,7 @@ let
     "dbaeumer.vscode-eslint"
     "esbenp.prettier-vscode"
     "stylelint.vscode-stylelint"
+    "csstools.postcss"
     "bradlc.vscode-tailwindcss"
     "naumovs.color-highlight"
     "streetsidesoftware.code-spell-checker"
