@@ -11,6 +11,7 @@
       "zlib" # compression library
       "ossp-uuid" # uuid generation library
       "icu4c" # unicode and globalization library
+      "cloudflare/cloudflare/cf-terraforming" # Cloudflare Terraforming to export resources to Terraform
 
       # Compilers and build tools
       "gcc@14"

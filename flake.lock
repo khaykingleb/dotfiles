@@ -69,6 +69,22 @@
         "type": "github"
       }
     },
+    "homebrew-cloudflare": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739936431,
+        "narHash": "sha256-+QpavAe52KwqI9kUTiBqP22TMxeW2hQZbGt9lXyrXnI=",
+        "owner": "cloudflare",
+        "repo": "homebrew-cloudflare",
+        "rev": "4290e19da81f4f75b1a5cd6ead488475ee209046",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cloudflare",
+        "repo": "homebrew-cloudflare",
+        "type": "github"
+      }
+    },
     "homebrew-core": {
       "flake": false,
       "locked": {
@@ -179,6 +195,7 @@
         "home-manager": "home-manager",
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
+        "homebrew-cloudflare": "homebrew-cloudflare",
         "homebrew-core": "homebrew-core",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",

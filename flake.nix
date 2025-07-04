@@ -57,9 +57,16 @@
       repo = "homebrew-cask";
       flake = false;
     };
+
+    homebrew-cloudflare = {
+      type = "github";
+      owner = "cloudflare";
+      repo = "homebrew-cloudflare";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, ... } @inputs:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, homebrew-cloudflare, ... } @inputs:
     let
       darwinArch = {
         macbook-pro-m1 = {
@@ -88,6 +95,8 @@
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
                 "homebrew/homebrew-bundle" = homebrew-bundle;
+                # NOTE: this is a custom tap for Cloudflare CLI
+                "cloudflare/homebrew-cloudflare" = homebrew-cloudflare;
               };
               mutableTaps = false;
               autoMigrate = true;
