@@ -86,7 +86,7 @@ in
     # to the settings.json file in the repo and not copies the file into the Nix store
     # Thus, the settings.json is writable by the user
     file."Library/Application Support/Code/User/settings.json" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/khaykingleb/programs/vscode/settings.json";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/vscode/settings.json";
     };
 
     # Adapted from https://github.com/ryanccn/flake/blob/b9832c59cf9d0362c2d20f838220bed434a0b45a/home/apps/vscode.nix#L214-L244.

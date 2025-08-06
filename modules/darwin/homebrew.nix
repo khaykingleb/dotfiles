@@ -1,4 +1,74 @@
-{ ... }: {
+{ config, lib, ... }:
+let
+  generalCasks = lib.lists.flatten [
+    # Development
+    "visual-studio-code"
+    "cursor"
+    "iterm2"
+    "docker"
+    "tailscale"
+    "postman"
+    "chatgpt"
+
+    # TODO(khaykingleb): add notion-mail cask when it's available in homebrew
+    # Productivity
+    "notion"
+    "notion-calendar"
+    "pomatez"
+
+    # Communication
+    #"slack"
+    "zoom"
+
+    # TODO(khaykingleb): add preplexity cask when it's available in homebrew
+    # Research and writing
+    "mathpix-snipping-tool"
+    "excalidrawz"
+    "drawio"
+
+    # Misc
+    "google-chrome"
+    "telegram"
+    "spotify"
+  ];
+
+  personalCasks = lib.lists.flatten [
+    # Security
+    "1password"
+    "keepassxc"
+
+    # Productivity
+    "todoist"
+    "anki"
+
+    # Communication
+    "notion-mail"
+
+    # Misc
+    "readdle-spark"
+    "steam"
+
+    # Research and writing
+    "texifier"
+    "mactex"
+    "zotero"
+
+    # Finance
+    "ibkr"
+    "tradingview"
+
+    # Misc
+    "obs"
+    "steam"
+  ];
+
+  workCasks = lib.lists.flatten [
+    # Productivity
+    "linear-linear"
+    "miro"
+  ];
+in
+{
   homebrew = {
     enable = true;
 
@@ -11,6 +81,7 @@
       "zlib" # compression library
       "ossp-uuid" # uuid generation library
       "icu4c" # unicode and globalization library
+      "awk"
 
       # Compilers and build tools
       "gcc@14"
@@ -23,49 +94,6 @@
       "cosign" # container signing tool
     ];
 
-    casks = [
-      # Development
-      "visual-studio-code"
-      "cursor"
-      "iterm2"
-      "docker"
-      "tailscale"
-      "postman"
-      "chatgpt"
-      "1password"
-
-      # Productivity
-      "todoist"
-      "notion"
-      "notion-calendar"
-      "anki"
-      "pomatez"
-
-      # Communication
-      "readdle-spark"
-      "slack"
-      "zoom"
-
-      # TODO(khaykingleb): add preplexity cask when it's available in homebrew
-      # Research and writing
-      "texifier"
-      "mactex"
-      "zotero"
-      "mathpix-snipping-tool"
-      "excalidrawz"
-      "drawio"
-
-      # Finance
-      "ibkr"
-      "tradingview"
-
-      # Misc
-      "google-chrome"
-      "telegram"
-      "spotify"
-      "keepassxc"
-      "obs"
-      "steam"
-    ];
+    casks = generalCasks ++ (if config.my.isPersonal then personalCasks else workCasks);
   };
 }

@@ -73,7 +73,7 @@
   # and not copies the file into the Nix store. Thus, the ~/.p10k.zsh is writable by the user
   home = {
     file.".p10k.zsh" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/khaykingleb/programs/zsh/p10k.zsh";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/zsh/p10k.zsh";
     };
   };
 }

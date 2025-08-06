@@ -6,7 +6,7 @@
     ./home-manager.nix
   ];
 
-  my.isPersonal = true;
+  my.isPersonal = false;
 
   # Used for backwards compatibility
   system.stateVersion = 5;

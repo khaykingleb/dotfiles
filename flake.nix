@@ -70,6 +70,10 @@
           system = "aarch64-darwin";
           user = "khaykingleb";
         };
+        macbook-pro-m4-together = {
+          system = "aarch64-darwin";
+          user = "gkhaykin";
+        };
       };
       mkDarwin = name: { system, user }: nix-darwin.lib.darwinSystem {
         inherit system;

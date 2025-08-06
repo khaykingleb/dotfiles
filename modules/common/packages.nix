@@ -17,7 +17,6 @@
     wget
     watch # watch a command and refresh the output after a certain interval
     rsync # file transfer to or from a remote host (but not between two remote hosts)
-    gawk # pattern scanning and processing language
     tree # directory tree viewer
     tldr # simplified man pages
     tmux # terminal multiplexer

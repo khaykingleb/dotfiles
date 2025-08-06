@@ -1,7 +1,8 @@
 {
   /* UI & Interface */
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  // Temporary disable formatting on paste and save
+  // "editor.formatOnPaste": true,
+  // "editor.formatOnSave": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.fontSize": 13,
   "editor.rulers": [79, 100],
