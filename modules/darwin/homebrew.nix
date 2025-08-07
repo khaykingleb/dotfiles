@@ -82,6 +82,7 @@ in
       "ossp-uuid" # uuid generation library
       "icu4c" # unicode and globalization library
       "awk"
+      "ansible"
 
       # Compilers and build tools
       "gcc@14"
