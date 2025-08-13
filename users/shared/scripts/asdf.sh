@@ -22,7 +22,7 @@ plugins=(
     "helm 3.17.0"  # k8s package manager
     "k3s 1.31.5+k3s1"  # lightweight k8s
     "k3d 5.8.1"  # wrapper to run k3s in docker
-    "k9s 0.32.7"  # UI to interact with k8s clusters
+    "k9s 0.50.9"  # UI to interact with k8s clusters
     "krew 0.4.5"  # k8s plugin manager
     "kubectx 0.9.5"  # k8s context switcher
     "kubie 0.26.0"  # more powerful k8s context switcher
