@@ -32,6 +32,7 @@
     fzf # fuzzy finder
     graphviz # graph visualization software
     tex-fmt # latex formatter
+    devcontainer # devcontainer cli
 
     # Monitoring
     neofetch # system information viewer
