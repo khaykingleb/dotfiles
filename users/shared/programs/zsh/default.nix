@@ -39,7 +39,7 @@
     ];
 
     # Custom ZSH settings
-    initExtra = ''
+    initContent = ''
       # >>> General
       # Initialize powerlevel10k
       source ~/.p10k.zsh

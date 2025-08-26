@@ -9,7 +9,7 @@
       echo "Docker completions already set up"
     fi
   '';
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     # >>> ASDF completions
     # https://asdf-vm.com/guide/getting-started-legacy.html
     FPATH="$HOME/.asdf/completions:$FPATH"

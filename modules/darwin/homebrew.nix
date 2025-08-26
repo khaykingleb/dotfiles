@@ -3,12 +3,12 @@ let
   generalCasks = lib.lists.flatten [
     # Development
     "visual-studio-code"
+    "chatgpt"
     "cursor"
     "iterm2"
-    "docker"
-    "tailscale"
+    "docker-desktop"
+    "tailscale-app"
     "postman"
-    "chatgpt"
 
     # TODO(khaykingleb): add notion-mail cask when it's available in homebrew
     # Productivity
@@ -38,7 +38,7 @@ let
     "keepassxc"
 
     # Productivity
-    "todoist"
+    "todoist-app"
     "anki"
 
     # Communication
