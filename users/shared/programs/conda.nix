@@ -6,7 +6,7 @@
   #     sh ${config.home.homeDirectory}/.config/dotfiles/users/shared/scripts/conda.sh install_conda_linux
   #   '';
   # TODO(khaykingleb): conda doesn't work on my work mac
-  # programs.zsh.initExtra = ''
+  # programs.zsh.initContent = ''
   #   # >>> Conda
   #   __conda_setup="$(${config.home.homeDirectory}/anaconda3/bin/conda 'shell.zsh' 'hook' 2> /dev/null)"
   #   if [ $? -eq 0 ]; then

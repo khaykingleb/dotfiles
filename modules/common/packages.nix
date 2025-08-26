@@ -35,7 +35,7 @@
     devcontainer # devcontainer cli
 
     # Monitoring
-    neofetch # system information viewer
+    fastfetch # system information viewer (neofetch successor)
     htop # process viewer (replacement for top)
     btop # process viewer (replacement for htop)
     ctop # container viewer

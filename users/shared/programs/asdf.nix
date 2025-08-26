@@ -5,7 +5,7 @@
   ];
   programs.zsh = {
     # NOTE: https://asdf-vm.com/guide/getting-started.html
-    initExtra = ''
+    initContent = ''
       # >>> ASDF
       . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
       alias python3="$HOME/.asdf/shims/python3"
