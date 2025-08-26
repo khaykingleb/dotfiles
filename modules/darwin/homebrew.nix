@@ -5,6 +5,8 @@ let
     "visual-studio-code"
     "chatgpt"
     "cursor"
+    "claude"
+    "claude-code"
     "iterm2"
     "docker-desktop"
     "tailscale-app"
