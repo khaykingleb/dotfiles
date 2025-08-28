@@ -68,6 +68,7 @@ let
     "ms-vscode-remote.remote-containers"
     "ms-vscode-remote.remote-ssh-edit"
     "ms-vscode-remote.remote-ssh"
+    "ms-vscode.remote-server"
     "ms-vscode.remote-explorer"
     "openai.chatgpt"
     "shd101wyy.markdown-preview-enhanced"
