@@ -28,6 +28,10 @@ nix-darwin-apply-%: ## Apply nix-darwin configuration
 	@echo "Applying nix-darwin configuration for $*"
 	@nix run nix-darwin -- switch --flake .#$* --show-trace
 
+nix-update-flake: ## Update the flake.lock file
+	@nix flake update
+.PHONY: nix-update-flake
+
 nix-garbage-collect: ## Collect Nix garbage (remove unused packages)
 	@nix-collect-garbage
 .PHONY: nix-garbage-collect
