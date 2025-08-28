@@ -11,7 +11,7 @@ install_plugin() {
 
 plugins=(
     "python 3.12.9"  # programming language
-    "uv 0.6.6"  # python package manager
+    "uv 0.8.13"  # python package manager
     "rust 1.84.1"  # programming language
     "golang 1.23.5"  # programming language
     "terraform 1.12.1"  # IaC provisioning
