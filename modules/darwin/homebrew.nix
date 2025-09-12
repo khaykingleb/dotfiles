@@ -12,14 +12,17 @@ let
     "tailscale-app"
     "postman"
 
-    # TODO(khaykingleb): add notion-mail cask when it's available in homebrew
+    # Security
+    "nordpass"
+
     # Productivity
+    "todoist-app"
     "notion"
     "notion-calendar"
     "pomatez"
 
     # Communication
-    #"slack"
+    # "slack"
     "zoom"
 
     # TODO(khaykingleb): add preplexity cask when it's available in homebrew
@@ -28,19 +31,21 @@ let
     "excalidrawz"
     "drawio"
 
+    # Finance
+    "ibkr"
+    "tradingview"
+    "spotify"
+
     # Misc
     "google-chrome"
     "telegram"
-    "spotify"
   ];
 
   personalCasks = lib.lists.flatten [
     # Security
-    "1password"
     "keepassxc"
 
     # Productivity
-    "todoist-app"
     "anki"
 
     # Communication
@@ -54,10 +59,6 @@ let
     "texifier"
     "mactex"
     "zotero"
-
-    # Finance
-    "ibkr"
-    "tradingview"
 
     # Misc
     "obs"
@@ -83,8 +84,8 @@ in
       "zlib" # compression library
       "ossp-uuid" # uuid generation library
       "icu4c" # unicode and globalization library
-      "awk"
-      "ansible"
+      "awk" # text processing language
+      "ansible" # automation tool for configuring and managing systems
 
       # Compilers and build tools
       "gcc@14"
