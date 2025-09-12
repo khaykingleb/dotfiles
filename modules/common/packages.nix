@@ -31,6 +31,7 @@
     scc # code counter with complexity calculations and COCOMO estimates
     fzf # fuzzy finder
     graphviz # graph visualization software
+    plantuml # plantuml diagram generator
     tex-fmt # latex formatter
     devcontainer # devcontainer cli
 
