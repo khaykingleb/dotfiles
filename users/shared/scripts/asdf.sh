@@ -30,7 +30,7 @@ plugins=(
     "kube-linter 0.7.2"  # k8s linter
     "kustomize 5.6.0"  # k8s manifest generator
     "tilt 0.33.22"  # k8s developer experience
-    "argocd 2.10.1"  # k8s gitops
+    "argocd 3.1.8"  # k8s gitops
     "awscli 2.23.3"  # aws cli
     "nodejs 23.6.1"  # javascript runtime
     "pnpm 9.15.5"  # javascript package manager

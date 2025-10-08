@@ -14,6 +14,7 @@ let
 
     # Security
     "nordpass"
+    "nordvpn"
 
     # Productivity
     "todoist-app"

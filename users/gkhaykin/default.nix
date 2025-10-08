@@ -5,6 +5,8 @@
 
     ../shared/completions.nix
     ../shared/fonts.nix
+
+    ./awscli.nix
   ];
 
   home = {
