@@ -23,7 +23,7 @@ let
     "pomatez"
 
     # Communication
-    # "slack"
+    "slack"
     "zoom"
 
     # TODO(khaykingleb): add preplexity cask when it's available in homebrew
