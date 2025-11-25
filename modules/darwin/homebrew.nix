@@ -23,12 +23,15 @@ let
     "pomatez"
 
     # Communication
-    # "slack"
+    "slack"
     "zoom"
 
-    # TODO(khaykingleb): add preplexity cask when it's available in homebrew
     # Research and writing
     "mathpix-snipping-tool"
+    "grammarly-desktop"
+    "texifier"
+    "mactex"
+    "zotero"
     "excalidrawz"
     "drawio"
 
@@ -55,15 +58,7 @@ let
     # Misc
     "readdle-spark"
     "steam"
-
-    # Research and writing
-    "texifier"
-    "mactex"
-    "zotero"
-
-    # Misc
     "obs"
-    "steam"
   ];
 
   workCasks = lib.lists.flatten [

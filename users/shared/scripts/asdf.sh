@@ -38,7 +38,7 @@ plugins=(
     "supabase-cli 2.12.1"  # baas with postgres
     "postgres 17.2"  # postgres database client
     "ollama 0.6.3"  # local llm hosting
-    "pre-commit 4.1.0"  # git commit hook manager
+    "pre-commit 4.3.0"  # git commit hook manager
     "direnv 2.35.0"  # environment manager
     "1password-cli 2.30.3"  # password manager
     # "make 4.4.1"
