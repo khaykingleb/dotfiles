@@ -13,7 +13,7 @@ plugins=(
     "python 3.12.9"  # programming language
     "uv 0.8.13"  # python package manager
     "rust 1.84.1"  # programming language
-    "golang 1.23.5"  # programming language
+    "golang 1.25.5"  # programming language
     "terraform 1.12.1"  # IaC provisioning
     "opentofu 1.9.0"  # fork of terraform since license changed
     "tflint 0.55.1"  # terraform linter
@@ -41,7 +41,8 @@ plugins=(
     "pre-commit 4.3.0"  # git commit hook manager
     "direnv 2.35.0"  # environment manager
     "1password-cli 2.30.3"  # password manager
-    # "make 4.4.1"
+    "buf 1.61.0"  # protobuf tooling
+    "just 1.46.0" # building tool, alternative to make
 )
 asdf plugin add supabase-cli https://github.com/gavinying/asdf-supabase-cli.git 2>/dev/null || true
 for plugin in "${plugins[@]}"; do
