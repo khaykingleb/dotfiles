@@ -1,36 +1,39 @@
 # dotfiles
-This repository contains my personal configuration for NixOS and macOS systems, managed using [Nix Flakes](https://nixos.wiki/wiki/Flakes), [nix-darwin](https://github.com/LnL7/nix-darwin), and [home-manager](https://github.com/nix-community/home-manager).
+
+Personal configuration for macOS systems, managed using [Nix Flakes](https://nixos.wiki/wiki/Flakes), [nix-darwin](https://github.com/LnL7/nix-darwin), and [home-manager](https://github.com/nix-community/home-manager).
 
 ## Overview
 
-This setup aims to provide a declarative and reproducible environment across different machines. It includes:
+Declarative and reproducible environment across machines:
 
--   System-level configurations (`nix-darwin`)
--   User-specific configurations (`home-manager`)
--   Integration with Homebrew (`nix-homebrew`)
+- System-level configurations via `nix-darwin`
+- User-specific configurations via `home-manager`
+- Homebrew integration via `nix-homebrew`
 
-## Prerequisites
+## Setup
 
-Ensure Nix is installed with Flakes support enabled. You can use the [Determinate Systems Nix Installer](https://install.determinate.systems/) for a straightforward installation:
+1. Install Nix using the [Determinate Systems installer](https://install.determinate.systems/):
+    ```shell
+    just nix-install
+    ```
+
+2. Clone the repository:
+    ```shell
+    git clone https://github.com/khaykingleb/dotfiles.git ~/.config/dotfiles
+    cd ~/.config/dotfiles
+    ```
+
+3. Apply the configuration for your machine:
+    ```shell
+    just nix-apply <hostname>
+    ```
+    where `<hostname>` is one of the systems defined in `flake.nix` (e.g. `macbook-pro-m4`).
+
+## Usage
+
 ```shell
-make nix-install
+just                        # list all available commands
+just nix-apply <hostname>   # apply configuration
+just nix-update-flake       # update flake inputs
+just nix-gc                 # garbage collect unused packages
 ```
-
-Remember to restart your shell after installation.
-
-## Installation & Usage
-
-1.  Clone the repository:
-    ```shell
-    git clone https://github.com/khaykingleb/dotfiles.git \
-        && mkdir -p ~/.config \
-        && mv dotfiles ~/.config/dotfiles
-    ```
-
-2. Apply the configuration:
-
-    Use the `Makefile` target corresponding to your system hostname (defined in `flake.nix`). For instance,
-
-    ```shell
-    make nix-darwin-apply-macbook-pro-m4
-    ```
