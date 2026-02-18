@@ -1,0 +1,34 @@
+---
+description: Core coding standards — always apply
+alwaysApply: true
+---
+
+# Code Style
+
+- Write code that is correct, readable, and elegant — in that order.
+- Idiomatic over clever. Follow established best practices and ecosystem conventions for the language.
+- Don't copy existing patterns in the repo if they are of poor quality.
+- Readability first: optimize only when there's a measured problem.
+- No over-engineering. Extract abstractions at three or more call sites, not before.
+- Dependencies: pragmatic — use what's well-maintained and saves real time.
+- Prefer explicit over implicit.
+
+# Naming
+
+- Descriptive, even if long. Short only in tight scopes (loops, closures).
+- No abbreviations at function/module level.
+
+# Comments & Docs
+
+- No comments that narrate what the code does.
+- Document public API. Comment non-obvious "why" decisions — not "what".
+
+# Testing
+
+- TDD: write the test before the implementation.
+- Table-driven / parametrized tests — one test function, many cases.
+
+# Error Handling
+
+- Fail fast in services — surface errors immediately, don't swallow them.
+- Graceful degradation in user-facing code.

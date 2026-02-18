@@ -1,0 +1,10 @@
+---
+description: Rust conventions
+globs: **/*.rs
+alwaysApply: false
+---
+
+# Rust
+
+- Prefer `tokio` for async. Avoid `unwrap()`/`expect()` outside tests.
+- Tests in a `#[cfg(test)]` module in the same file.

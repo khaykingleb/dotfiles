@@ -1,0 +1,14 @@
+---
+description: Go conventions
+globs: **/*.go
+alwaysApply: false
+---
+
+# Go
+
+- Standard library first; add external dependencies only when necessary.
+- `fmt.Errorf("context: %w", err)` for wrapping; `errors.New` for leaf errors.
+- Accept interfaces, return concrete types. Interfaces should be as small as the consumer needs — don't require 10 methods if you only use 2.
+- Prefer `any` over `interface{}`.
+- `context.Context` is always the first parameter.
+- Table-driven tests with `t.Run`; use `testify` for assertions.

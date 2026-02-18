@@ -1,0 +1,9 @@
+---
+description: Git conventions — always apply
+alwaysApply: true
+---
+
+# Git
+
+- Commit messages follow Conventional Commits (enforced by semantic-release).
+- Always run `pre-commit run --all-files` before committing if hooks are configured.

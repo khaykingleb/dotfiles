@@ -5,7 +5,9 @@
     ./zsh
 
     ./asdf.nix
+    ./claude.nix
     ./conda.nix
+    ./cursor.nix
     ./direnv.nix
     ./git.nix
     ./krew.nix
