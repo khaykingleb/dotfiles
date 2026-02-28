@@ -53,6 +53,7 @@
     wireshark # deep packet inspection for capturing and analyzing network traffic
     nmap # port scanner and service/OS fingerprinting for network auditing
     mtr # combine traceroute and ping to show per-hop latency and packet loss
+    lsof # list open files and processes
 
     # Media
     ffmpeg # audio/video converter (e.g. convert wav to mp3)
