@@ -17,4 +17,9 @@
 
   # Enable HM to manage itself when in standalone mode
   programs.home-manager.enable = true;
+
+  programs.zsh.initContent = ''
+    # tenantctl
+    source ~/.zsh_tenantctl
+  '';
 }
