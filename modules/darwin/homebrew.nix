@@ -95,6 +95,10 @@ in
       "openssl" # ssl/tls toolkit
       "gnupg" # gnu privacy guard
       "cosign" # container signing tool
+
+      # Kubernetes and virtualization
+      "virtctl" # KubeVirt CLI for managing VMs in Kubernetes
+      "incus" # container and VM manager (LXD successor)
     ];
 
     casks = generalCasks ++ (if config.my.isPersonal then personalCasks else workCasks);

@@ -62,9 +62,6 @@
     # Kubernetes and virtualization
     clusterctl # cluster API CLI for managing Kubernetes clusters
     kubecm # manage and switch between multiple kubeconfigs
-    virtctl # KubeVirt CLI for managing VMs in Kubernetes
-    virt-viewer # GUI console viewer for VMs (SPICE/VNC)
-    incus # container and VM manager (LXD successor)
 
     # Nix-related packages
     nil
