@@ -44,14 +44,15 @@
     glances # system monitoring
 
     # Networking
-    speedtest-cli # internet speed test
-    bandwhich # network bandwidth monitor
-    doggo # dns lookup tool (replacement for dig)
-    gping # ping replacement
-    tailscale # networking tool
-    ngrok # tunneling tool
-    wireshark # network analyzer and capture tool
-    nmap # network auditing
+    speedtest-cli # measure download/upload speed and latency to nearby servers
+    bandwhich # show per-process and per-connection bandwidth usage in real time
+    doggo # modern DNS client: queries A/AAAA/MX/etc records (dig replacement)
+    gping # graph ping latency over time in the terminal
+    tailscale # WireGuard-based mesh VPN for connecting devices across networks
+    ngrok # expose local servers to the internet through secure tunnels
+    wireshark # deep packet inspection for capturing and analyzing network traffic
+    nmap # port scanner and service/OS fingerprinting for network auditing
+    mtr # combine traceroute and ping to show per-hop latency and packet loss
 
     # Media
     ffmpeg # audio/video converter (e.g. convert wav to mp3)
