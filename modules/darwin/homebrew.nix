@@ -65,6 +65,9 @@ let
     # Productivity
     "linear-linear"
     "miro"
+
+    # Kubernetes
+    "kubenav" # Kubernetes GUI
   ];
 in
 {
