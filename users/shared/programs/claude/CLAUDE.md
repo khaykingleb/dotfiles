@@ -9,10 +9,10 @@
 
 - Write code that is correct, readable, and elegant — in that order.
 - Idiomatic over clever. Follow established best practices and ecosystem conventions for the language.
-- Don't copy existing patterns in the repo if they are of poor quality.
+- Don't copy existing patterns in the repo if they are of poor quality. Poor quality signals: swallowed errors, untested code, outdated language idioms, opaque naming, wrong abstraction level, or known tech debt (TODO/FIXME).
 - Readability first: optimize only when there's a measured problem.
 - No over-engineering. Extract abstractions at three or more call sites, not before.
-- Dependencies: pragmatic — use what's well-maintained and saves real time.
+- Dependencies: pragmatic — prefer stable API and active maintenance (security patches land, tracks ecosystem changes).
 - Prefer explicit over implicit.
 
 ## Naming
@@ -29,6 +29,7 @@
 
 - TDD: write the test before the implementation.
 - Table-driven / parametrized tests — one test function, many cases.
+- Every public function covers the happy path, all error paths, and non-obvious edge cases. No numeric coverage target.
 
 ## Error Handling
 
@@ -58,5 +59,5 @@
 
 ## Git
 
-- Conventional Commits (enforced by semantic-release).
+- Conventional Commits (enforced by semantic-release): `type(scope): description`. Scope is required; use `scope/ticket` when a ticket number is available. Types: `feat`, `fix`, `refactor`, `test`, `chore`, `docs`, `ci`, `build`, `perf`, `revert`. Breaking changes: `feat!:` or `BREAKING CHANGE:` footer.
 - Run `pre-commit run --all-files` before committing if hooks are configured.
