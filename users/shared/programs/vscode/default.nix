@@ -31,6 +31,7 @@ let
     "redhat.ansible"
     "redhat.vscode-yaml"
     "tamasfe.even-better-toml"
+    "nefrob.vscode-just-syntax"
     "wholroyd.jinja"
     "ms-vscode.makefile-tools"
     "jnoortheen.nix-ide"
