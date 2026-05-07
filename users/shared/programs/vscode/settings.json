@@ -1,8 +1,7 @@
 {
   /* UI & Interface */
-  // Temporary disable formatting on paste and save
-  // "editor.formatOnPaste": true,
-  // "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.fontSize": 13,
   "editor.rulers": [79, 100],
@@ -30,4 +29,13 @@
     }
   },
   "latex-workshop.formatting.latex": "tex-fmt",
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
 }
