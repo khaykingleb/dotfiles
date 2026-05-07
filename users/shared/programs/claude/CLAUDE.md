@@ -5,6 +5,12 @@
 - Shell: zsh
 - Editor: Cursor
 
+## Dotfiles
+
+- Store durable personal preferences, Cursor rules, Cursor skills, and Claude instructions in `/Users/gkhaykin/.config/dotfiles`.
+- Do not write directly to `~/.cursor` or `~/.claude` for persistent preferences unless the user says it is temporary.
+- When adding Cursor or Claude config, update the matching dotfiles Nix mapping so it is managed by Home Manager.
+
 ## Code Style
 
 - Write code that is correct, readable, and elegant — in that order.
@@ -34,6 +40,14 @@
 
 - Fail fast in services — surface errors immediately, don't swallow them.
 - Graceful degradation in user-facing code.
+
+## Kubernetes
+
+- Always use `kubie` for Kubernetes context management before running `kubectl`.
+- Do not assume the current Kubernetes context is correct.
+- Default to read-only Kubernetes commands first: `kubectl get`, `kubectl describe`, `kubectl logs`, and `kubectl events`.
+- Ask before running mutating commands such as `kubectl apply`, `kubectl delete`, `kubectl patch`, `kubectl rollout restart`, or commands that change context-sensitive state.
+- If the intended cluster or namespace is unclear, ask before running any cluster-mutating command.
 
 ## Language Conventions
 

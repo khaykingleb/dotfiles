@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "linear": {
+      "url": "https://mcp.linear.app/mcp"
+    },
+    "grafana": {
+      "url": "https://mcp.grafana.com/mcp",
+      "headers": {
+        "X-Grafana-URL": "https://togetherai.grafana.net"
+      }
+    }
+  }
+}

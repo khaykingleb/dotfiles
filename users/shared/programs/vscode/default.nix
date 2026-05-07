@@ -7,6 +7,7 @@ let
     "ms-python.debugpy"
     "charliermarsh.ruff"
     "ms-python.vscode-pylance"
+    "ms-python.vscode-python-envs"
 
     # Rust
     "1yib.rust-bundle"
