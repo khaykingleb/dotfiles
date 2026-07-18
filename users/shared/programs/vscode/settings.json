@@ -4,12 +4,18 @@
   "editor.formatOnSave": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.fontSize": 13,
-  "editor.rulers": [79, 100],
+  "editor.rulers": [
+    79,
+    100
+  ],
+  /* Files */
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "workbench.colorTheme": "Dark Modern",
+  /* Theme & Icons */
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.preferredDarkColorTheme": "Default Dark Modern",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editorAssociations": {
     "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
@@ -17,25 +23,42 @@
   /* Terminal */
   "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
   "terminal.integrated.fontSize": 13,
+  "terminal.integrated.macOptionIsMeta": true,
   /* Jupyter */
   "notebook.output.textLineLimit": 120,
-  /* Formatting & LSP  */
+  /* Nix */
   "nix.enableLanguageServer": true,
   "nix.serverSettings": {
     "nil": {
       "formatting": {
-        "command": ["nixpkgs-fmt"]
+        "command": [
+          "nixpkgs-fmt"
+        ]
       }
     }
   },
+  /* LaTeX */
   "latex-workshop.formatting.latex": "tex-fmt",
+  /* Docker Compose */
   "[dockercompose]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
     "editor.autoIndent": "advanced",
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  /* GitHub Actions */
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  /* YAML */
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  /* Python */
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3"
 }

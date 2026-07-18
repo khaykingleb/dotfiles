@@ -55,16 +55,24 @@
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
       preexec() { echo -e -n "\x1b[\x35 q" ; }  # Use beam shape cursor for each new prompt
 
+      # Navigate by shell arguments, splitting common command delimiters
+      autoload -Uz select-word-style
+      select-word-style Shell
+      zstyle ':zle:*' subword-range '][/.=:() -'
+
       # Navigation by words
       bindkey "^[[1;3D" backward-word  # Option + Left Arrow
       bindkey "^[[1;3C" forward-word   # Option + Right Arrow
 
       # Word deletion
-      bindkey "∂" kill-word            # Option + d: delete word after cursor
-      bindkey "ß" backward-kill-word   # Option + s: delete word before cursor
+      bindkey $'\ed' kill-word           # Option + d: delete word after cursor
+      bindkey $'\es' backward-kill-word  # Option + s: delete word before cursor
+      bindkey "∂" kill-word              # macOS Option + d fallback
+      bindkey "ß" backward-kill-word     # macOS Option + s fallback
 
       # Undo
-      bindkey "Ω" undo                 # Option + z: undo last edit
+      bindkey $'\ez' undo  # Option + z: undo last edit
+      bindkey "Ω" undo     # macOS Option + z fallback
       # <<< General
     '';
   };

@@ -3,6 +3,7 @@
 {
   home.file = {
     ".claude/CLAUDE.md".source = ./claude/CLAUDE.md;
+    ".claude/skills/code-review/SKILL.md".source = ./claude/skills/code-review/SKILL.md;
     ".claude/skills/linear-ticket-writing/SKILL.md".source = ./claude/skills/linear-ticket-writing/SKILL.md;
     ".claude/skills/pr-description/SKILL.md".source = ./claude/skills/pr-description/SKILL.md;
   };
