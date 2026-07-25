@@ -5,6 +5,7 @@
     ./zsh
 
     ./asdf.nix
+    ./awscli.nix
     ./claude.nix
     ./conda.nix
     ./cursor.nix

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ../shared/programs
@@ -6,7 +6,7 @@
     ../shared/completions.nix
     ../shared/fonts.nix
 
-    ./awscli.nix
+    "${inputs.private-config}/together-awscli.nix"
   ];
 
   home = {

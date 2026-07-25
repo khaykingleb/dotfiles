@@ -1,7 +1,13 @@
 {
-  description = "Declarative system configuration and package management for macOS and NixOS";
+  description = "Declarative system configuration and package management for macOS";
 
   inputs = {
+    # Private configuration with sensitive data
+    private-config = {
+      url = "git+ssh://git@github.com/khaykingleb/dotfiles-private.git";
+      flake = false;
+    };
+
     # Main package supplier
     nixpkgs = {
       type = "github";
@@ -75,6 +81,10 @@
           user = "gkhaykin";
         };
       };
+      systems = [
+        "aarch64-darwin"
+        "x86_64-linux"
+      ];
       mkDarwin = name: { system, user }: nix-darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {
@@ -100,14 +110,14 @@
           ./systems/${name}
         ];
       };
-      forAllSystems = f: nixpkgs.lib.genAttrs
-        (builtins.attrValues (builtins.mapAttrs (name: value: value.system) darwinArch))
-        f;
+      forAllSystems = nixpkgs.lib.genAttrs systems;
       mkDevShell = system:
         let pkgs = nixpkgs.legacyPackages.${system}; in {
           default = with pkgs; mkShell {
             buildInputs = [
               git
+              nixpkgs-fmt
+              pre-commit
               openssl
               gnupg
               gnutar
