@@ -28,3 +28,11 @@ repos:
     rev: v1.4.0
     hooks:
       - id: nixfmt-nix
+
+  - repo: https://github.com/astro/deadnix
+    rev: v1.3.1
+    hooks:
+      - id: deadnix
+        args:
+          - --fail
+          - --no-lambda-pattern-names

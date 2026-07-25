@@ -12,7 +12,7 @@ install_plugin() {
 plugins=(
     "python 3.12.9"  # programming language
     "uv 0.10.8"  # python package manager
-    "rust 1.84.1"  # programming language
+    "rust 1.97.1"  # programming language
     "golang 1.25.5"  # programming language
     "terraform 1.12.1"  # IaC provisioning
     "opentofu 1.9.0"  # fork of terraform since license changed
