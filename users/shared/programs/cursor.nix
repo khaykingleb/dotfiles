@@ -11,6 +11,7 @@ let
 
   rules = [
     "code-style.mdc"
+    "decision-approval.mdc"
     "dotfiles.mdc"
     "git.mdc"
     "go.mdc"
