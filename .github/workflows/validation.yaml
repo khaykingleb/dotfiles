@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout code so that it is available to use in the executing runner
         uses: actions/checkout@v4.1.4
-        with:
-          fetch-depth: 0
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
