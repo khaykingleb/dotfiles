@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   # home.activation.conda =
   #   if pkgs.stdenv.hostPlatform.isDarwin then ''
   #     sh ${config.home.homeDirectory}/.config/dotfiles/users/shared/scripts/conda.sh install_conda_macos_silicon

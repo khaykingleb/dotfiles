@@ -24,9 +24,15 @@ repos:
       - id: bashate
         exclude: "users/shared/programs/zsh/p10k.zsh"
 
-  # Use https://github.com/NixOS/nixfmt later on
-  - repo: https://github.com/nix-community/nixpkgs-fmt
-    rev: v1.3.0
+  - repo: https://github.com/NixOS/nixfmt
+    rev: v1.4.0
     hooks:
-      - id: nixpkgs-fmt
-        language: system
+      - id: nixfmt-nix
+
+  - repo: https://github.com/astro/deadnix
+    rev: v1.3.1
+    hooks:
+      - id: deadnix
+        args:
+          - --fail
+          - --no-lambda-pattern-names

@@ -1,5 +1,6 @@
 # Runtime version manager
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     asdf-vm
   ];

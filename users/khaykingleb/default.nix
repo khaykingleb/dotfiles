@@ -9,7 +9,8 @@
 
   home = {
     username = "khaykingleb";
-    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/khaykingleb" else "/home/khaykingleb";
+    homeDirectory =
+      if pkgs.stdenv.hostPlatform.isDarwin then "/Users/khaykingleb" else "/home/khaykingleb";
     stateVersion = "24.11"; # NOTE: you should stay at the version you originally installed
   };
 

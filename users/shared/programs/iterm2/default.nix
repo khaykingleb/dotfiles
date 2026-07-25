@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   # NOTE: You can save the preferences to a custom folder or URL:
   # iTerm2 → Settings → General → Settings → Load settings from a custom folder or URL
   #        → Choose path to this folder

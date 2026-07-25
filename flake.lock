@@ -139,6 +139,22 @@
         "type": "github"
       }
     },
+    "private-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785013640,
+        "narHash": "sha256-lZeI2NonPR4niCHk8XEc55Zr+Fpc9lrzfzNqZecJI1g=",
+        "ref": "refs/heads/master",
+        "rev": "b9c185e5085b972bbc4d2d79723bf265e603ba3c",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/khaykingleb/dotfiles-private.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/khaykingleb/dotfiles-private.git"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -147,7 +163,8 @@
         "homebrew-core": "homebrew-core",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "private-config": "private-config"
       }
     }
   },

@@ -1,4 +1,9 @@
-{ pkgs, user, ... }:
+{
+  inputs,
+  pkgs,
+  user,
+  ...
+}:
 {
   users.users.${user} = {
     name = user;
@@ -11,6 +16,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "home-manager-backup";
+    extraSpecialArgs = { inherit inputs; };
     users.${user} = import ../../users/${user};
   };
 }

@@ -1,10 +1,12 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./iterm2
     ./vscode
     ./zsh
 
     ./asdf.nix
+    ./awscli.nix
     ./claude.nix
     ./conda.nix
     ./cursor.nix

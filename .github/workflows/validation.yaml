@@ -1,0 +1,68 @@
+name: Validation
+
+on:
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    name: Check all files with pre-commit
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code so that it is available to use in the executing runner
+        uses: actions/checkout@v7
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: .tool-versions
+
+      - name: Install Rust
+        run: |
+          rust_version="$(awk '$1 == "rust" { print $2 }' .tool-versions)"
+          echo "Using Rust $rust_version"
+          rustup toolchain install "$rust_version" --profile minimal
+          rustup default "$rust_version"
+
+      - name: Cache pre-commit environments
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.pre-commit-config.yaml', '.tool-versions') }}
+          restore-keys: |
+            pre-commit-${{ runner.os }}-${{ runner.arch }}-
+
+      - name: Check all files with pre-commit
+        run: |
+          pre_commit_version="$(awk '$1 == "pre-commit" { print $2 }' .tool-versions)"
+          echo "Using pre-commit $pre_commit_version"
+          uvx --from "pre-commit==$pre_commit_version" pre-commit run --all-files
+
+  nix-evaluation:
+    runs-on: ubuntu-latest
+    name: Evaluate ${{ matrix.host }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        host:
+          - macbook-pro-m1
+          - macbook-pro-m4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Evaluate nix-darwin configuration
+        run: nix eval ".#darwinConfigurations.${{ matrix.host }}.config.system.build.toplevel.drvPath" --raw --show-trace
