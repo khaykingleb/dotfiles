@@ -12,16 +12,16 @@ repos:
     hooks:
       - id: gitleaks
 
+  - repo: https://github.com/scop/pre-commit-shfmt
+    rev: v3.13.1-1
+    hooks:
+      - id: shfmt
+        exclude: "users/shared/programs/zsh/p10k.zsh"
+
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.10.0.1
     hooks:
       - id: shellcheck
-        exclude: "users/shared/programs/zsh/p10k.zsh"
-
-  - repo: https://github.com/openstack/bashate
-    rev: 2.1.1
-    hooks:
-      - id: bashate
         exclude: "users/shared/programs/zsh/p10k.zsh"
 
   - repo: https://github.com/NixOS/nixfmt
