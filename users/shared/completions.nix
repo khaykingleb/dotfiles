@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   home.activation.docker = ''
     docker_bin="/usr/local/bin/docker"
     if [[ ! -x "$docker_bin" ]]; then

@@ -1,7 +1,7 @@
 {
   /* UI & Interface */
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.fontSize": 13,
   "editor.rulers": [
@@ -33,7 +33,7 @@
     "nil": {
       "formatting": {
         "command": [
-          "nixpkgs-fmt"
+          "nixfmt"
         ]
       }
     }

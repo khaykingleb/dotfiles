@@ -26,27 +26,25 @@ let
   ];
 in
 {
-  home.file =
-    {
-      ".cursor/mcp.json".source = ./cursor/mcp.json;
-      "Library/Application Support/Cursor/User/keybindings.json".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/cursor/keybindings.json";
-      "Library/Application Support/Cursor/User/settings.json".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/vscode/settings.json";
-    }
-    //
-    (builtins.listToAttrs (map
-      (name: {
-        name = ".cursor/rules/${name}";
-        value.source = ./cursor/rules/${name};
-      })
-      rules))
-    // (builtins.listToAttrs (map
-      (name: {
-        name = ".cursor/skills/${name}/SKILL.md";
-        value.source = ./cursor/skills/${name}/SKILL.md;
-      })
-      skills));
+  home.file = {
+    ".cursor/mcp.json".source = ./cursor/mcp.json;
+    "Library/Application Support/Cursor/User/keybindings.json".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/cursor/keybindings.json";
+    "Library/Application Support/Cursor/User/settings.json".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/vscode/settings.json";
+  }
+  // (builtins.listToAttrs (
+    map (name: {
+      name = ".cursor/rules/${name}";
+      value.source = ./cursor/rules/${name};
+    }) rules
+  ))
+  // (builtins.listToAttrs (
+    map (name: {
+      name = ".cursor/skills/${name}/SKILL.md";
+      value.source = ./cursor/skills/${name}/SKILL.md;
+    }) skills
+  ));
 
   home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     cursor_bin="/opt/homebrew/bin/cursor"

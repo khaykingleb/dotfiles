@@ -1,4 +1,9 @@
-{ inputs, pkgs, user, ... }:
+{
+  inputs,
+  pkgs,
+  user,
+  ...
+}:
 {
   users.users.${user} = {
     name = user;

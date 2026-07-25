@@ -1,5 +1,6 @@
 # List packages installed in system profile
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     # Editors
     vim
@@ -67,6 +68,6 @@
 
     # Nix-related packages
     nil
-    nixpkgs-fmt
+    nixfmt
   ];
 }
