@@ -6,6 +6,7 @@
     ./zsh
 
     ./asdf.nix
+    ./atuin.nix
     ./awscli.nix
     ./claude.nix
     ./conda.nix
