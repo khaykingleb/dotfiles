@@ -1,5 +1,5 @@
-# System level configuration for MacOS
-{ lib, ... }:
+# System level configuration for macOS
+{ lib, user, ... }:
 {
   options.my.isPersonal = lib.mkOption {
     type = lib.types.bool;
@@ -10,8 +10,13 @@
   imports = [
     ../common
     ./homebrew.nix
+    ./home-manager.nix
   ];
 
-  # Auto upgrade nix package and the daemon service.
-  # services.nix-daemon.enable = true;
+  config = {
+    system = {
+      stateVersion = 5;
+      primaryUser = user;
+    };
+  };
 }
