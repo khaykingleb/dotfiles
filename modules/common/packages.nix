@@ -27,6 +27,8 @@
     duf # df replacement
     jq # json processor
     yq # yaml processor
+    ripgrep # recursively search file contents
+    fd # find files and directories
     zoxide # cd replacement
     eza # ls replacement
     scc # code counter with complexity calculations and COCOMO estimates

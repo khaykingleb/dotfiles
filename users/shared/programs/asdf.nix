@@ -1,16 +1,15 @@
 # Runtime version manager
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
     asdf-vm
   ];
   programs.zsh = {
     # NOTE: https://asdf-vm.com/guide/getting-started.html
-    initContent = ''
+    initContent = lib.mkAfter ''
       # >>> ASDF
       . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
-      alias python3="$HOME/.asdf/shims/python3"
-      alias pip3="$HOME/.asdf/shims/pip3"
+      export PATH="$HOME/.asdf/shims:$PATH"
       # <<< ASDF
     '';
   };
