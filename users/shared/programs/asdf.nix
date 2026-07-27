@@ -9,8 +9,7 @@
     initContent = ''
       # >>> ASDF
       . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
-      alias python3="$HOME/.asdf/shims/python3"
-      alias pip3="$HOME/.asdf/shims/pip3"
+      export PATH="$HOME/.asdf/shims:$PATH"
       # <<< ASDF
     '';
   };
