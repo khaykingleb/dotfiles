@@ -7,7 +7,14 @@ description: Performs defect-first reviews of code changes, prioritizing API sem
 
 ## Review process
 
-Review the change, not the entire codebase. Read enough surrounding code and history to understand the intended behavior and verify each finding.
+When reviewing a GitHub PR URL or number:
+
+- Use `gh pr view` and `gh pr diff` to retrieve the exact PR.
+- Verify the PR number, title, base branch, head branch, and head SHA before reviewing.
+- Never assume the currently checked-out branch corresponds to the PR.
+- If GitHub access fails, stop and report the access issue.
+
+Review the change, not the entire codebase. Establish the intended behavior from the PR, issue, and commits. Inspect every changed production file plus relevant callers, callees, contracts, tests, and history. Compare against the base version to distinguish introduced defects from pre-existing issues. Trace concrete failure paths end-to-end and verify each finding before reporting it.
 
 Prioritize review effort in this order:
 
