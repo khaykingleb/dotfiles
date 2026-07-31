@@ -1,5 +1,7 @@
 { lib, pkgs, ... }:
 let
+  onePasswordAccount = "together-ai.1password.com";
+
   onePasswordEnvironmentVariables = {
     NETBOX_TOKEN = "op://Employee/NetBox/credential";
     TOGETHER_PROD_API_KEY = "op://Employee/Together Prod/credential";
@@ -9,7 +11,7 @@ let
   };
 
   loadOnePasswordEnvironmentVariable = name: reference: ''
-    if secret_value="$(${lib.getExe' pkgs._1password-cli "op"} read ${lib.escapeShellArg reference})"; then
+    if secret_value="$(${lib.getExe' pkgs._1password-cli "op"} read --account ${lib.escapeShellArg onePasswordAccount} ${lib.escapeShellArg reference})"; then
       export ${name}="$secret_value"
     else
       print -u2 "warning: unable to load ${name} from 1Password"
