@@ -40,7 +40,6 @@ plugins=(
 	"ollama 0.6.3"          # local llm hosting
 	"pre-commit 4.3.0"      # git commit hook manager
 	"direnv 2.35.0"         # environment manager
-	"1password-cli 2.30.3"  # password manager
 	"buf 1.61.0"            # protobuf tooling
 	"just 1.46.0"           # building tool, alternative to make
 )
