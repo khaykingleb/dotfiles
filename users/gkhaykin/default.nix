@@ -2,6 +2,7 @@
 {
   imports = [
     ../shared/programs
+    ./onepassword-environment.nix
 
     ../shared/completions.nix
     ../shared/fonts.nix
