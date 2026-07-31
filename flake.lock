@@ -142,11 +142,11 @@
     "private-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1785013640,
-        "narHash": "sha256-lZeI2NonPR4niCHk8XEc55Zr+Fpc9lrzfzNqZecJI1g=",
+        "lastModified": 1785509883,
+        "narHash": "sha256-M4r2pZxRpdoou9/cvHEm5LYWwEKX+C1pkBxUsyKEHZo=",
         "ref": "refs/heads/master",
-        "rev": "b9c185e5085b972bbc4d2d79723bf265e603ba3c",
-        "revCount": 1,
+        "rev": "458e856611a2bf34b981b11cdc115ec82b45a5b5",
+        "revCount": 2,
         "type": "git",
         "url": "ssh://git@github.com/khaykingleb/dotfiles-private.git"
       },

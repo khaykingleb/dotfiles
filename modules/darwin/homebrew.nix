@@ -62,6 +62,9 @@ let
   ];
 
   workCasks = lib.lists.flatten [
+    # Security
+    "1password"
+
     # Productivity
     "linear-linear"
     "miro"
