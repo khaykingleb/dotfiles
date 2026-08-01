@@ -1,14 +1,3 @@
----
-{
-  "description": "Python conventions",
-  "filePatterns": [
-    "**/*.py",
-    "**/pyproject.toml",
-    "**/uv.lock"
-  ]
-}
----
-
 # Python
 
 - Use `uv` for dependency management.
