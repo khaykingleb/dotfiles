@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./agents
     ./iterm2
     ./vscode
     ./zsh
