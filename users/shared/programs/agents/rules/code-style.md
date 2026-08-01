@@ -15,8 +15,10 @@
 
 ## Comments and Documentation
 
-- No comments that narrate what the code does.
-- Document public API. Comment non-obvious "why" decisions — not "what".
+- Document public APIs.
+- Explain non-obvious constraints, tradeoffs, or reasons—not behavior visible from names and nearby code.
+- Delete comments that merely restate the code or label the following block.
+- Before adding a comment, ask whether the code already makes the behavior clear. If it does, document only why this approach was chosen.
 
 ## Testing
 
