@@ -22,6 +22,10 @@ let
       description = "Go conventions";
       filePatterns = [ "**/*.go" ];
     };
+    nix = {
+      description = "Nix conventions";
+      filePatterns = [ "**/*.nix" ];
+    };
     python = {
       description = "Python conventions";
       filePatterns = [
@@ -33,6 +37,18 @@ let
     rust = {
       description = "Rust conventions";
       filePatterns = [ "**/*.rs" ];
+    };
+    shell = {
+      description = "Shell conventions";
+      filePatterns = [
+        "**/*.bash"
+        "**/*.sh"
+        "**/*.zsh"
+        "**/.bashrc"
+        "**/.zshrc"
+        "**/Justfile"
+        "**/justfile"
+      ];
     };
   };
 
