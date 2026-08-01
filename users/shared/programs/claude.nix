@@ -15,7 +15,7 @@ let
   */
   addMcpServerIfMissing = serverName: serverConfiguration: ''
     if ! claude mcp list 2>/dev/null | grep -q ${lib.escapeShellArg "^${serverName}:"}; then
-      claude mcp add-json --scope user ${lib.escapeShellArg serverName} ${lib.escapeShellArg (builtins.toJSON serverConfiguration)} >/dev/null || true
+      $DRY_RUN_CMD claude mcp add-json --scope user ${lib.escapeShellArg serverName} ${lib.escapeShellArg (builtins.toJSON serverConfiguration)} >/dev/null || true
     fi
   '';
 in

@@ -19,9 +19,8 @@ in
 {
   home.packages = [ pkgs._1password-cli ];
 
-  # Launching `op` costs ~100ms and happens on every shell startup, so
-  # Loads all 1Password environment variables with one op inject call instead
-  programs.zsh.initContent = lib.mkAfter ''
+  # Resolve all references in one `op` process to reduce shell startup latency.
+  programs.zsh.initContent = ''
     if onepassword_environment="$(${lib.getExe' pkgs._1password-cli "op"} inject --account ${lib.escapeShellArg onePasswordAccount} --in-file ${environmentTemplate})"; then
       # Parsed rather than eval'd so secret values are never run as shell code.
       while IFS='=' read -r name value; do
