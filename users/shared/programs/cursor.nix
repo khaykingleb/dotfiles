@@ -1,52 +1,25 @@
-# Cursor rules and Claude Code global instructions
+# Cursor editor configuration
 { config, lib, ... }:
 let
-  extensions = (import ./vscode/extensions.nix) ++ [
+  managedCursorExtensions = (import ./vscode/extensions.nix) ++ [
     "anthropic.claude-code"
     "anysphere.cursorpyright"
     "anysphere.remote-containers"
     "anysphere.remote-ssh"
     "hediet.vscode-drawio"
   ];
-
-  rules = [
-    "code-style.mdc"
-    "decision-approval.mdc"
-    "dotfiles.mdc"
-    "git.mdc"
-    "go.mdc"
-    "kubernetes.mdc"
-    "python.mdc"
-    "rust.mdc"
-  ];
-
-  skills = [
-    "code-review"
-    "linear-ticket-writing"
-    "pr-description"
-  ];
+  mcpServers = (import ./agents/mcp-servers.nix { inherit lib; }).cursor;
 in
 {
   home.file = {
-    ".cursor/mcp.json".source = ./cursor/mcp.json;
+    ".cursor/mcp.json".text = builtins.toJSON { inherit mcpServers; };
     "Library/Application Support/Cursor/User/keybindings.json".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/cursor/keybindings.json";
     "Library/Application Support/Cursor/User/settings.json".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/vscode/settings.json";
-  }
-  // (builtins.listToAttrs (
-    map (name: {
-      name = ".cursor/rules/${name}";
-      value.source = ./cursor/rules/${name};
-    }) rules
-  ))
-  // (builtins.listToAttrs (
-    map (name: {
-      name = ".cursor/skills/${name}/SKILL.md";
-      value.source = ./cursor/skills/${name}/SKILL.md;
-    }) skills
-  ));
+  };
 
+  # Keep Cursor extensions declarative by installing missing entries and removing undeclared ones.
   home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     cursor_bin="/opt/homebrew/bin/cursor"
 
@@ -65,7 +38,7 @@ in
             $DRY_RUN_CMD "$cursor_bin" --install-extension ${extension} &> /dev/null
           fi
           unset 'currentExtensions[${extension}]'
-        '') extensions
+        '') managedCursorExtensions
       )}
 
       for extension in "''${!currentExtensions[@]}"; do

@@ -1,13 +1,7 @@
----
-description: Python conventions
-globs: **/*.py
-alwaysApply: false
----
-
 # Python
 
 - Use `uv` for dependency management.
 - Use `ruff` for linting and formatting. Prefer `pathlib.Path` over `os.path`.
-- Type-annotate everything.
-- Write docstrings in Google style (enforced by `pydoclint`).
 - Use `pytest` with `@pytest.mark.parametrize` for table-driven tests.
+- Type-annotate everything.
+- Write Google-style docstrings, enforced by `pydoclint`.

@@ -10,21 +10,25 @@ let
     TOGETHER_QA_BASE_URL = "op://Employee/Together QA/base_url";
   };
 
-  loadOnePasswordEnvironmentVariable = name: reference: ''
-    if secret_value="$(${lib.getExe' pkgs._1password-cli "op"} read --account ${lib.escapeShellArg onePasswordAccount} ${lib.escapeShellArg reference})"; then
-      export ${name}="$secret_value"
-    else
-      print -u2 "warning: unable to load ${name} from 1Password"
-    fi
-    unset secret_value
-  '';
+  environmentTemplate = pkgs.writeText "onepassword-environment.tpl" (
+    lib.concatStrings (
+      lib.mapAttrsToList (name: reference: "${name}={{ ${reference} }}\n") onePasswordEnvironmentVariables
+    )
+  );
 in
 {
   home.packages = [ pkgs._1password-cli ];
 
-  programs.zsh.initContent = lib.mkAfter (
-    lib.concatStringsSep "\n" (
-      lib.mapAttrsToList loadOnePasswordEnvironmentVariable onePasswordEnvironmentVariables
-    )
-  );
+  # Resolve all references in one `op` process to reduce shell startup latency.
+  programs.zsh.initContent = ''
+    if onepassword_environment="$(${lib.getExe' pkgs._1password-cli "op"} inject --account ${lib.escapeShellArg onePasswordAccount} --in-file ${environmentTemplate})"; then
+      # Parsed rather than eval'd so secret values are never run as shell code.
+      while IFS='=' read -r name value; do
+        [[ -n "$name" ]] && export "$name=$value"
+      done <<< "$onepassword_environment"
+    else
+      print -u2 "warning: unable to load environment from 1Password"
+    fi
+    unset onepassword_environment name value
+  '';
 }

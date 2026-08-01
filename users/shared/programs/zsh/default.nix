@@ -46,8 +46,11 @@
       source ~/.p10k.zsh
 
       # Initialize gcc/clang compilers
+      # Avoid Homebrew subprocesses during shell startup and omit unavailable keg-only packages
       export PATH="/opt/homebrew/opt/gcc/bin:/opt/homebrew/opt/llvm/bin:$PATH"
-      export PKG_CONFIG_PATH="/opt/homebrew/bin/pkg-config:$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix curl)/lib/pkgconfig:$(brew --prefix zlib)/lib/pkgconfig"
+      typeset -aU keg_only_pkgconfig_dirs=(/opt/homebrew/opt/{icu4c,curl,zlib}/lib/pkgconfig(N))
+      export PKG_CONFIG_PATH="''${(j.:.)keg_only_pkgconfig_dirs}"
+      unset keg_only_pkgconfig_dirs
 
       # Update PATH for MacTeX binaries
       eval "$(/usr/libexec/path_helper)"
