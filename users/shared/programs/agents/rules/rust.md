@@ -1,8 +1,3 @@
----
-paths:
-  - "**/*.rs"
----
-
 # Rust
 
 - Prefer `tokio` for async. Avoid `unwrap()` and `expect()` outside tests.

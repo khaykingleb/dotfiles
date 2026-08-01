@@ -1,8 +1,12 @@
 ---
-paths:
-  - "**/*.py"
-  - "**/pyproject.toml"
-  - "**/uv.lock"
+{
+  "description": "Python conventions",
+  "filePatterns": [
+    "**/*.py",
+    "**/pyproject.toml",
+    "**/uv.lock"
+  ]
+}
 ---
 
 # Python

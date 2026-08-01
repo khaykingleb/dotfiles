@@ -1,8 +1,3 @@
----
-description: Git conventions — always apply
-alwaysApply: true
----
-
 # Git
 
 - Commit messages follow Conventional Commits (enforced by semantic-release): `type(scope): description`. Scope is required; use `scope/ticket` when a ticket number is available. Types: `feat`, `fix`, `refactor`, `test`, `chore`, `docs`, `ci`, `build`, `perf`, `revert`. Breaking changes: `feat!:` or `BREAKING CHANGE:` footer.
