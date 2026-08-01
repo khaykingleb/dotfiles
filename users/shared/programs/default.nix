@@ -14,6 +14,7 @@
     ./cursor.nix
     ./direnv.nix
     ./git.nix
+    ./just.nix
     ./krew.nix
     ./ssh.nix
     ./zoxide.nix
