@@ -43,6 +43,11 @@ nix-update-flake:
 nix-gc:
     @nix-collect-garbage
 
+[group('nix')]
+[doc('Delete all non-current Nix generations and collect garbage (removes rollback history)')]
+nix-gc-delete-generations:
+    @sudo nix-collect-garbage -d
+
 [group('misc')]
 [doc('Initialize pre-commit hooks')]
 pre-commit-init:
