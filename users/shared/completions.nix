@@ -48,5 +48,11 @@
       source <(uv generate-shell-completion zsh)
     fi
     # <<< uv completions
+
+    # >>> Just completions
+    if (( $+commands[just] )); then
+      source <(just --completions zsh)
+    fi
+    # <<< Just completions
   '';
 }
