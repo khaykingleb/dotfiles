@@ -16,6 +16,7 @@
     ./git.nix
     ./krew.nix
     ./ssh.nix
+    ./tmux.nix
     ./zoxide.nix
   ];
 }

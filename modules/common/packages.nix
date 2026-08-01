@@ -20,7 +20,6 @@
     rsync # file transfer to or from a remote host (but not between two remote hosts)
     tree # directory tree viewer
     tldr # simplified man pages
-    tmux # terminal multiplexer
     moreutils # collection of tools
     bat # cat replacement
     dua # du replacement
