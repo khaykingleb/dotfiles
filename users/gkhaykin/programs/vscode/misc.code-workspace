@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "path": "../../.config/dotfiles",
+      "name": "dotfiles"
+    },
+    {
+      "path": "general",
+      "name": "general"
+    },
+    {
+      "path": "important",
+      "name": "important"
+    },
+    {
+      "path": "oss",
+      "name": "oss"
+    }
+  ],
+  "settings": {
+    "python-envs.workspaceSearchPaths": [
+      "./**/.venv"
+    ]
+  }
+}

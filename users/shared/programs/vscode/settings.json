@@ -61,5 +61,5 @@
     "**/.forgejo/workflows/*.yaml"
   ],
   /* Python */
-  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3"
+  "python-envs.alwaysUseUv": true
 }
