@@ -16,6 +16,22 @@ repos:
     hooks:
       - id: gitleaks
 
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.48.0
+    hooks:
+      - id: typos
+        exclude: "users/shared/programs/zsh/p10k.zsh"
+
+  - repo: https://github.com/hukkin/mdformat
+    rev: 1.0.0
+    hooks:
+      - id: mdformat
+        args:
+          - --number
+        additional_dependencies:
+          - "mdformat-gfm==1.0.0"
+          - "mdformat-frontmatter==2.1.2"
+
   - repo: https://github.com/scop/pre-commit-shfmt
     rev: v3.13.1-1
     hooks:

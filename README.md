@@ -15,32 +15,36 @@ Agent rules, skills, and MCP servers are defined once in `users/shared/programs/
 
 ## Layout
 
-| Path | Contents |
-| --- | --- |
-| `flake.nix` | Inputs and `darwinConfigurations` for each host |
-| `modules/` | System-level configuration and the package set |
-| `systems/` | Per-host configuration, keyed by hostname |
-| `users/shared/` | Program configuration shared across users |
-| `users/<name>/` | Per-user overrides |
+| Path            | Contents                                        |
+| --------------- | ----------------------------------------------- |
+| `flake.nix`     | Inputs and `darwinConfigurations` for each host |
+| `modules/`      | System-level configuration and the package set  |
+| `systems/`      | Per-host configuration, keyed by hostname       |
+| `users/shared/` | Program configuration shared across users       |
+| `users/<name>/` | Per-user overrides                              |
 
 ## Setup
 
 1. Install Nix using the [Determinate Systems installer](https://install.determinate.systems/):
-    ```shell
-    just nix-install
-    ```
+
+   ```shell
+   just nix-install
+   ```
 
 2. Clone the repository:
-    ```shell
-    git clone https://github.com/khaykingleb/dotfiles.git ~/.config/dotfiles
-    cd ~/.config/dotfiles
-    ```
+
+   ```shell
+   git clone https://github.com/khaykingleb/dotfiles.git ~/.config/dotfiles
+   cd ~/.config/dotfiles
+   ```
 
 3. Apply the configuration for your machine:
-    ```shell
-    just nix-apply <hostname>
-    ```
-    where `<hostname>` is one of the systems defined in `flake.nix` (e.g. `macbook-pro-m4`).
+
+   ```shell
+   just nix-apply <hostname>
+   ```
+
+   where `<hostname>` is one of the systems defined in `flake.nix` (e.g. `macbook-pro-m4`).
 
 ## Usage
 
