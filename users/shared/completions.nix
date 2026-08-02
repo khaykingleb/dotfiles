@@ -1,52 +1,69 @@
-{ ... }:
+{ config, lib, ... }:
+let
+  completionsDirectory = "${config.home.homeDirectory}/.zsh/completions";
+
+  # Generate completion scripts during activation because invoking each tool
+  # from zsh init adds startup latency to every interactive and agent shell.
+  completionCommands = [
+    "argocd completion zsh"
+    "buf completion zsh"
+    "docker completion zsh"
+    "helm completion zsh"
+    "just --completions zsh"
+    "kubectl completion zsh"
+    "kubie generate-completion zsh"
+    "pnpm completion zsh"
+    "supabase completion zsh"
+    "uv generate-shell-completion zsh"
+  ];
+in
 {
-  home.activation.docker = ''
-    docker_bin="/usr/local/bin/docker"
-    if [[ ! -x "$docker_bin" ]]; then
-      docker_bin="$(command -v docker || true)"
-    fi
-    if [[ -z "$docker_bin" ]]; then
-      echo "Docker CLI is not available; skipping completions"
-    elif [[ ! -f ~/.docker/completions/_docker ]]; then
-      echo "Setting up docker completions"
-      mkdir -p ~/.docker/completions
-      "$docker_bin" completion zsh > ~/.docker/completions/_docker
-    else
-      echo "Docker completions already set up"
-    fi
+  # Regenerate rather than reuse cached files because asdf upgrades can change
+  # command interfaces and their completions.
+  home.activation.generateZshCompletions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    (
+      # asdf shims and Docker Desktop live outside the Nix activation's PATH.
+      PATH="$HOME/.asdf/shims:/usr/local/bin:$PATH"
+
+      generate_zsh_completion() {
+        local file="_$1"
+        local errors
+        command -v "$1" >/dev/null 2>&1 || return 0
+        if [[ -v DRY_RUN ]]; then
+          verboseEcho "Would generate ${completionsDirectory}/$file"
+        elif ! errors=$("$@" 2>&1 > ${lib.escapeShellArg completionsDirectory}/"$file"); then
+          rm -f ${lib.escapeShellArg completionsDirectory}/"$file"
+          echo "warning: failed to generate zsh completion $file: $errors" >&2
+        fi
+      }
+
+      run mkdir -p ${lib.escapeShellArg completionsDirectory}
+      ${lib.concatStringsSep "\n      " (
+        map (command: "generate_zsh_completion ${command}") completionCommands
+      )}
+    )
   '';
+
   programs.zsh.initContent = ''
+    # >>> Generated completions
+    FPATH="${completionsDirectory}:$FPATH"
+    # <<< Generated completions
+
     # >>> ASDF completions
     # https://asdf-vm.com/guide/getting-started-legacy.html
     FPATH="$HOME/.asdf/completions:$FPATH"
     # <<< ASDF completions
 
-    # >>> Docker completions
-    # https://docs.docker.com/engine/cli/completion/#zsh
-    FPATH="$HOME/.docker/completions:$FPATH"
     autoload -Uz compinit
     compinit
-    # <<< Docker completions
 
-    # >>> Terraform completions
-    if (( $+commands[terraform] )); then
-      autoload -U +X bashcompinit && bashcompinit
-      complete -o nospace -C terraform terraform
-    fi
-    # <<< Terraform completions
-
-    # >>> Kubectl completions
-    # https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/
-    if (( $+commands[kubectl] )); then
-      source <(kubectl completion zsh)
-    fi
-    # <<< Kubectl completions
-
-    # >>> uv completions
-    # https://docs.astral.sh/uv/cli/completion/
-    if (( $+commands[uv] )); then
-      source <(uv generate-shell-completion zsh)
-    fi
-    # <<< uv completions
+    # <<< Bash-style completers
+    # These tools expose Bash-compatible external completers rather than native
+    # zsh completion functions.
+    autoload -U +X bashcompinit && bashcompinit
+    (( $+commands[terraform] )) && complete -o nospace -C terraform terraform
+    (( $+commands[tofu] )) && complete -o nospace -C tofu tofu
+    (( $+commands[aws_completer] )) && complete -C aws_completer aws
+    # <<< Bash-style completers
   '';
 }

@@ -31,7 +31,7 @@ nix-uninstall:
 [doc('Apply nix-darwin configuration for a given host')]
 nix-apply host:
     @echo "Applying nix-darwin configuration for {{ host }}."
-    @nix run nix-darwin -- switch --flake .#{{ host }} --show-trace
+    @sudo nix run nix-darwin -- switch --flake .#{{ host }} --show-trace
 
 [group('nix')]
 [doc('Update the flake.lock file')]

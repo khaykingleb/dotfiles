@@ -52,7 +52,7 @@
   "naumovs.color-highlight"
   "streetsidesoftware.code-spell-checker"
 
-  # Research and writing
+  # Research, data, and writing
   "ms-toolsai.jupyter"
   "ms-toolsai.jupyter-renderers"
   "ms-toolsai.jupyter-keymap"
@@ -61,6 +61,7 @@
   "yy0931.mplstyle"
   "james-yu.latex-workshop"
   "tintinweb.graphviz-interactive-preview"
+  "lucien-martijn.parquet-visualizer"
 
   # Misc
   "ms-vsliveshare.vsliveshare"

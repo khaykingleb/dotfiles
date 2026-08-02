@@ -20,7 +20,6 @@
     rsync # file transfer to or from a remote host (but not between two remote hosts)
     tree # directory tree viewer
     tldr # simplified man pages
-    tmux # terminal multiplexer
     moreutils # collection of tools
     bat # cat replacement
     dua # du replacement
@@ -68,8 +67,11 @@
     clusterctl # cluster API CLI for managing Kubernetes clusters
     kubecm # manage and switch between multiple kubeconfigs
 
+    # Language servers
+    just-lsp
+    nixd
+
     # Nix-related packages
-    nil
     nixfmt
   ];
 }

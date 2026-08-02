@@ -3,6 +3,7 @@
   imports = [
     ../shared/programs
     ./onepassword.nix
+    ./programs/vscode
 
     ../shared/completions.nix
     ../shared/fonts.nix
