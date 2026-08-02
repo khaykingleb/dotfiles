@@ -22,6 +22,6 @@ Ask structured questions only for genuine forks: decisions the discussion cannot
 ## Doing the Work
 
 - Treat questions, exploration, and requests for recommendations as read-only. Do not edit files or change repository state unless the user explicitly asks for implementation.
-- Obtain explicit approval before widening the agreed scope, rewriting or reformatting beyond what the change requires, deleting anything, or creating a repository.
+- Obtain explicit approval before widening the agreed scope, rewriting or reformatting beyond what the change requires, deleting anything the change does not replace, or creating a repository.
 - If the user questions or redirects an active implementation, pause all mutations, answer the question, and wait for explicit confirmation before continuing.
 - Routine, reversible implementation details within an explicitly approved approach do not require additional approval.

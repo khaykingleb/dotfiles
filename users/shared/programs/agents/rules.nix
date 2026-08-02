@@ -2,8 +2,8 @@
 let
   # Absence of `filePatterns` in a rule means it always loads when the agent is active.
   rules = {
-    code-style = {
-      description = "Core coding standards";
+    code-principles = {
+      description = "Principles and practices for writing code";
     };
     collaboration = {
       description = "Discuss changes before implementing and act only with approval";
