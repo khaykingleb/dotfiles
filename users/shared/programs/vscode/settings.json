@@ -15,7 +15,6 @@
   "files.trimTrailingWhitespace": true,
   /* Theme & Icons */
   "workbench.colorTheme": "Default Dark Modern",
-  "workbench.preferredDarkColorTheme": "Default Dark Modern",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editorAssociations": {
     "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
