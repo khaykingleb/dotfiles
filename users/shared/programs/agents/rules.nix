@@ -5,8 +5,11 @@ let
     code-style = {
       description = "Core coding standards";
     };
-    decision-approval = {
-      description = "Require approval for meaningful implementation decisions";
+    collaboration = {
+      description = "Discuss changes before implementing and act only with approval";
+    };
+    commands = {
+      description = "What the agent may execute, graded by blast radius";
     };
     dotfiles = {
       description = "Personal preference and agent configuration storage";
