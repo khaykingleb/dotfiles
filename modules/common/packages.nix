@@ -67,8 +67,11 @@
     clusterctl # cluster API CLI for managing Kubernetes clusters
     kubecm # manage and switch between multiple kubeconfigs
 
-    # Nix-related packages
+    # Language servers
+    just-lsp
     nil
+
+    # Nix-related packages
     nixfmt
   ];
 }

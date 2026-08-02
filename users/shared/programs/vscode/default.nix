@@ -15,6 +15,7 @@ in
     # to the settings.json file in the repo and not copies the file into the Nix store
     # Thus, the settings.json is writable by the user
     file."Library/Application Support/Code/User/settings.json" = {
+      force = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/vscode/settings.json";
     };
 
