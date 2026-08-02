@@ -69,7 +69,7 @@
 
     # Language servers
     just-lsp
-    nil
+    nixd
 
     # Nix-related packages
     nixfmt

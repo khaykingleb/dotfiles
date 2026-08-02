@@ -1,7 +1,7 @@
 {
   /* UI & Interface */
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.fontSize": 13,
   "editor.rulers": [
@@ -28,9 +28,9 @@
   "notebook.output.textLineLimit": 120,
   /* Nix */
   "nix.enableLanguageServer": true,
-  "nix.serverPath": "nil",
+  "nix.serverPath": "nixd",
   "nix.serverSettings": {
-    "nil": {
+    "nixd": {
       "formatting": {
         "command": [
           "nixfmt"

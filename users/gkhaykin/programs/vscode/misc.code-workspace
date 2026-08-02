@@ -18,6 +18,26 @@
     }
   ],
   "settings": {
+    "nix.serverSettings": {
+      "nixd": {
+        "formatting": {
+          "command": [
+            "nixfmt"
+          ]
+        },
+        "nixpkgs": {
+          "expr": "import (builtins.getFlake \"${workspaceFolder:dotfiles}\").inputs.nixpkgs { }"
+        },
+        "options": {
+          "home-manager": {
+            "expr": "(builtins.getFlake \"${workspaceFolder:dotfiles}\").darwinConfigurations.macbook-pro-m4-together.options.home-manager.users.type.getSubOptions []"
+          },
+          "nix-darwin": {
+            "expr": "(builtins.getFlake \"${workspaceFolder:dotfiles}\").darwinConfigurations.macbook-pro-m4-together.options"
+          }
+        }
+      }
+    },
     "python-envs.workspaceSearchPaths": [
       "./**/.venv"
     ]
