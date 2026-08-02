@@ -27,12 +27,13 @@ in
 
       generate_zsh_completion() {
         local file="_$1"
+        local errors
         command -v "$1" >/dev/null 2>&1 || return 0
         if [[ -v DRY_RUN ]]; then
           verboseEcho "Would generate ${completionsDirectory}/$file"
-        elif ! "$@" > ${lib.escapeShellArg completionsDirectory}/"$file" 2>/dev/null; then
+        elif ! errors=$("$@" 2>&1 > ${lib.escapeShellArg completionsDirectory}/"$file"); then
           rm -f ${lib.escapeShellArg completionsDirectory}/"$file"
-          echo "warning: failed to generate zsh completion $file" >&2
+          echo "warning: failed to generate zsh completion $file: $errors" >&2
         fi
       }
 

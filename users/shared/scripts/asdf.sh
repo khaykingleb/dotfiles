@@ -25,7 +25,7 @@ plugins=(
 	"k9s 0.50.9"            # UI to interact with k8s clusters
 	"krew 0.4.5"            # k8s plugin manager
 	"kubectx 0.9.5"         # k8s context switcher
-	"kubie 0.26.0"          # more powerful k8s context switcher
+	"kubie 0.28.0"          # more powerful k8s context switcher
 	"kubeconform 0.7.0"     # k8s schema validator
 	"kube-linter 0.7.2"     # k8s linter
 	"kustomize 5.6.0"       # k8s manifest generator
