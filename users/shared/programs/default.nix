@@ -16,6 +16,7 @@
     ./git.nix
     ./krew.nix
     ./kubie.nix
+    ./nh.nix
     ./ssh.nix
     ./tmux.nix
     ./zoxide.nix

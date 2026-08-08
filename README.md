@@ -28,8 +28,12 @@ Agent rules, skills, and MCP servers are defined once in `users/shared/programs/
 1. Install Nix using the [Determinate Systems installer](https://install.determinate.systems/):
 
    ```shell
-   just nix-install
+   curl --proto '=https' --tlsv1.2 -sSf -L \
+     https://install.determinate.systems/nix/tag/v0.32.2 |
+     sh -s -- install
    ```
+
+   Restart the shell after installation.
 
 2. Clone the repository:
 
@@ -41,10 +45,20 @@ Agent rules, skills, and MCP servers are defined once in `users/shared/programs/
 3. Apply the configuration for your machine:
 
    ```shell
-   just nix-apply <hostname>
+   sudo nix run nix-darwin -- switch \
+     --flake .#<hostname> \
+     --show-trace
    ```
 
    where `<hostname>` is one of the systems defined in `flake.nix` (e.g. `macbook-pro-m4`).
+
+4. Start a new shell, then install the asdf-managed tools:
+
+   ```shell
+   ./users/shared/programs/asdf/install.sh
+   ```
+
+   The initial activation installs `nh` and the asdf runtime. Subsequent configuration changes use the Just recipes below.
 
 ## Usage
 
@@ -53,4 +67,12 @@ just                        # list all available commands
 just nix-apply <hostname>   # apply configuration
 just nix-update-flake       # update flake inputs
 just nix-gc                 # garbage collect unused packages
+```
+
+## Uninstall
+
+Remove the Determinate Nix installation explicitly:
+
+```shell
+/nix/nix-installer uninstall
 ```
