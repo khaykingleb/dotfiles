@@ -20,8 +20,8 @@
       push.autoSetupRemote = true;
       # Pull with rebase instead of merge
       pull.rebase = true;
-      # Automatically setup merge branches when pulling
-      branch.autoSetupMerge = true;
+      # Prune remote branches that have been deleted on the remote
+      fetch.prune = true;
     };
   };
 
