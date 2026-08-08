@@ -3,32 +3,30 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "*.cloud.together.ai" = {
-        user = "gkhaykin";
+        User = "gkhaykin";
       };
       "*.vast.ai" = {
-        identityFile = "${config.home.homeDirectory}/.ssh/vastai";
+        IdentityFile = "${config.home.homeDirectory}/.ssh/vastai";
       };
       "alabama alaska" = {
-        user = "gkhaykin";
-        proxyCommand = "/opt/homebrew/bin/cloudflared access ssh --hostname %h-dc10.myna.ninja/ssh";
+        User = "gkhaykin";
+        ProxyCommand = "/opt/homebrew/bin/cloudflared access ssh --hostname %h-dc10.myna.ninja/ssh";
       };
       "github.com *.github.com" = {
-        hostname = "ssh.github.com";
-        port = 443;
-        user = "git";
-        identityFile = "${config.home.homeDirectory}/.ssh/id_rsa";
-        identitiesOnly = true;
-        extraOptions = {
-          "AddKeysToAgent" = "yes";
-          "UseKeychain" = "yes";
-        };
+        HostName = "ssh.github.com";
+        Port = 443;
+        User = "git";
+        IdentityFile = "${config.home.homeDirectory}/.ssh/id_rsa";
+        IdentitiesOnly = true;
+        AddKeysToAgent = "yes";
+        UseKeychain = "yes";
       };
       "red" = {
-        hostname = "64.247.196.50";
-        user = "shadeform";
-        identityFile = "${config.home.homeDirectory}/Desktop/projects/iclerk/gpu-access/shadeform_private_key.pem";
+        HostName = "64.247.196.50";
+        User = "shadeform";
+        IdentityFile = "${config.home.homeDirectory}/Desktop/projects/iclerk/gpu-access/shadeform_private_key.pem";
       };
     };
   };
