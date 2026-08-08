@@ -66,7 +66,8 @@ let
     "1password"
 
     # Productivity
-    "linear-linear"
+    "finicky"
+    "linear"
     "miro"
 
     # Kubernetes

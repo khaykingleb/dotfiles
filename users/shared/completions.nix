@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   completionsDirectory = "${config.home.homeDirectory}/.zsh/completions";
 
@@ -22,8 +27,8 @@ in
   # command interfaces and their completions.
   home.activation.generateZshCompletions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     (
-      # asdf shims and Docker Desktop live outside the Nix activation's PATH.
-      PATH="$HOME/.asdf/shims:/usr/local/bin:$PATH"
+      # asdf, its shims, and Docker Desktop live outside the activation PATH.
+      PATH="$HOME/.asdf/shims:${lib.makeBinPath [ pkgs.asdf-vm ]}:/usr/local/bin:$PATH"
 
       generate_zsh_completion() {
         local file="_$1"
@@ -48,11 +53,6 @@ in
     # >>> Generated completions
     FPATH="${completionsDirectory}:$FPATH"
     # <<< Generated completions
-
-    # >>> ASDF completions
-    # https://asdf-vm.com/guide/getting-started-legacy.html
-    FPATH="$HOME/.asdf/completions:$FPATH"
-    # <<< ASDF completions
 
     autoload -Uz compinit
     compinit

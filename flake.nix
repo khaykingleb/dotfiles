@@ -35,12 +35,14 @@
     };
 
     # Integrates homebrew with nix-darwin
-    # https://github.com/zhaofengli-wip/nix-homebrew
+    # https://github.com/zhaofengli/nix-homebrew
     nix-homebrew = {
+      # TODO: Return to github:zhaofengli/nix-homebrew after
+      # https://github.com/zhaofengli/nix-homebrew/pull/167 is merged.
       type = "github";
-      owner = "zhaofengli-wip";
+      owner = "zhaofengli";
       repo = "nix-homebrew";
-      inputs.nixpkgs.follows = "nixpkgs";
+      ref = "pull/167/head";
     };
 
     homebrew-bundle = {
@@ -121,7 +123,7 @@
                 autoMigrate = true;
               };
             }
-            ./systems/${name}
+            ./hosts/${name}
           ];
         };
       forAllSystems = nixpkgs.lib.genAttrs systems;

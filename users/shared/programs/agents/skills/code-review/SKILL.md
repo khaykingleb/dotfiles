@@ -61,9 +61,12 @@ For each defect:
 - Assign a severity: `P0` blocks all use, `P1` causes serious failures, `P2` causes ordinary functional failures, or `P3` is a limited but real defect.
 - Use a short, imperative title.
 - Cite the smallest relevant file and line range.
-- Explain the concrete failure scenario and impact.
+- Give a minimal concrete example showing the relevant state or input, the action that triggers the defect, and the resulting failure.
+- Explain the user or operational impact.
 - State why the changed code causes it.
-- Suggest a direction for correction when it is not obvious.
+- Propose a specific correction at the right abstraction level. Include short pseudocode when it makes the solution materially clearer.
+
+Keep the example and correction concise when the failure and fix are straightforward. Include enough detail that the author can verify the claim and act on it without asking for a follow-up explanation.
 
 Order defects by severity.
 
@@ -74,7 +77,8 @@ For each design concern:
 - Mark it as blocking or non-blocking; do not assign defect severity unless it also causes a concrete failure.
 - Use a short, imperative title.
 - Cite the smallest relevant file and line range.
+- Give a concrete example using an actual or representative caller, payload, configuration, state transition, or rollout sequence that exposes the concern.
 - Explain the affected contract, ownership boundary, compatibility concern, or maintenance consequence.
-- Suggest a direction for correction when it is not obvious.
+- Propose a specific correction at the right abstraction level. Include short pseudocode when it makes the solution materially clearer.
 
 Report defects and design concerns in separate sections. If neither has actionable findings, say so plainly and mention any verification gaps.
