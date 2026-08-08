@@ -3,12 +3,6 @@ default:
     @just --list --unsorted --list-heading $'Available commands:\n'
 
 [group('nix')]
-[doc('Upgrade Nix')]
-nix-upgrade:
-    @echo "Upgrading Nix."
-    @sudo -i nix upgrade-nix
-
-[group('nix')]
 [doc('Apply nix-darwin configuration for a given host')]
 nix-apply host:
     @nh darwin switch . -H {{ host }}
