@@ -7,9 +7,6 @@
     neovim
 
     # VCS
-    git
-    diff-so-fancy # git diff formatter
-    gh # github cli
     act # run github actions locally
     dvc # data version control for ML
 

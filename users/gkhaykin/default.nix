@@ -1,8 +1,13 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ../shared/programs
     ./onepassword.nix
+    ./programs/finicky.nix
     ./programs/vscode
 
     ../shared/completions.nix

@@ -1,16 +1,19 @@
 # Runtime version manager
-{ lib, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    asdf-vm
-  ];
-  programs.zsh = {
-    # NOTE: https://asdf-vm.com/guide/getting-started.html
-    initContent = lib.mkAfter ''
-      # >>> ASDF
-      . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
-      export PATH="$HOME/.asdf/shims:$PATH"
-      # <<< ASDF
-    '';
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  home = {
+    packages = [ pkgs.asdf-vm ];
+    sessionVariables.ASDF_DATA_DIR = "${config.home.homeDirectory}/.asdf";
+    sessionPath = [ "${config.home.homeDirectory}/.asdf/shims" ];
   };
+
+  # Restore asdf shim precedence after macOS path_helper moves system paths to the front
+  programs.zsh.initContent = lib.mkAfter ''
+    path=("$ASDF_DATA_DIR/shims" $path)
+  '';
 }

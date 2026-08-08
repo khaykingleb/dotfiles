@@ -17,6 +17,9 @@ let
     git = {
       description = "Git conventions";
     };
+    worktrees = {
+      description = "Explicit naming conventions for Git worktrees";
+    };
     kubernetes = {
       description = "Kubernetes command conventions";
     };

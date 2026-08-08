@@ -3,8 +3,6 @@
 {
   programs.git = {
     enable = true;
-    userName = "Gleb Khaykin";
-    userEmail = "khaykingleb@gmail.com";
 
     # Use git-lfs for large files
     lfs = {
@@ -12,12 +10,11 @@
       skipSmudge = true;
     };
 
-    # Use diff-so-fancy for better git diffs
-    diff-so-fancy = {
-      enable = true;
-    };
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Gleb Khaykin";
+        email = "khaykingleb@gmail.com";
+      };
       # Push to remote automatically if it's not set
       # (you don't need to run `git push --set-upstream origin <branch>` every time)
       push.autoSetupRemote = true;
@@ -26,5 +23,11 @@
       # Automatically setup merge branches when pulling
       branch.autoSetupMerge = true;
     };
+  };
+
+  # Use diff-so-fancy for better git diffs
+  programs.diff-so-fancy = {
+    enable = true;
+    enableGitIntegration = true;
   };
 }
