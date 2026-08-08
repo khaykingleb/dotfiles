@@ -22,6 +22,14 @@
       pull.rebase = true;
       # Prune remote branches that have been deleted on the remote
       fetch.prune = true;
+
+      # Produce cleaner diffs and include the common ancestor in conflict markers.
+      diff.algorithm = "histogram";
+      diff.colorMoved = "default";
+      merge.conflictStyle = "zdiff3";
+
+      # Reuse recorded conflict resolutions across rebases and merges.
+      rerere.enabled = true;
       # Delete only merged local branches whose upstream was removed.
       alias.cleanup-branches = ''
         !f() {
