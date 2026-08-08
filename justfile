@@ -66,6 +66,6 @@ pre-commit-run:
     @pre-commit run --all-files
 
 [group('misc')]
-[doc('Install asdf plugins')]
-asdf-install:
-    @./users/shared/scripts/asdf.sh
+[doc('Reconcile asdf plugins and tool versions')]
+asdf-sync:
+    @./users/shared/programs/asdf/install.sh

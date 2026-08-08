@@ -1,0 +1,40 @@
+# Languages and runtimes
+python 3.12.9
+rust 1.97.1
+golang 1.25.5
+nodejs 23.6.1
+
+# Package managers
+uv 0.10.8
+pnpm 9.15.5
+yarn 1.22.22
+
+# Infrastructure as code
+terraform 1.12.1
+opentofu 1.9.0
+tflint 0.55.1
+terraform-docs 0.19.0
+
+# Kubernetes
+kubectl 1.36.3
+k3s 1.36.3+k3s1
+helm 3.17.0
+k3d 5.8.1
+k9s 0.50.9
+krew 0.4.5
+kubectx 0.9.5
+kubie 0.28.0
+kubeconform 0.7.0
+kube-linter 0.7.2
+kustomize 5.8.1
+tilt 0.33.22
+argocd 3.5.0
+
+# Backend and AI
+supabase-cli 2.12.1
+ollama 0.6.3
+
+# Development tools
+pre-commit 4.3.0
+buf 1.61.0
+just 1.46.0

@@ -6,11 +6,10 @@
     ./vscode
     ./zsh
 
-    ./asdf.nix
+    ./asdf
     ./atuin.nix
     ./awscli.nix
     ./claude.nix
-    ./conda.nix
     ./cursor.nix
     ./direnv.nix
     ./gh.nix
