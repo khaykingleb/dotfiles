@@ -29,7 +29,7 @@ Agent rules, skills, and MCP servers are defined once in `users/shared/programs/
 
    ```shell
    curl --proto '=https' --tlsv1.2 -sSf -L \
-     https://install.determinate.systems/nix/tag/v0.32.2 |
+     https://install.determinate.systems/nix |
      sh -s -- install
    ```
 
@@ -42,7 +42,7 @@ Agent rules, skills, and MCP servers are defined once in `users/shared/programs/
    cd ~/.config/dotfiles
    ```
 
-3. Apply the configuration for your machine:
+3. Bootstrap the configuration for your machine:
 
    ```shell
    sudo nix run nix-darwin -- switch \
@@ -52,21 +52,32 @@ Agent rules, skills, and MCP servers are defined once in `users/shared/programs/
 
    where `<hostname>` is one of the systems defined in `flake.nix` (e.g. `macbook-pro-m4`).
 
-4. Start a new shell, then install the asdf-managed tools:
+4. Start a new shell, then reconcile the asdf-managed tools:
 
    ```shell
    ./users/shared/programs/asdf/install.sh
    ```
 
-   The initial activation installs `nh` and the asdf runtime. Subsequent configuration changes use the Just recipes below.
+5. Install the repository hooks:
+
+   ```shell
+   just pre-commit-init
+   ```
+
+The initial activation installs `nh` and the asdf runtime. Subsequent configuration changes use the Just recipes below.
 
 ## Usage
 
 ```shell
-just                        # list all available commands
-just nix-apply <hostname>   # apply configuration
-just nix-update-flake       # update flake inputs
-just nix-gc                 # garbage collect unused packages
+just                                      # list all available commands
+just nix-apply <hostname>                 # build, diff, and apply a host
+just nix-update-flake                     # update all flake inputs
+just nix-update-flake nixpkgs             # update selected flake inputs
+just nix-clean                            # clean old generations, keeping recent rollbacks
+just asdf-sync                            # reconcile asdf plugins and versions
+just pre-commit-init                      # install pre-commit and commit-msg hooks
+just pre-commit-update                    # update hook revisions
+just pre-commit-run                       # run all hooks
 ```
 
 ## Uninstall
