@@ -66,6 +66,7 @@ let
     "1password"
 
     # Productivity
+    "finicky"
     "linear"
     "miro"
 
