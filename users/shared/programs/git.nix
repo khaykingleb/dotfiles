@@ -22,6 +22,18 @@
       pull.rebase = true;
       # Prune remote branches that have been deleted on the remote
       fetch.prune = true;
+      # Delete only merged local branches whose upstream was removed.
+      alias.cleanup-branches = ''
+        !f() {
+          git fetch --prune || return
+          git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads |
+            while read -r branch tracking; do
+              if [ "$tracking" = "[gone]" ]; then
+                git branch -d "$branch"
+              fi
+            done
+        }; f
+      '';
     };
   };
 
