@@ -49,11 +49,6 @@ in
     FPATH="${completionsDirectory}:$FPATH"
     # <<< Generated completions
 
-    # >>> ASDF completions
-    # https://asdf-vm.com/guide/getting-started-legacy.html
-    FPATH="$HOME/.asdf/completions:$FPATH"
-    # <<< ASDF completions
-
     autoload -Uz compinit
     compinit
 

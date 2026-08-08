@@ -6,7 +6,7 @@ install_plugin() {
 	echo "Installing $plugin $version..."
 	asdf plugin add "$plugin" 2>/dev/null || true
 	asdf install "$plugin" "$version" || echo "Failed to install $plugin $version"
-	asdf global "$plugin" "$version"
+	asdf set --home "$plugin" "$version"
 }
 
 plugins=(
