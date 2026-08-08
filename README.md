@@ -19,7 +19,7 @@ Agent rules, skills, and MCP servers are defined once in `users/shared/programs/
 | --------------- | ----------------------------------------------- |
 | `flake.nix`     | Inputs and `darwinConfigurations` for each host |
 | `modules/`      | System-level configuration and the package set  |
-| `systems/`      | Per-host configuration, keyed by hostname       |
+| `hosts/`        | Per-host configuration, keyed by hostname       |
 | `users/shared/` | Program configuration shared across users       |
 | `users/<name>/` | Per-user overrides                              |
 

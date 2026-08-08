@@ -123,7 +123,7 @@
                 autoMigrate = true;
               };
             }
-            ./systems/${name}
+            ./hosts/${name}
           ];
         };
       forAllSystems = nixpkgs.lib.genAttrs systems;
