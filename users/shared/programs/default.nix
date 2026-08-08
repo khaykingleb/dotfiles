@@ -13,6 +13,7 @@
     ./conda.nix
     ./cursor.nix
     ./direnv.nix
+    ./gh.nix
     ./git.nix
     ./krew.nix
     ./ssh.nix
