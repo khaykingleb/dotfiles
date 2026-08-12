@@ -8,6 +8,7 @@ let
   onePasswordAccount = "together-ai.1password.com";
 
   onePasswordEnvironmentVariables = {
+    ANTHROPIC_API_KEY = "op://Employee/Anthropic/credential";
     NETBOX_TOKEN = "op://Employee/NetBox/credential";
     TOGETHER_PROD_API_KEY = "op://Employee/Together Prod/public_credential";
     TOGETHER_PROD_INTERNAL_API_KEY = "op://Employee/Together Prod/internal_credential";
