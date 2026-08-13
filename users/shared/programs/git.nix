@@ -18,6 +18,9 @@
       # Push to remote automatically if it's not set
       # (you don't need to run `git push --set-upstream origin <branch>` every time)
       push.autoSetupRemote = true;
+      # Only inherit an upstream when the local and remote branch names match.
+      # This prevents feature worktrees created from origin/main from tracking main.
+      branch.autoSetupMerge = "simple";
       # Pull with rebase instead of merge
       pull.rebase = true;
       # Prune remote branches that have been deleted on the remote

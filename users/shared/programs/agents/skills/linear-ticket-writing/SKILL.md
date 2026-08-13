@@ -27,6 +27,14 @@ Do not force a template for small tickets. Bullets are fine when they make the i
 
 Keep acceptance criteria concrete and testable.
 
+## Ticket Boundaries
+
+Tickets track coherent outcomes; pull requests track reviewable implementation units. Do not create one ticket per pull request.
+
+- Use multiple or stacked pull requests under one ticket when they deliver the same outcome incrementally.
+- Split work only when it has an independently valuable or independently trackable outcome.
+- Different repositories, owners, rollout lifecycles, or parallel dependencies are signals to consider a split, not sufficient reasons by themselves.
+
 Default Linear metadata:
 
 - Add the `Model Shaping Platform` label unless the user says otherwise.

@@ -8,10 +8,13 @@ let
   onePasswordAccount = "together-ai.1password.com";
 
   onePasswordEnvironmentVariables = {
+    ANTHROPIC_API_KEY = "op://Employee/Anthropic/credential";
     NETBOX_TOKEN = "op://Employee/NetBox/credential";
-    TOGETHER_PROD_API_KEY = "op://Employee/Together Prod/credential";
+    TOGETHER_PROD_API_KEY = "op://Employee/Together Prod/public_credential";
+    TOGETHER_PROD_INTERNAL_API_KEY = "op://Employee/Together Prod/internal_credential";
     TOGETHER_PROD_BASE_URL = "op://Employee/Together Prod/base_url";
-    TOGETHER_QA_API_KEY = "op://Employee/Together QA/credential";
+    TOGETHER_QA_API_KEY = "op://Employee/Together QA/public_credential";
+    TOGETHER_QA_INTERNAL_API_KEY = "op://Employee/Together QA/internal_credential";
     TOGETHER_QA_BASE_URL = "op://Employee/Together QA/base_url";
   };
 
