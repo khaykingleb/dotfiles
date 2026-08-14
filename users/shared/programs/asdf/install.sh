@@ -77,6 +77,12 @@ if ! krew_plugin_installed neat; then
 	changes=$((changes + 1))
 fi
 
+if ! krew_plugin_installed view-allocations; then
+	announce "Installing Krew plugin: view-allocations"
+	kubectl krew install view-allocations
+	changes=$((changes + 1))
+fi
+
 if ((changes == 0)); then
 	echo "asdf is already in sync"
 elif ((changes == 1)); then
