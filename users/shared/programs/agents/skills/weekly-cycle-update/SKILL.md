@@ -22,11 +22,11 @@ Produce the final update as rendered Markdown that can be copied from Cursor and
 ## Output requirements
 
 - Return only the finished update, with no surrounding commentary or fenced code block.
-- Use standard Markdown links in the form `[MOSH-1234: Ticket title](https://linear.app/...)`. Cursor must render these as linked ticket titles before the user copies them; never emit Slack API `<url|label>` syntax or bare Linear URLs.
-- When a summary follows a ticket link, separate the link and em dash with a rendered non-breaking space: `[ticket](URL)&nbsp;— summary`. Do not use an ordinary space there; Slack removes it when pasting rich text.
+- Display tickets as bare Linear URLs. Do not include the ticket ID or title as link text, and never emit Markdown or Slack API link syntax.
+- When a summary follows a ticket URL, separate the URL and em dash with a literal Unicode non-breaking space: `LINEAR_URL — summary`. Never emit the HTML entity `&nbsp;`; Slack displays it as text when pasted.
 - Use Markdown bold syntax (`**text**`). Cursor's rendered formatting is preserved when copied into Slack's rich-text composer.
 - Use semantic nested Markdown ordered lists, not visually indented paragraphs. Every level uses a numeric Markdown marker (`1.`); Slack renders nested ordered-list levels as `1.`, `a.`, and `i.` when the rendered list is copied into its rich-text composer.
-- Preserve exactly three list levels: numbered sections, lettered subsections, and roman-numeral entries. Do not use non-breaking spaces, `<br>` tags, or literal `a.`/`i.` prefixes.
+- Preserve exactly three list levels: numbered sections, lettered subsections, and roman-numeral entries. Do not use non-breaking spaces for indentation, `<br>` tags, or literal `a.`/`i.` prefixes.
 - Keep each ticket summary to one concise sentence.
 - Use the ticket's full outage title when an SRE issue would otherwise be ambiguous.
 - Omit empty optional entries instead of writing filler.
@@ -36,21 +36,21 @@ Produce the final update as rendered Markdown that can be copied from Cursor and
 ```markdown
 1. **Summarize your progress for the past week:**
    1. Update* and list every ticket that was completed, along with a brief summary of its outcome.
-      1. [TICKET-ID: Ticket title](LINEAR_URL)&nbsp;— outcome.
-      2. [TICKET-ID: Ticket title](LINEAR_URL)&nbsp;— outcome.
+      1. LINEAR_URL — outcome.
+      2. LINEAR_URL — outcome.
    2. Update and list every ticket that is still actively WIP, including a description of the progress made over last week and what remains to be done.
-      1. [TICKET-ID: Ticket title](LINEAR_URL)&nbsp;— progress over the past week; remaining work.
-      2. [TICKET-ID: Ticket title](LINEAR_URL)&nbsp;— progress over the past week; remaining work.
+      1. LINEAR_URL — progress over the past week; remaining work.
+      2. LINEAR_URL — progress over the past week; remaining work.
    3. If you had any substantial work that is not tracked in Linear, create and update corresponding tickets. Non-technical contributions (communication, writing, hiring, etc.) do not require tickets, but you are still required to describe them here.
       1. Contribution.
       2. Contribution.
 2. **Write down your plans for the next week. Share these plans with your lead before sending to avoid drastic course corrections.**
    1. Tickets you aim to complete, including a brief description of the next steps.
-      1. [TICKET-ID: Ticket title](LINEAR_URL)&nbsp;— next steps.
+      1. LINEAR_URL — next steps.
    2. Tickets you aim to make progress on, including a brief description of the next steps.
-      1. [TICKET-ID: Ticket title](LINEAR_URL)&nbsp;— next steps.
+      1. LINEAR_URL — next steps.
    3. Tickets you aim to start.
-      1. [TICKET-ID: Ticket title](LINEAR_URL)
+      1. LINEAR_URL
    4. Current/potential blockers, if any:
       1. Blocker.
 ```
