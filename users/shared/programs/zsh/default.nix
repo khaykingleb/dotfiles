@@ -62,7 +62,7 @@
       # Navigate by shell arguments, splitting common command delimiters
       autoload -Uz select-word-style
       select-word-style Shell
-      zstyle ':zle:*' subword-range '][/.=:() -'
+      zstyle ':zle:*' subword-range '][/.=:() _-'
 
       # Navigation by words
       bindkey "^[[1;3D" backward-word  # Option + Left Arrow
