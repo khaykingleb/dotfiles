@@ -52,8 +52,8 @@
       export PKG_CONFIG_PATH="''${(j.:.)keg_only_pkgconfig_dirs}"
       unset keg_only_pkgconfig_dirs
 
-      # Update PATH for MacTeX binaries
-      eval "$(/usr/libexec/path_helper)"
+      # Add MacTeX binaries while preserving existing PATH precedence
+      export PATH="/Library/TeX/texbin:$PATH"
 
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
