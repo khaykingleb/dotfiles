@@ -14,6 +14,9 @@
   ];
 
   config = {
+    # Allow Touch ID for sudo while retaining password authentication as a fallback
+    security.pam.services.sudo_local.touchIdAuth = true;
+
     system = {
       stateVersion = 5;
       primaryUser = user;
