@@ -79,6 +79,9 @@ in
   homebrew = {
     enable = true;
 
+    # Remove undeclared formulae and casks without applying cask zap actions
+    onActivation.cleanup = "uninstall";
+
     # NOTE: list of dependencies that shouldn't be isolated with nix as this binaries
     # will be used to build other tools. That's why we're installing them here with homebrew
     brews = [
