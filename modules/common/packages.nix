@@ -56,7 +56,9 @@
     glances # system monitoring
 
     # Containers and security
+    crane # inspect and transfer container images without a local daemon
     ctop # container viewer
+    dive # inspect container image layers and size
     lazydocker # docker container manager
     trivy # scan container images, filesystems, and IaC for vulnerabilities
 
@@ -72,6 +74,7 @@
     # Kubernetes and virtualization
     clusterctl # cluster API CLI for managing Kubernetes clusters
     kubecm # manage and switch between multiple kubeconfigs
+    stern # stream logs from multiple pods
 
     # Language servers
     just-lsp
