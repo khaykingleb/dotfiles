@@ -26,6 +26,7 @@ let
     # Communication
     "slack"
     "zoom"
+    "readdle-spark"
 
     # Research and writing
     "mathpix-snipping-tool"
@@ -47,17 +48,10 @@ let
   ];
 
   personalCasks = lib.lists.flatten [
-    # Security
-    "keepassxc"
-
     # Productivity
     "anki"
 
-    # Communication
-    "notion-mail"
-
     # Misc
-    "readdle-spark"
     "steam"
     "obs"
   ];
