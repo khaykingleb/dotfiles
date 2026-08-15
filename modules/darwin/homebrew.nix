@@ -5,6 +5,7 @@ let
     "visual-studio-code"
     "chatgpt"
     "cursor"
+    "zed"
     "claude"
     "claude-code"
     "iterm2"
