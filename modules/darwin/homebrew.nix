@@ -5,6 +5,7 @@ let
     "visual-studio-code"
     "chatgpt"
     "cursor"
+    "zed"
     "claude"
     "claude-code"
     "iterm2"
@@ -25,6 +26,7 @@ let
     # Communication
     "slack"
     "zoom"
+    "readdle-spark"
 
     # Research and writing
     "mathpix-snipping-tool"
@@ -46,17 +48,10 @@ let
   ];
 
   personalCasks = lib.lists.flatten [
-    # Security
-    "keepassxc"
-
     # Productivity
     "anki"
 
-    # Communication
-    "notion-mail"
-
     # Misc
-    "readdle-spark"
     "steam"
     "obs"
   ];
@@ -77,6 +72,9 @@ in
 {
   homebrew = {
     enable = true;
+
+    # Remove undeclared formulae and casks without applying cask zap actions
+    onActivation.cleanup = "uninstall";
 
     # NOTE: list of dependencies that shouldn't be isolated with nix as this binaries
     # will be used to build other tools. That's why we're installing them here with homebrew

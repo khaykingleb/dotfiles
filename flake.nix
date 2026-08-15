@@ -37,12 +37,9 @@
     # Integrates homebrew with nix-darwin
     # https://github.com/zhaofengli/nix-homebrew
     nix-homebrew = {
-      # TODO: Return to github:zhaofengli/nix-homebrew after
-      # https://github.com/zhaofengli/nix-homebrew/pull/167 is merged.
       type = "github";
       owner = "zhaofengli";
       repo = "nix-homebrew";
-      ref = "pull/167/head";
     };
 
     homebrew-bundle = {

@@ -52,8 +52,8 @@
       export PKG_CONFIG_PATH="''${(j.:.)keg_only_pkgconfig_dirs}"
       unset keg_only_pkgconfig_dirs
 
-      # Update PATH for MacTeX binaries
-      eval "$(/usr/libexec/path_helper)"
+      # Add MacTeX binaries while preserving existing PATH precedence
+      export PATH="/Library/TeX/texbin:$PATH"
 
       # Cursor style
       echo -e -n "\x1b[\x35 q"                  # Use beam shape cursor on startup
@@ -62,7 +62,7 @@
       # Navigate by shell arguments, splitting common command delimiters
       autoload -Uz select-word-style
       select-word-style Shell
-      zstyle ':zle:*' subword-range '][/.=:() -'
+      zstyle ':zle:*' subword-range '][/.=:() _-'
 
       # Navigation by words
       bindkey "^[[1;3D" backward-word  # Option + Left Arrow

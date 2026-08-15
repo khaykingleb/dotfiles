@@ -71,11 +71,13 @@ done <"$tool_versions_file"
 
 asdf reshim
 
-if ! krew_plugin_installed neat; then
-	announce "Installing Krew plugin: neat"
-	kubectl krew install neat
-	changes=$((changes + 1))
-fi
+for krew_plugin in images neat tree view-allocations who-can; do
+	if ! krew_plugin_installed "$krew_plugin"; then
+		announce "Installing Krew plugin: $krew_plugin"
+		kubectl krew install "$krew_plugin"
+		changes=$((changes + 1))
+	fi
+done
 
 if ((changes == 0)); then
 	echo "asdf is already in sync"
