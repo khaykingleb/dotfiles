@@ -1,5 +1,6 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs }:
 let
+  # NOTE:
   # Absence of `filePatterns` in a rule means it always loads when the agent is active.
   rules = {
     code-principles = {
@@ -133,23 +134,8 @@ let
   mkCursorRule =
     name: rule: pkgs.writeText "${name}.mdc" (mkCursorMarkdownFrontmatter rule + readRuleContent name);
 
-  /**
-    Creates `home.file` entries for every rule using a tool-specific generator.
-
-    # Type
-
-    ```
-    mkHomeRuleFiles :: String -> String -> (String -> AttrSet -> Path) -> AttrSet
-    ```
-  */
-  mkHomeRuleFiles =
-    directory: extension: mkRule:
-    lib.mapAttrs' (
-      name: rule: lib.nameValuePair "${directory}/${name}.${extension}" { source = mkRule name rule; }
-    ) rules;
 in
 {
-  home.file =
-    mkHomeRuleFiles ".claude/rules" "md" mkClaudeRule
-    // mkHomeRuleFiles ".cursor/rules" "mdc" mkCursorRule;
+  claude = lib.mapAttrs mkClaudeRule rules;
+  cursor = lib.mapAttrs mkCursorRule rules;
 }

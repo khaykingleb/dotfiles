@@ -11,8 +11,6 @@ Declarative and reproducible environment across machines:
 - Homebrew integration via `nix-homebrew`
 - Cursor and Claude Code configurations from shared definitions
 
-Agent rules, skills, and MCP servers are defined once in `users/shared/programs/agents`. Nix renders them into the per-client format each tool expects, so Cursor and Claude Code stay in sync.
-
 ## Layout
 
 | Path            | Contents                                        |

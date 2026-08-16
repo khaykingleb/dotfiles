@@ -5,13 +5,15 @@ export default {
   defaultBrowser: "Google Chrome",
   handlers: [
     {
-      match: finicky.matchHostnames([
-        "together.ai",
-        /\.together\.ai$/,
-        "together-ai.okta.com",
-        /\.awsapps\.com$/,
-        /^oidc\..+\.amazonaws\.com$/,
-      ]),
+      match: [
+        "together.ai*",
+        "*.together.ai*",
+        "together-ai.okta.com*",
+        "*.awsapps.com*",
+        "oidc.*.amazonaws.com*",
+        "github.com/togethercomputer*",
+        "github.com/orgs/togethercomputer*",
+      ],
       browser: {
         name: "Google Chrome",
         profile: "Together",

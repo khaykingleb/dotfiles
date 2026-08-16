@@ -1,24 +1,29 @@
 { ... }:
 {
   imports = [
-    ./agents
-    ./iterm2
-    ./vscode
-    ./zsh
-
-    ./asdf
-    ./atuin.nix
-    ./awscli.nix
+    # Editors and agents
     ./claude.nix
-    ./cursor.nix
+    ./cursor
+    ./vscode
+
+    # Shell and terminal
+    ./atuin.nix
     ./direnv.nix
-    ./gh.nix
-    ./git.nix
-    ./krew.nix
-    ./kubie.nix
-    ./nh.nix
-    ./ssh.nix
+    ./iterm2
     ./tmux.nix
     ./zoxide.nix
+    ./zsh
+
+    # Development
+    ./asdf
+    ./gh.nix
+    ./git.nix
+    ./nh.nix
+    ./ssh.nix
+
+    # Cloud and Kubernetes
+    ./awscli.nix
+    ./krew.nix
+    ./kubie.nix
   ];
 }
