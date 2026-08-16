@@ -9,6 +9,7 @@ let
 
   onePasswordEnvironmentVariables = {
     ANTHROPIC_API_KEY = "op://Employee/Anthropic/credential";
+    GRAFANA_SERVICE_ACCOUNT_TOKEN = "op://Employee/Grafana MCP Service Account/token";
     NETBOX_TOKEN = "op://Employee/NetBox/credential";
     TOGETHER_PROD_API_KEY = "op://Employee/Together Prod/public_credential";
     TOGETHER_PROD_INTERNAL_API_KEY = "op://Employee/Together Prod/internal_credential";

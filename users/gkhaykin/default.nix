@@ -7,8 +7,7 @@
   imports = [
     ../shared/programs
     ./onepassword.nix
-    ./programs/finicky.nix
-    ./programs/vscode
+    ./programs
 
     ../shared/completions.nix
     ../shared/fonts.nix

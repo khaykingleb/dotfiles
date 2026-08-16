@@ -1,18 +1,22 @@
 # Cursor editor configuration
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 let
-  managedCursorExtensions = (import ./vscode/extensions.nix) ++ [
+  managedCursorExtensions = (import ../vscode/extensions.nix) ++ [
     "anthropic.claude-code"
     "anysphere.cursorpyright"
     "anysphere.remote-containers"
     "anysphere.remote-ssh"
     "hediet.vscode-drawio"
   ];
-  mcpServers = (import ./agents/mcp-servers.nix { inherit lib; }).cursor;
 in
 {
+  imports = [ ./agents.nix ];
+
   home.file = {
-    ".cursor/mcp.json".text = builtins.toJSON { inherit mcpServers; };
     "Library/Application Support/Cursor/User/keybindings.json" = {
       force = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/cursor/keybindings.json";
