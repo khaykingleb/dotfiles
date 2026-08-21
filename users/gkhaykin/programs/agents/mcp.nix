@@ -1,31 +1,56 @@
 { lib, pkgs }:
 let
-  linear.url = "https://mcp.linear.app/mcp";
-  notion.url = "https://mcp.notion.com/mcp";
+  keychainEnvironment = import ../../keychain-environment.nix { inherit pkgs; };
 
-  mkGrafana = tokenReference: {
-    type = "stdio";
-    command = lib.getExe pkgs.mcp-grafana;
-    env = {
-      GRAFANA_URL = "https://togetherai.grafana.net";
-      GRAFANA_SERVICE_ACCOUNT_TOKEN = tokenReference;
+  /**
+    Build a stdio MCP server configuration.
+
+    Servers without secrets run directly. Servers with `secretVariables` run
+    through the Keychain wrapper, which exports only those variables before
+    starting `command` with `args`.
+
+    # Type
+
+    `mkStdioServer :: { command :: String, args ? [String], secretVariables ? [String], env ? AttrSet } -> AttrSet`
+  */
+  mkStdioServer =
+    {
+      command,
+      args ? [ ],
+      secretVariables ? [ ],
+      env ? { },
+    }:
+    {
+      type = "stdio";
+      command = if secretVariables == [ ] then command else lib.getExe keychainEnvironment.package;
+      args =
+        if secretVariables == [ ] then
+          args
+        else
+          secretVariables
+          ++ [
+            "--"
+            command
+          ]
+          ++ args;
+      inherit env;
+    };
+
+  httpMcpServers = {
+    linear.url = "https://mcp.linear.app/mcp";
+    notion.url = "https://mcp.notion.com/mcp";
+  };
+
+  stdioMcpServers = {
+    grafana = mkStdioServer {
+      command = lib.getExe pkgs.mcp-grafana;
+      secretVariables = [ "GRAFANA_SERVICE_ACCOUNT_TOKEN" ];
+      env.GRAFANA_URL = "https://togetherai.grafana.net";
     };
   };
 
-  cursor = {
-    inherit linear notion;
-    grafana = mkGrafana "\${env:GRAFANA_SERVICE_ACCOUNT_TOKEN}";
-  };
-
-  claude = {
-    linear = linear // {
-      type = "http";
-    };
-    notion = notion // {
-      type = "http";
-    };
-    grafana = mkGrafana "\${GRAFANA_SERVICE_ACCOUNT_TOKEN}";
-  };
+  cursor = httpMcpServers // stdioMcpServers;
+  claude = lib.mapAttrs (_: server: server // { type = "http"; }) httpMcpServers // stdioMcpServers;
 in
 {
   inherit cursor claude;
