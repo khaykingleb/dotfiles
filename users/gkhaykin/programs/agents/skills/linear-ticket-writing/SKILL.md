@@ -9,6 +9,11 @@ description: Writes concise, on-point Linear issues. Use when the user asks to c
 
 Write Linear tickets that are concise and on point.
 
+Write every ticket as a standalone artifact for a reader who cannot see the
+originating conversation or pull request. Explain the current problem, why it
+matters, and the desired outcome. Links supplement that explanation; they never
+replace it.
+
 Prefer a short title plus only the context needed to understand the task. Avoid long background sections, speculative future scope, and implementation detail unless it affects the requested work.
 
 Use simple sections only when useful. For feature work, common sections are:
