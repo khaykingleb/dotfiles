@@ -1,5 +1,7 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
+  home.packages = [ pkgs.ssm-session-manager-plugin ];
+
   programs.zsh.initContent = lib.mkAfter ''
     # >>> AWS
     export AWS_SDK_LOAD_CONFIG=1
