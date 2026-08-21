@@ -5,6 +5,10 @@
       "name": "dotfiles"
     },
     {
+      "path": "../../.config/dotfiles-private",
+      "name": "dotfiles-private"
+    },
+    {
       "path": "general",
       "name": "general"
     },
