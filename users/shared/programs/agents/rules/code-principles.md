@@ -25,6 +25,7 @@
 
 - Document every public API. Say what a caller cannot infer from the signature: the contract, the invariants, the error conditions, and the units or ranges of arguments. A one-line restatement is only enough when the API is genuinely trivial.
 - Explain non-obvious constraints, tradeoffs, or reasons — not behavior visible from names and nearby code.
+- Write for a reader who lacks the author's context. For non-obvious glue or lifecycle code, first explain the end-to-end contract: what produces the input, what consumes the output, and why the indirection exists.
 - Write comments about the current contract, invariant, or non-obvious reason. Never describe the diff, mention replaced or removed implementations, restate the code, label a block, or record history; git owns history.
 - When you change code, update or delete the comments describing it. A stale comment is worse than no comment.
 
