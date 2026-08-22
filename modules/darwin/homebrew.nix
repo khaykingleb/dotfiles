@@ -62,6 +62,7 @@ let
 
     # Productivity
     "finicky"
+    "granola"
     "linear"
     "miro"
 
