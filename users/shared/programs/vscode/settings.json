@@ -62,7 +62,6 @@
   ],
   /* Python */
   "python-envs.alwaysUseUv": true,
-  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
   /* Kubernetes */
   // GUI-launched editors don't inherit the shell PATH, so point at the asdf shim
   // (it execs asdf via an absolute nix-store path and needs no environment).
