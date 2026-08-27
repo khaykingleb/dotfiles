@@ -28,6 +28,7 @@ Produce the final update as rendered Markdown that can be copied from Cursor and
 - Use semantic nested Markdown ordered lists, not visually indented paragraphs. Every level uses a numeric Markdown marker (`1.`); Slack renders nested ordered-list levels as `1.`, `a.`, and `i.` when the rendered list is copied into its rich-text composer.
 - Preserve exactly three list levels: numbered sections, lettered subsections, and roman-numeral entries. Do not use non-breaking spaces for indentation, `<br>` tags, or literal `a.`/`i.` prefixes.
 - Keep each ticket summary to one concise sentence.
+- Assume the reader lacks project context. Make each ticket summary understandable without opening the ticket.
 - Use the ticket's full outage title when an SRE issue would otherwise be ambiguous.
 - Omit empty optional entries instead of writing filler.
 
