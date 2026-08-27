@@ -69,4 +69,5 @@
     "vs-kubernetes.kubectl-path": "/Users/gkhaykin/.asdf/shims/kubectl",
   },
   "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+  "explorer.confirmDelete": false,
 }
