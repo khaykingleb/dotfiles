@@ -16,6 +16,13 @@ replace it.
 
 Prefer a short title plus only the context needed to understand the task. Avoid long background sections, speculative future scope, and implementation detail unless it affects the requested work.
 
+Write from the requester's perspective:
+
+- Lead with the behavior or outcome the requester needs and why it matters.
+- Keep repository names, configuration shapes, rollout mechanics, and other implementation details out unless they are essential constraints.
+- Write acceptance criteria as observable outcomes rather than prescribed code changes.
+- Make every subticket understandable without reading its parent.
+
 Use simple sections only when useful. For feature work, common sections are:
 
 - Goal
@@ -31,6 +38,8 @@ For bugs, common sections are:
 Do not force a template for small tickets. Bullets are fine when they make the issue easier to scan.
 
 Keep acceptance criteria concrete and testable.
+
+Before finalizing, read the title and description as a request. If they read like an engineering plan, rewrite them around the desired outcome and move only essential implementation constraints into Notes.
 
 ## Ticket Boundaries
 
