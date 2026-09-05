@@ -23,17 +23,6 @@ plugin_installed() {
 	return 1
 }
 
-krew_plugin_installed() {
-	local expected=$1
-	local installed
-
-	while IFS= read -r installed; do
-		[[ "$installed" == "$expected" ]] && return 0
-	done < <(kubectl krew list)
-
-	return 1
-}
-
 command -v asdf >/dev/null 2>&1 || {
 	echo "asdf is not available" >&2
 	exit 1
@@ -70,14 +59,6 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 done <"$tool_versions_file"
 
 asdf reshim
-
-for krew_plugin in images neat tree view-allocations who-can; do
-	if ! krew_plugin_installed "$krew_plugin"; then
-		announce "Installing Krew plugin: $krew_plugin"
-		kubectl krew install "$krew_plugin"
-		changes=$((changes + 1))
-	fi
-done
 
 if ((changes == 0)); then
 	echo "asdf is already in sync"

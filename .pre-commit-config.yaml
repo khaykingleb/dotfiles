@@ -20,7 +20,7 @@ repos:
     rev: v1.48.0
     hooks:
       - id: typos
-        exclude: "users/shared/programs/zsh/p10k.zsh"
+        exclude: "nix/users/shared/programs/zsh/p10k.zsh"
 
   - repo: https://github.com/hukkin/mdformat
     rev: 1.0.0
@@ -36,13 +36,13 @@ repos:
     rev: v3.13.1-1
     hooks:
       - id: shfmt
-        exclude: "users/shared/programs/zsh/p10k.zsh"
+        exclude: "nix/users/shared/programs/zsh/p10k.zsh"
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.10.0.1
     hooks:
       - id: shellcheck
-        exclude: "users/shared/programs/zsh/p10k.zsh"
+        exclude: "nix/users/shared/programs/zsh/p10k.zsh"
 
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.12

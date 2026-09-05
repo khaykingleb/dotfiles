@@ -5,6 +5,6 @@
       LoadPrefsFromCustomFolder -bool true
     $DRY_RUN_CMD /usr/bin/defaults write com.googlecode.iterm2 \
       PrefsCustomFolder -string \
-      "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/iterm2"
+      "${config.home.homeDirectory}/.config/dotfiles/nix/users/shared/programs/iterm2"
   '';
 }

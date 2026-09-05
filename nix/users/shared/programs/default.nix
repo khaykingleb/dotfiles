@@ -23,7 +23,7 @@
 
     # Cloud and Kubernetes
     ./awscli.nix
-    ./krew.nix
+    ./krew
     ./kubie.nix
   ];
 }

@@ -1,0 +1,18 @@
+set working-directory := '..'
+
+[default]
+[private]
+default:
+    @just --justfile nix/justfile --list --unsorted --list-heading $'Available commands:\n'
+
+[doc('Apply nix-darwin configuration for a given host')]
+apply host:
+    @nh darwin switch . -H {{ host }}
+
+[doc('Update all or selected flake inputs')]
+update *inputs='':
+    @nix flake update {{ inputs }}
+
+[doc('Clean old Nix generations while preserving recent rollback history')]
+clean:
+    @nh clean all --keep 5 --keep-since 7d
