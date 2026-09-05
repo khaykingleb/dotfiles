@@ -59,6 +59,7 @@ let
   workCasks = lib.lists.flatten [
     # Security
     "1password"
+    "cloudflare-warp"
 
     # Productivity
     "finicky"
