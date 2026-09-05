@@ -1,0 +1,8 @@
+[default]
+[private]
+default:
+    @just --list --unsorted --list-heading $'Available commands:\n'
+
+[doc('Show the pinned Terraform version')]
+version:
+    @terraform version

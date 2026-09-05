@@ -19,11 +19,11 @@ in
   home.file = {
     "Library/Application Support/Cursor/User/keybindings.json" = {
       force = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/cursor/keybindings.json";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/nix/users/shared/programs/cursor/keybindings.json";
     };
     "Library/Application Support/Cursor/User/settings.json" = {
       force = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/shared/programs/vscode/settings.json";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/nix/users/shared/programs/vscode/settings.json";
     };
   };
 

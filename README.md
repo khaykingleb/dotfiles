@@ -13,13 +13,15 @@ Declarative and reproducible environment across machines:
 
 ## Layout
 
-| Path            | Contents                                        |
-| --------------- | ----------------------------------------------- |
-| `flake.nix`     | Inputs and `darwinConfigurations` for each host |
-| `modules/`      | System-level configuration and the package set  |
-| `hosts/`        | Per-host configuration, keyed by hostname       |
-| `users/shared/` | Program configuration shared across users       |
-| `users/<name>/` | Per-user overrides                              |
+| Path                | Contents                                        |
+| ------------------- | ----------------------------------------------- |
+| `flake.nix`         | Inputs and `darwinConfigurations` for each host |
+| `nix/modules/`      | System-level configuration and the package set  |
+| `nix/hosts/`        | Per-host configuration, keyed by hostname       |
+| `nix/users/shared/` | Program configuration shared across users       |
+| `nix/users/<name>/` | Per-user overrides                              |
+| `terraform/`        | Account-wide Terraform configuration            |
+| `just/`             | Repository task modules                         |
 
 ## Setup
 
@@ -50,16 +52,16 @@ Declarative and reproducible environment across machines:
 
    where `<hostname>` is one of the systems defined in `flake.nix` (e.g. `macbook-pro-m4`).
 
-4. Start a new shell, then reconcile the asdf-managed tools:
+4. Start a new shell, then install the configured asdf tools and Krew plugins:
 
    ```shell
-   ./users/shared/programs/asdf/install.sh
+   just sync
    ```
 
 5. Install the repository hooks:
 
    ```shell
-   just pre-commit-init
+   just setup
    ```
 
 The initial activation installs `nh` and the asdf runtime. Subsequent configuration changes use the Just recipes below.
@@ -68,14 +70,13 @@ The initial activation installs `nh` and the asdf runtime. Subsequent configurat
 
 ```shell
 just                                      # list all available commands
-just nix-apply <hostname>                 # build, diff, and apply a host
-just nix-update-flake                     # update all flake inputs
-just nix-update-flake nixpkgs             # update selected flake inputs
-just nix-clean                            # clean old generations, keeping recent rollbacks
-just asdf-sync                            # reconcile asdf plugins and versions
-just pre-commit-init                      # install pre-commit and commit-msg hooks
-just pre-commit-update                    # update hook revisions
-just pre-commit-run                       # run all hooks
+just setup                                # install repository hooks
+just nix apply <hostname>                 # build, diff, and apply a host
+just nix update                           # update all flake inputs
+just nix update nixpkgs                   # update selected flake inputs
+just nix clean                            # clean old generations, keeping recent rollbacks
+just sync                                 # install configured asdf tools and Krew plugins
+just terraform                            # list Terraform commands
 ```
 
 ## Uninstall
