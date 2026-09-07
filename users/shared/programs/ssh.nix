@@ -18,7 +18,7 @@
         HostName = "ssh.github.com";
         Port = 443;
         User = "git";
-        IdentityFile = "${config.home.homeDirectory}/.ssh/id_rsa";
+        IdentityFile = "${config.home.homeDirectory}/.ssh/id_ed25519";
         IdentitiesOnly = true;
         AddKeysToAgent = "yes";
         UseKeychain = "yes";
