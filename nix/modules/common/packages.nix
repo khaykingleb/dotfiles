@@ -44,10 +44,10 @@
     gping # visualize ping latency over time
     mtr # trace network routes and measure per-hop latency and packet loss
     speedtest-cli # measure internet download/upload speed and latency
-    # Network scanning and packet inspection
+    # Network scanning and traffic inspection
     nmap # port scanner and service/OS fingerprinting for network auditing
-    tcpdump # capture and inspect network packets from the command line
-    wireshark # capture and inspect network packets with a GUI
+    tcpdump # capture and analyze link-layer frames and network-layer packets from the command line
+    wireshark # capture and analyze link-layer frames and network-layer packets with a GUI
     # Traffic and connectivity
     bandwhich # show per-process and per-connection bandwidth usage in real time
     ngrok # expose local servers to the internet through secure tunnels
