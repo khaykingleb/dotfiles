@@ -32,20 +32,26 @@
     ripgrep # recursively search file contents
 
     # API and networking
+    # HTTP
     curl
     wget
+    # gRPC
     grpc-health-probe
     grpcui
     grpcurl
-    speedtest-cli # measure download/upload speed and latency to nearby servers
-    bandwhich # show per-process and per-connection bandwidth usage in real time
+    # Diagnostics
     doggo # modern DNS client: queries A/AAAA/MX/etc records (dig replacement)
     gping # graph ping latency over time in the terminal
-    tailscale # WireGuard-based mesh VPN for connecting devices across networks
-    ngrok # expose local servers to the internet through secure tunnels
-    wireshark # deep packet inspection for capturing and analyzing network traffic
-    nmap # port scanner and service/OS fingerprinting for network auditing
     mtr # combine traceroute and ping to show per-hop latency and packet loss
+    speedtest-cli # measure download/upload speed and latency to nearby servers
+    # Traffic and connectivity
+    bandwhich # show per-process and per-connection bandwidth usage in real time
+    ngrok # expose local servers to the internet through secure tunnels
+    tailscale # WireGuard-based mesh VPN for connecting devices across networks
+    # Packet inspection
+    nmap # port scanner and service/OS fingerprinting for network auditing
+    tcpdump # capture and inspect network packets from the command line
+    wireshark # capture and inspect network packets with a GUI
 
     # System inspection and monitoring
     unixtools.ps # list process status with macOS/BSD-compatible options
