@@ -39,19 +39,19 @@
     grpc-health-probe
     grpcui
     grpcurl
-    # Diagnostics
-    doggo # modern DNS client: queries A/AAAA/MX/etc records (dig replacement)
-    gping # graph ping latency over time in the terminal
-    mtr # combine traceroute and ping to show per-hop latency and packet loss
-    speedtest-cli # measure download/upload speed and latency to nearby servers
+    # Network diagnostics
+    doggo # query DNS records from the command line (dig replacement)
+    gping # visualize ping latency over time
+    mtr # trace network routes and measure per-hop latency and packet loss
+    speedtest-cli # measure internet download/upload speed and latency
+    # Network scanning and packet inspection
+    nmap # port scanner and service/OS fingerprinting for network auditing
+    tcpdump # capture and inspect network packets from the command line
+    wireshark # capture and inspect network packets with a GUI
     # Traffic and connectivity
     bandwhich # show per-process and per-connection bandwidth usage in real time
     ngrok # expose local servers to the internet through secure tunnels
     tailscale # WireGuard-based mesh VPN for connecting devices across networks
-    # Packet inspection
-    nmap # port scanner and service/OS fingerprinting for network auditing
-    tcpdump # capture and inspect network packets from the command line
-    wireshark # capture and inspect network packets with a GUI
 
     # System inspection and monitoring
     unixtools.ps # list process status with macOS/BSD-compatible options
