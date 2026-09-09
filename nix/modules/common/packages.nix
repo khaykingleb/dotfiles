@@ -31,14 +31,13 @@
     yq # yaml processor
     ripgrep # recursively search file contents
 
-    # API and networking
-    # HTTP
+    # HTTP and gRPC
     curl
     wget
-    # gRPC
     grpc-health-probe
     grpcui
     grpcurl
+
     # Core networking tools
     darwin.network_cmds # Apple networking command suite:
     #   arp (inspect and modify the IPv4 address-resolution cache)
@@ -55,19 +54,22 @@
     #   traceroute/traceroute6 (trace the IPv4/IPv6 path to a destination)
     iproute2mac # Linux-style networking wrappers for macOS:
     #   ip (inspect and configure interfaces, addresses, and routes)
-    #   ss (inspect listening and connected sockets)
+    #   ss (inspect socket statistics)
     #   bridge (inspect and configure software bridges)
     netcat # provides nc (open TCP/UDP connections, listen on ports, and transfer raw data)
     # macOS provides networksetup for configuring network services; pinned Nixpkgs does not package it
+
     # Network diagnostics
     doggo # query DNS records from the command line (dig replacement)
     gping # visualize ping latency over time
     mtr # trace network routes and measure per-hop latency and packet loss
     speedtest-cli # measure internet download/upload speed and latency
+
     # Network scanning and traffic inspection
     nmap # port scanner and service/OS fingerprinting for network auditing
     tcpdump # capture and analyze link-layer frames and network-layer packets from the command line
     wireshark # capture and analyze link-layer frames and network-layer packets with a GUI
+
     # Traffic and connectivity
     bandwhich # show per-process and per-connection bandwidth usage in real time
     ngrok # expose local servers to the internet through secure tunnels
