@@ -31,21 +31,49 @@
     yq # yaml processor
     ripgrep # recursively search file contents
 
-    # API and networking
+    # HTTP and gRPC
     curl
     wget
     grpc-health-probe
     grpcui
     grpcurl
-    speedtest-cli # measure download/upload speed and latency to nearby servers
-    bandwhich # show per-process and per-connection bandwidth usage in real time
-    doggo # modern DNS client: queries A/AAAA/MX/etc records (dig replacement)
-    gping # graph ping latency over time in the terminal
-    tailscale # WireGuard-based mesh VPN for connecting devices across networks
-    ngrok # expose local servers to the internet through secure tunnels
-    wireshark # deep packet inspection for capturing and analyzing network traffic
+
+    # Core networking tools
+    darwin.network_cmds # Apple networking command suite:
+    #   arp (inspect and modify the IPv4 address-resolution cache)
+    #   dnctl (configure dummynet traffic shaping and network emulation)
+    #   ifconfig (inspect and configure network interfaces)
+    #   kdumpd (receive remote kernel crash dumps)
+    #   ndp (inspect and modify the IPv6 neighbor-discovery cache)
+    #   netstat (display connections, routes, interfaces, and protocol statistics)
+    #   ping/ping6 (test IPv4/IPv6 reachability and latency)
+    #   rarpd (serve IP addresses to clients using Reverse ARP)
+    #   route (inspect and modify the routing table)
+    #   rtsol (discover IPv6 routers through router solicitation)
+    #   spray (measure packet handling with the RPC spray protocol)
+    #   traceroute/traceroute6 (trace the IPv4/IPv6 path to a destination)
+    iproute2mac # Linux-style networking wrappers for macOS:
+    #   ip (inspect and configure interfaces, addresses, and routes)
+    #   ss (inspect socket statistics)
+    #   bridge (inspect and configure software bridges)
+    netcat # provides nc (open TCP/UDP connections, listen on ports, and transfer raw data)
+    # macOS provides networksetup for configuring network services; pinned Nixpkgs does not package it
+
+    # Network diagnostics
+    doggo # query DNS records from the command line (dig replacement)
+    gping # visualize ping latency over time
+    mtr # trace network routes and measure per-hop latency and packet loss
+    speedtest-cli # measure internet download/upload speed and latency
+
+    # Network scanning and traffic inspection
     nmap # port scanner and service/OS fingerprinting for network auditing
-    mtr # combine traceroute and ping to show per-hop latency and packet loss
+    tcpdump # capture and analyze link-layer frames and network-layer packets from the command line
+    wireshark # capture and analyze link-layer frames and network-layer packets with a GUI
+
+    # Traffic and connectivity
+    bandwhich # show per-process and per-connection bandwidth usage in real time
+    ngrok # expose local servers to the internet through secure tunnels
+    tailscale # WireGuard-based mesh VPN for connecting devices across networks
 
     # System inspection and monitoring
     unixtools.ps # list process status with macOS/BSD-compatible options
