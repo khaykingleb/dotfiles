@@ -57,6 +57,7 @@ repos:
       - id: terraform_validate
         args:
           - --tf-init-args=-backend=false
+          - --tf-init-args=-lockfile=readonly
       - id: terraform_tflint
 
   - repo: https://github.com/terraform-docs/terraform-docs
