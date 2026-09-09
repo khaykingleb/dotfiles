@@ -3,6 +3,13 @@
 default:
     @just --list --unsorted --list-heading $'Available commands:\n'
 
-[doc('Show the pinned Terraform version')]
-version:
-    @terraform version
+[doc('Record provider hashes for macOS and Linux in each root')]
+lock:
+    @for root in */; do \
+        terraform -chdir="$root" providers lock -platform=darwin_arm64 -platform=linux_amd64; \
+    done
+
+[doc('Upgrade providers in a root and re-record the lock')]
+upgrade root:
+    @terraform -chdir={{ root }} init -upgrade -backend=false
+    @just lock
