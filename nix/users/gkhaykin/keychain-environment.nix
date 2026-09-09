@@ -33,7 +33,7 @@ in
       shift
 
       if ! encoded_environment="$(/usr/bin/security find-generic-password -s ${serviceName} -w 2>/dev/null)"; then
-        echo "with-keychain-environment: 1Password environment not found in the login keychain; run 'just nix-apply' to populate it" >&2
+        echo "with-keychain-environment: 1Password environment not found in the login keychain; run 'just nix apply' to populate it" >&2
         exit 1
       fi
 

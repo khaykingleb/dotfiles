@@ -120,7 +120,7 @@
                 autoMigrate = true;
               };
             }
-            ./hosts/${name}
+            ./nix/hosts/${name}
           ];
         };
       forAllSystems = nixpkgs.lib.genAttrs systems;

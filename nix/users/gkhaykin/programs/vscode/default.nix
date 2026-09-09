@@ -3,7 +3,7 @@
   home.file = {
     "Desktop/misc/misc.code-workspace" = {
       force = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/users/gkhaykin/programs/vscode/misc.code-workspace";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/dotfiles/nix/users/gkhaykin/programs/vscode/misc.code-workspace";
     };
     "Desktop/together/together.code-workspace" = {
       force = true;

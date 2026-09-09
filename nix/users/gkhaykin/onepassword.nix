@@ -63,7 +63,7 @@ in
         [[ -n "$name" ]] && export "$name=$value"
       done <<< "$(/usr/bin/base64 -d <<< "$onepassword_environment")"
     else
-      print -u2 "warning: 1Password environment not found in the keychain; run 'just nix-apply' to populate it"
+      print -u2 "warning: 1Password environment not found in the keychain; run 'just nix apply' to populate it"
     fi
     unset onepassword_environment name value
   '';

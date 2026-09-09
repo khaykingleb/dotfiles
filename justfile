@@ -2,39 +2,17 @@
 default:
     @just --list --unsorted --list-heading $'Available commands:\n'
 
-[group('nix')]
-[doc('Apply nix-darwin configuration for a given host')]
-nix-apply host:
-    @nh darwin switch . -H {{ host }}
-
-[group('nix')]
-[doc('Update all or selected flake inputs')]
-nix-update-flake *inputs='':
-    @nix flake update {{ inputs }}
-
-[group('nix')]
-[doc('Clean old Nix generations while preserving recent rollback history')]
-nix-clean:
-    @nh clean all --keep 5 --keep-since 7d
-
-[group('misc')]
-[doc('Initialize pre-commit hooks')]
-pre-commit-init:
-    @echo "Installing pre-commit hooks."
+[doc('Install repository hooks')]
+setup:
     @pre-commit install
-    @pre-commit install --hook-type commit-msg
 
-[group('misc')]
-[doc('Update pre-commit hooks')]
-pre-commit-update:
-    @pre-commit autoupdate
+[doc('Install configured asdf tools and Krew plugins')]
+sync:
+    @./nix/users/shared/programs/asdf/install.sh
+    @./nix/users/shared/programs/krew/install.sh
 
-[group('misc')]
-[doc('Run pre-commit hooks on all files')]
-pre-commit-run:
-    @pre-commit run --all-files
+[doc('Manage Terraform infrastructure')]
+mod terraform
 
-[group('misc')]
-[doc('Reconcile asdf plugins and tool versions')]
-asdf-sync:
-    @./users/shared/programs/asdf/install.sh
+[doc('Manage Nix configurations and generations')]
+mod nix
