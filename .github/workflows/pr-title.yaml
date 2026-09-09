@@ -1,0 +1,23 @@
+name: PR Title
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    types:
+      - opened
+      - edited
+      - reopened
+
+jobs:
+  validate:
+    name: Validate conventional title
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Check Conventional Commit format
+        uses: amannn/action-semantic-pull-request@v6.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

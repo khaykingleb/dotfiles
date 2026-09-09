@@ -33,6 +33,22 @@ jobs:
           rustup toolchain install "$rust_version" --profile minimal
           rustup default "$rust_version"
 
+      - name: Read Terraform tool versions
+        id: terraform-tools
+        run: |
+          echo "terraform=$(awk '$1 == "terraform" { print $2 }' .tool-versions)" >> "$GITHUB_OUTPUT"
+          echo "tflint=$(awk '$1 == "tflint" { print $2 }' .tool-versions)" >> "$GITHUB_OUTPUT"
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v4.0.1
+        with:
+          terraform_version: ${{ steps.terraform-tools.outputs.terraform }}
+
+      - name: Install TFLint
+        uses: terraform-linters/setup-tflint@v6.3.1
+        with:
+          tflint_version: v${{ steps.terraform-tools.outputs.tflint }}
+
       - name: Cache pre-commit environments
         uses: actions/cache@v6
         with:

@@ -28,6 +28,7 @@ repos:
       - id: mdformat
         args:
           - --number
+        exclude: ^terraform/(github|hcp)/README\.md$
         additional_dependencies:
           - "mdformat-gfm==1.0.0"
           - "mdformat-frontmatter==2.1.2"
@@ -48,6 +49,32 @@ repos:
     rev: v1.7.12
     hooks:
       - id: actionlint
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.108.1
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_validate
+        args:
+          - --tf-init-args=-backend=false
+      - id: terraform_tflint
+
+  - repo: https://github.com/terraform-docs/terraform-docs
+    rev: v0.24.0
+    hooks:
+      - id: terraform-docs-go
+        args:
+          - markdown
+          - table
+          - --recursive
+          - --recursive-path=terraform
+          - --recursive-include-main=false
+          - --hide-empty=true
+          - --output-file
+          - README.md
+          - --output-mode
+          - inject
+          - .
 
   - repo: https://github.com/NixOS/nixfmt
     rev: v1.4.0

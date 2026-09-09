@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/*.tfvars)",
+      "Read(**/*.tfvars.json)"
+    ]
+  }
+}
