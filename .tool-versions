@@ -1,3 +1,5 @@
 pre-commit 4.3.0
 just 1.46.0
 rust 1.97.1
+terraform 1.16.1
+tflint 0.64.0
