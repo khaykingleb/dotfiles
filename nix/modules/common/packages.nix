@@ -39,6 +39,26 @@
     grpc-health-probe
     grpcui
     grpcurl
+    # Core networking tools
+    darwin.network_cmds # Apple networking command suite:
+    #   arp (inspect and modify the IPv4 address-resolution cache)
+    #   dnctl (configure dummynet traffic shaping and network emulation)
+    #   ifconfig (inspect and configure network interfaces)
+    #   kdumpd (receive remote kernel crash dumps)
+    #   ndp (inspect and modify the IPv6 neighbor-discovery cache)
+    #   netstat (display connections, routes, interfaces, and protocol statistics)
+    #   ping/ping6 (test IPv4/IPv6 reachability and latency)
+    #   rarpd (serve IP addresses to clients using Reverse ARP)
+    #   route (inspect and modify the routing table)
+    #   rtsol (discover IPv6 routers through router solicitation)
+    #   spray (measure packet handling with the RPC spray protocol)
+    #   traceroute/traceroute6 (trace the IPv4/IPv6 path to a destination)
+    iproute2mac # Linux-style networking wrappers for macOS:
+    #   ip (inspect and configure interfaces, addresses, and routes)
+    #   ss (inspect listening and connected sockets)
+    #   bridge (inspect and configure software bridges)
+    netcat # provides nc (open TCP/UDP connections, listen on ports, and transfer raw data)
+    # macOS provides networksetup for configuring network services; pinned Nixpkgs does not package it
     # Network diagnostics
     doggo # query DNS records from the command line (dig replacement)
     gping # visualize ping latency over time
