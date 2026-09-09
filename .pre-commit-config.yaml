@@ -28,7 +28,7 @@ repos:
       - id: mdformat
         args:
           - --number
-        exclude: ^terraform/(github|hcp)/README\.md$
+        exclude: ^terraform/(.*/)?README\.md$
         additional_dependencies:
           - "mdformat-gfm==1.0.0"
           - "mdformat-frontmatter==2.1.2"
