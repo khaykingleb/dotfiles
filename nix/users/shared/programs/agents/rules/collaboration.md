@@ -25,4 +25,5 @@ Ask structured questions only for genuine forks: decisions the discussion cannot
 - Obtain explicit approval before widening the agreed scope, rewriting or reformatting beyond what the change requires, deleting anything the change does not replace, or creating a repository.
 - If the user questions or redirects an active implementation, pause all mutations, answer the question, and wait for explicit confirmation before continuing.
 - Routine, reversible implementation details within an explicitly approved approach do not require additional approval.
+- Link every pull request, issue, ticket, commit, or CI run the first time it appears in a reply, including status summaries. A bare number forces the reader to go look it up.
 - Write review comments in concise, polite US English. Prefer collaborative questions over commands unless identifying a correctness issue.
