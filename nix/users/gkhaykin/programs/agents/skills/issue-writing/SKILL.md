@@ -31,11 +31,25 @@ Write from the requester's perspective:
   changes.
 - Make every subticket understandable without reading its parent.
 
+Write for a reader on another team who has never seen the system:
+
+- Open with the problem and what it has already cost (an incident, a risk, a
+  manual step), in one or two sentences each, before saying what to build.
+- Name things by what they do, not by their Kubernetes or Helm type. Say "the
+  claim fine-tuning mounts", not "PVC `together-finetune-work-pvc` bound via
+  `claimRef`". Introduce an identifier only once it is needed and only if the
+  reader must recognize it later.
+- Put mechanics that a reviewer might question into one short "how it works
+  underneath" paragraph, after the outcome, never before it.
+- Prefer sentences to tables and nested bullets. A naming or mapping table
+  belongs in the design doc or the PR, not the ticket.
+- Cut a sentence if the acceptance criteria already say it.
+
 Use simple sections only when useful. For feature work, common sections are:
 
-- Goal
+- Goal (or Problem, when the motivation is not obvious)
 - Notes
-- Acceptance Criteria
+- Acceptance Criteria (or Done when)
 
 For bugs, common sections are:
 
@@ -50,7 +64,9 @@ Keep acceptance criteria concrete and testable.
 
 Before finalizing, read the title and description as a request. If they read
 like an engineering plan, rewrite them around the desired outcome and move only
-essential implementation constraints into Notes.
+essential implementation constraints into Notes. Then read them once more as
+someone from a neighbouring team: every term they would have to look up is a
+candidate for a plainer word or a one-clause explanation.
 
 ## Issue Boundaries
 
