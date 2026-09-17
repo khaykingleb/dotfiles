@@ -10,5 +10,5 @@
 - Put an `asyncio.timeout` on anything that can hang.
 - Prefer vertical formatting when it clarifies an expression's outer structure.
   Keep self-contained nested expressions inline when they fit within the line
-  limit; do not recursively expand syntax merely because its parent is
+  limit. Do not recursively expand syntax merely because its parent is
   multiline.
