@@ -17,4 +17,11 @@ let
 in
 {
   home.file = ruleFiles // skillFiles;
+
+  # Official installer places the `claude` binary here.
+  programs.zsh.initContent = ''
+    # >>> Claude
+    export PATH="$HOME/.local/bin:$PATH"
+    # <<< Claude
+  '';
 }
