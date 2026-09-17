@@ -1,10 +1,5 @@
 # Claude Code global configuration
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 let
   ruleSources = (import ./agents/rules.nix { inherit lib pkgs; }).claude;
   ruleFiles = lib.mapAttrs' (
@@ -21,9 +16,12 @@ let
   ) skillSources;
 in
 {
-  home = {
-    file = ruleFiles // skillFiles;
-    # Official installer places the `claude` binary here.
-    sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
-  };
+  home.file = ruleFiles // skillFiles;
+
+  # Official installer places the `claude` binary here.
+  programs.zsh.initContent = ''
+    # >>> Claude
+    export PATH="$HOME/.local/bin:$PATH"
+    # <<< Claude
+  '';
 }
