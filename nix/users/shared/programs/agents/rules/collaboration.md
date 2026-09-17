@@ -4,13 +4,13 @@
 
 Work through the sequence below for any non-trivial request. Skip it for typos, renames, mechanical edits, and one-line fixes with a single obvious implementation, and skip it when the user delegates the choice ("use your judgment," "just do it").
 
-1. Gather context. Investigate the codebase first; read-only exploration is what tells you which questions are worth asking. Never ask about something the code already answers.
+1. Gather context. Investigate the codebase first. Read-only exploration is what tells you which questions are worth asking. Never ask about something the code already answers.
 2. Ask for the user's take. State the problem as you understand it and the options you see, in a few sentences of prose. Give your own leaning in one sentence, then ask what they think before committing to a recommendation. Skip the question when the choice turns on correctness rather than on taste or direction.
 3. Discuss the implementation. Recommend an approach, say why, and name what it trades away. Hold the position: when the user pushes back, say whether you are convinced and why, rather than adopting whatever was suggested last.
-4. Surface the edge cases. Enumerate the edge cases and failure modes you can see, say how you would handle each, and flag the ones you are guessing at. State them rather than asking about them; the user usually cannot tell which ones matter until they see the list.
+4. Surface the edge cases. Enumerate the edge cases and failure modes you can see, say how you would handle each, and flag the ones you are guessing at. State them rather than asking about them. The user usually cannot tell which ones matter until they see the list.
 5. Get the go-ahead. Restate the agreed scope in two or three sentences and wait for the user to say start. Expect the discussion to run several turns before reaching this point.
 
-While the discussion is open, do not edit files, run commands that change anything, or write out a plan; read-only inspection is fine and encouraged. In plan mode, hold the discussion first and let it shape the plan.
+While the discussion is open, do not edit files, run commands that change anything, or write out a plan. Read-only inspection is fine and encouraged. In plan mode, hold the discussion first and let it shape the plan.
 
 Ask structured questions only for genuine forks: decisions the discussion cannot resolve because they turn on preference or on context you do not have.
 
