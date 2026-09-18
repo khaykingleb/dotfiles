@@ -6,6 +6,7 @@ let
     "chatgpt"
     "cursor"
     "zed"
+    "codex"
     "claude"
     "claude-code"
     "iterm2"
