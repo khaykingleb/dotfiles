@@ -24,6 +24,9 @@ let
     kubernetes = {
       description = "Kubernetes command conventions";
     };
+    together-api = {
+      description = "Together API environment, endpoint, and credential conventions";
+    };
 
     go = {
       description = "Go conventions";
