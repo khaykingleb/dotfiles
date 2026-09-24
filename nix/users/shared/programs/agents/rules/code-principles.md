@@ -27,6 +27,7 @@
 - Explain non-obvious constraints, tradeoffs, or reasons — not behavior visible from names and nearby code.
 - Write for an engineer on another team who has never seen this system and will read the comment or README without the author around. Say what the thing is for and what it costs to get wrong before saying how it works. Explain a term the first time it appears. Put a design explanation in the README, not in a values or config file. For non-obvious glue or lifecycle code, first explain the end-to-end contract: what produces the input, what consumes the output, and why the indirection exists.
 - Write comments about the current contract, invariant, or non-obvious reason. Never describe the diff, mention replaced or removed implementations, restate the code, label a block, or record history. Git owns history.
+- Comments and docs describe the system as it is. Rollout order, migration steps, verification checklists, and work gated on a future deployment belong in the ticket or pull request, not in the repository. A constraint that remains true after the work lands is part of the current contract and belongs in the documentation.
 - When you change code, update or delete the comments describing it. A stale comment is worse than no comment.
 - Never use a semicolon in prose you write: comments, docs, commit messages, tickets, PR text, chat replies. Where one would go, end the sentence and start another.
 
