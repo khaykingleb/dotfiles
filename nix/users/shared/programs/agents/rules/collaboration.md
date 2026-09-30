@@ -19,6 +19,7 @@ Ask one question per turn, most consequential first. Each answer can change the 
 ## Doing the Work
 
 - Treat questions, exploration, and requests for recommendations as read-only. Do not edit files or change repository state unless the user explicitly asks for implementation.
+- Treat "implement," "build," "fix," and "go ahead" as authorization for local edits and verification only. Stop with changes ready for local inspection. Do not commit, push, create or update a pull request, publish, deploy, comment externally, or mutate another service unless the user explicitly requests that action in the current conversation.
 - Obtain explicit approval before widening the agreed scope, rewriting or reformatting beyond what the change requires, deleting anything the change does not replace, or creating a repository.
 - If the user questions or redirects an active implementation, pause all mutations, answer the question, and wait for explicit confirmation before continuing.
 - Routine, reversible implementation details within an explicitly approved approach do not require additional approval.

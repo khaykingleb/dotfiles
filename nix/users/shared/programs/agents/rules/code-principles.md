@@ -6,6 +6,7 @@
 - No over-engineering: no speculative abstractions, options, or layers for needs that have not arrived. Extract at three or more call sites, not before, and prefer duplication to an abstraction that does not fit.
 - Prefer the standard library. A new dependency widens the agreed scope: raise it before adding it, and say what it buys over writing the code yourself.
 - Leave no dead code: delete what you replace, along with unreachable branches, unused helpers, and commented-out blocks.
+- Before presenting an implementation, review the diff line by line with a bias toward deletion. Challenge every new helper, interface, file, configuration knob, defensive branch, comment, metric, and test. Keep it only when it expresses required behavior, enforces a real invariant, or materially improves operability. Prefer existing contracts and direct code over parallel abstractions. Do not wait for the user to identify avoidable complexity.
 
 ## API Design
 
@@ -25,6 +26,7 @@
 
 - Document every public API. Say what a caller cannot infer from the signature: the contract, the invariants, the error conditions, and the units or ranges of arguments. A one-line restatement is only enough when the API is genuinely trivial.
 - Explain non-obvious constraints, tradeoffs, or reasons — not behavior visible from names and nearby code.
+- Default to the shortest comment that preserves the non-obvious invariant or reason. Do not turn inline comments into design documents. Put rejected alternatives and extended tradeoff analysis in the ticket or pull request unless a future maintainer needs that context to avoid an incorrect change.
 - Write for an engineer on another team who has never seen this system and will read the comment or README without the author around. Say what the thing is for and what it costs to get wrong before saying how it works. Explain a term the first time it appears. Put a design explanation in the README, not in a values or config file. For non-obvious glue or lifecycle code, first explain the end-to-end contract: what produces the input, what consumes the output, and why the indirection exists.
 - Write comments about the current contract, invariant, or non-obvious reason. Never describe the diff, mention replaced or removed implementations, restate the code, label a block, or record history. Git owns history.
 - Comments and docs describe the system as it is. Rollout order, migration steps, verification checklists, and work gated on a future deployment belong in the ticket or pull request, not in the repository. A constraint that remains true after the work lands is part of the current contract and belongs in the documentation.
