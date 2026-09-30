@@ -15,9 +15,10 @@ Produce the final update as rendered Markdown that can be copied from Cursor and
    - current-cycle backlog issues relevant to next week's plans.
 2. If the previous update is available, treat its timestamp as the reporting boundary and do not repeat tickets already reported as completed.
 3. Use `completedAt`, not `updatedAt`, to decide whether a ticket was completed during the reporting period.
-4. Read issue details when needed to describe outcomes, recent progress, remaining work, or blockers accurately.
-5. Incorporate substantial non-ticket work supplied by the user, such as on-call work, reviews, design discussions, writing, or hiring.
-6. Do not invent progress or plans. If Linear does not establish what changed, say so briefly or ask the user. Treat next-week plans as proposed unless the user confirms alignment with their lead.
+4. Treat issues in `Verify` as completed for weekly-report classification, even when `completedAt` is null. Include them in the completed section and exclude them from active WIP. When available, use the transition into `Verify` as the completion date for the reporting boundary.
+5. Read issue details when needed to describe outcomes, recent progress, remaining work, or blockers accurately.
+6. Incorporate substantial non-ticket work supplied by the user, such as on-call work, reviews, design discussions, writing, or hiring.
+7. Do not invent progress or plans. If Linear does not establish what changed, say so briefly or ask the user. Treat next-week plans as proposed unless the user confirms alignment with their lead.
 
 ## Output requirements
 
