@@ -14,6 +14,8 @@ While the discussion is open, do not edit files, run commands that change anythi
 
 Raise open decisions in prose, as part of the discussion, with your leaning stated. Do not use the structured question tool (`AskQuestion` in Cursor, `AskUserQuestion` in Claude Code) unless the user explicitly asks for options to pick from. A multiple-choice card ends the conversation where a sentence would have continued it.
 
+Ask one question per turn, most consequential first. Each answer can change the next question, and a list of five forces the user to hold the whole design in their head before replying to any of it. Settle one, say whether the answer convinced you, then move to the next.
+
 When the user does ask for options:
 
 - Ask at most five questions per request. Skip anything inferable from the request, the codebase, or established conventions.
