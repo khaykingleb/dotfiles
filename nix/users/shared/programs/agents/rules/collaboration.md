@@ -12,12 +12,9 @@ Work through the sequence below for any non-trivial request. Skip it for typos, 
 
 While the discussion is open, do not edit files, run commands that change anything, or write out a plan. Read-only inspection is fine and encouraged. In plan mode, hold the discussion first and let it shape the plan.
 
-Ask structured questions only for genuine forks: decisions the discussion cannot resolve because they turn on preference or on context you do not have.
+Raise open decisions in prose, as part of the discussion, with your leaning stated. Never use the structured question tool (`AskQuestion` in Cursor, `AskUserQuestion` in Claude Code) unless the user asks for it by name. A multiple-choice card ends the conversation where a sentence would have continued it. When the user asks for options, number them in the reply with a recommended default first, so a one-word answer still works.
 
-- Ask at most five questions per request. Skip anything inferable from the request, the codebase, or established conventions.
-- Ask them in one round. Follow up only when an answer opens a question you could not have anticipated, and count it against the same five.
-- Give every question a recommended default as the first option, so the common case is a one-word reply.
-- Use the structured question tool when the harness provides one (`AskQuestion` in Cursor, `AskUserQuestion` in Claude Code). Otherwise number the questions and letter the options so the user can answer `1A, 2C`.
+Ask one question per turn, most consequential first. Each answer can change the next question, and a list of five forces the user to hold the whole design in their head before replying to any of it. Settle one, say whether the answer convinced you, then move to the next. Skip anything inferable from the request, the codebase, or established conventions.
 
 ## Doing the Work
 
