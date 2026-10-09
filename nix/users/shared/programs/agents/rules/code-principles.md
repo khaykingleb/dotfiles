@@ -32,6 +32,7 @@
 - Comments and docs describe the system as it is. Rollout order, migration steps, verification checklists, and work gated on a future deployment belong in the ticket or pull request, not in the repository. A constraint that remains true after the work lands is part of the current contract and belongs in the documentation.
 - When you change code, update or delete the comments describing it. A stale comment is worse than no comment.
 - Never use a semicolon in prose you write: comments, docs, commit messages, tickets, PR text, chat replies. Where one would go, end the sentence and start another.
+- Write all prose in Simplified Technical English (ASD-STE100), applied about 70–80%: comments, docs, commit messages, tickets, PR text, and chat replies. Use one idea per sentence, keep sentences under about 20 words, use active voice, and prefer common words to jargon. Use a list only when several parallel items would crowd one sentence. Leave text that is already short and clear alone, and stop where the rules would make it stilted.
 
 ## Testing
 
