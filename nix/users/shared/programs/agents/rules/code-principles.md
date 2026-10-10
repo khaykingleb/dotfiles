@@ -6,7 +6,10 @@
 - No over-engineering: no speculative abstractions, options, or layers for needs that have not arrived. Extract at three or more call sites, not before, and prefer duplication to an abstraction that does not fit.
 - Prefer the standard library. A new dependency widens the agreed scope: raise it before adding it, and say what it buys over writing the code yourself.
 - Leave no dead code: delete what you replace, along with unreachable branches, unused helpers, and commented-out blocks.
-- Before presenting an implementation, review the diff line by line with a bias toward deletion. Challenge every new helper, interface, file, configuration knob, defensive branch, comment, metric, and test. Keep it only when it expresses required behavior, enforces a real invariant, or materially improves operability. Prefer existing contracts and direct code over parallel abstractions. Do not wait for the user to identify avoidable complexity. Then reread each remaining comment as a stranger would. It must say what the code is for and why, every claim in it must be true, and every pronoun must have one clear referent.
+- Before presenting an implementation, review the diff line by line against these questions. Fix what fails, and do not list the answers. When unsure how a tool works, check its own documentation, not a third-party guide.
+  - Do we need it? Bias toward deletion. Keep a helper, interface, file, configuration knob, defensive branch, comment, metric, or test only when it expresses required behavior, enforces a real invariant, or materially improves operability.
+  - Is it in the right place? It sits where the repository layout puts it, and it uses existing contracts and direct code rather than a parallel abstraction.
+  - Is each comment correct? Read as a stranger, it says what the code is for and why, every claim is true, and every pronoun has one clear referent.
 
 ## API Design
 
@@ -28,6 +31,7 @@
 - Explain non-obvious constraints, tradeoffs, or reasons — not behavior visible from names and nearby code.
 - A comment says what the code is for and the non-obvious reason or constraint, in as few words as that takes. Do not turn inline comments into design documents. Put rejected alternatives and extended tradeoff analysis in the ticket or pull request unless a future maintainer needs that context to avoid an incorrect change.
 - Write for an engineer on another team who has never seen this system and will read the comment or README without the author around. Say what the thing is for and what it costs to get wrong before saying how it works. Explain a term the first time it appears. Put a design explanation in the README, not in a values or config file. For non-obvious glue or lifecycle code, first explain the end-to-end contract: what produces the input, what consumes the output, and why the indirection exists.
+- State a requirement as a requirement. Write "must set `key`", not "sets `key`", so a reader can tell a contract from a description.
 - Write comments about the current contract, invariant, or non-obvious reason. Never describe the diff, mention replaced or removed implementations, restate the code, label a block, or record history. Git owns history.
 - Comments and docs describe the system as it is. Rollout order, migration steps, verification checklists, and work gated on a future deployment belong in the ticket or pull request, not in the repository. A constraint that remains true after the work lands is part of the current contract and belongs in the documentation.
 - When you change code, update or delete the comments describing it. A stale comment is worse than no comment.
