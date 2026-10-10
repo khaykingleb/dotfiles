@@ -2,6 +2,7 @@
 {
   imports = [
     ../shared/programs
+    ./programs
 
     ../shared/completions.nix
     ../shared/fonts.nix
