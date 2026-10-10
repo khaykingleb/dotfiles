@@ -6,10 +6,10 @@
 - No over-engineering: no speculative abstractions, options, or layers for needs that have not arrived. Extract at three or more call sites, not before, and prefer duplication to an abstraction that does not fit.
 - Prefer the standard library. A new dependency widens the agreed scope: raise it before adding it, and say what it buys over writing the code yourself.
 - Leave no dead code: delete what you replace, along with unreachable branches, unused helpers, and commented-out blocks.
-- Before presenting an implementation, review the diff line by line and answer these for every change. Do not wait for the user to ask them.
+- Before presenting an implementation, review the diff line by line against these questions. Fix what fails, and do not list the answers. Check upstream documentation only when unsure of a tool's behavior.
   - Do we need it? Bias toward deletion. Keep a helper, interface, file, configuration knob, defensive branch, comment, metric, or test only when it expresses required behavior, enforces a real invariant, or materially improves operability.
   - Is it in the right place? It sits where the repository layout puts it, and it uses existing contracts and direct code rather than a parallel abstraction.
-  - Does it match the docs? It follows the upstream documentation of the tool it configures.
+  - Does it match the docs?
   - Is each comment correct? Read as a stranger, it says what the code is for and why, every claim is true, and every pronoun has one clear referent.
 
 ## API Design
