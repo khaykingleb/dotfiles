@@ -11,8 +11,8 @@
     };
 
     # Sign every commit and tag with an SSH key so GitHub can mark each one as Verified.
-    # Each user module sets `signing.key`. A user whose key is not a file on disk,
-    # such as one held in 1Password, also sets `signing.signer`.
+    # Each user module must set `signing.key`. A user whose key is not a file on
+    # disk, such as one held in 1Password, must also set `signing.signer`.
     signing = {
       format = "ssh";
       signByDefault = true;

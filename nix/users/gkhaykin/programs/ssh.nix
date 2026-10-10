@@ -4,9 +4,8 @@ let
 in
 {
   programs.ssh.settings = {
-    # SSH keys live only in 1Password, so SSH fails for every host while the
-    # 1Password SSH agent is off. The quotes are part of the value because the
-    # path has a space.
+    # Every host gets its key from the 1Password SSH agent, so SSH fails while
+    # that agent is off. The inner quotes are needed because the path has a space.
     "*".IdentityAgent = ''"${onePasswordAgentSocket}"'';
     "*.cloud.together.ai".User = "gkhaykin";
   };

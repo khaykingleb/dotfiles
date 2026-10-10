@@ -1,5 +1,6 @@
 { config, ... }:
 {
-  # GitHub must have this key as a Signing Key, or it marks commits "Unverified".
+  # GitHub marks commits "Unverified" unless this key is also added as a Signing
+  # Key under GitHub > Settings > SSH and GPG keys.
   programs.git.signing.key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
 }
