@@ -24,6 +24,7 @@
   "ms-azuretools.vscode-containers"
   "ms-kubernetes-tools.vscode-kubernetes-tools"
   "github.vscode-github-actions"
+  "github.vscode-pull-request-github"
   "hashicorp.hcl"
   "hashicorp.terraform"
   "redhat.ansible"
