@@ -36,6 +36,9 @@ Slack's rich-text composer.
 - Call out blockers, migration risks, or temporary compatibility measures
   plainly. Never bury them after generic praise.
 - Avoid templates, headings, filler, and exhaustive implementation details.
+- Keep only what changes how a reader reviews, merges, or rolls out. Leave
+  implementation details, the author's own remaining chores, and known CI noise
+  to the PR description.
 
 ## Example
 
