@@ -24,7 +24,7 @@ kubectl krew version >/dev/null 2>&1 || {
 	exit 1
 }
 
-for plugin in images neat tree view-allocations who-can; do
+for plugin in images neat oidc-login tree view-allocations who-can; do
 	if ! plugin_installed "$plugin"; then
 		echo "Installing Krew plugin: $plugin"
 		kubectl krew install "$plugin"
