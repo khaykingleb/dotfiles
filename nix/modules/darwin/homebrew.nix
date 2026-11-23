@@ -78,6 +78,10 @@ in
     # Remove undeclared formulae and casks without applying cask zap actions
     onActivation.cleanup = "uninstall";
 
+    # List nix-homebrew's taps in the Brewfile too. Otherwise cleanup tries to
+    # remove them, and activation fails because nix-homebrew keeps them read-only.
+    taps = builtins.attrNames config.nix-homebrew.taps;
+
     # NOTE: list of dependencies that shouldn't be isolated with nix as this binaries
     # will be used to build other tools. That's why we're installing them here with homebrew
     brews = [
