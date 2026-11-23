@@ -99,6 +99,9 @@
     libwebp # webp image converter (includes cwebp)
     imagemagick # image processing tool
 
+    # Cloud providers
+    wrangler # Cloudflare CLI for R2 buckets, Workers, and other account resources
+
     # Kubernetes and virtualization
     clusterctl # cluster API CLI for managing Kubernetes clusters
     kubecm # manage and switch between multiple kubeconfigs
