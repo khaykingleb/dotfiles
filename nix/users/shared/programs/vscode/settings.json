@@ -19,6 +19,9 @@
   "workbench.editorAssociations": {
     "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default",
   },
+  /* Diffs & Pull Requests */
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "githubPullRequests.quickDiff": true,
   /* Terminal */
   "terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono",
   "terminal.integrated.fontSize": 13,
