@@ -5,14 +5,20 @@ description: Performs defect and API-design reviews of code changes, prioritizin
 
 # Code Review
 
+## Checking out a pull request
+
+For a GitHub PR URL or number, check out the PR locally. The user walks through the review and iterates on the PR in the same tree.
+
+- Use `gh pr view` and `gh pr diff` to retrieve the exact PR. Read its number, title, and base branch. If GitHub access fails, stop and report the access issue.
+- Put review worktrees in the `prs` directory one level above the directory that holds the primary checkout. For a primary checkout at `<root>/<group>/<repo>`, use `<root>/prs`.
+- Add each worktree from the review clone at `prs/<repo>`. If that clone does not exist, clone the repository there first. Never check out a PR in the review clone itself.
+- Name the worktree `<repo>-<number>-<short-slug>`, with three or four words from the PR title as the slug. Find an existing worktree by matching `<repo>-<number>-*`, so a renamed PR keeps its worktree.
+- For a new worktree, fetch the review clone, run `git worktree add --detach <path> origin/<base-branch>`, and then run `gh pr checkout <number>` inside the worktree.
+- If the worktree already exists, update it to the latest PR head. If it has uncommitted changes or unpushed commits, stop and ask first. Those are the user's edits.
+- Work in the worktree, not in another checkout.
+- Never remove review worktrees. The user decides when to clean them up.
+
 ## Review process
-
-When reviewing a GitHub PR URL or number:
-
-- Use `gh pr view` and `gh pr diff` to retrieve the exact PR.
-- Verify the PR number, title, base branch, head branch, and head SHA before reviewing.
-- Never assume the currently checked-out branch corresponds to the PR.
-- If GitHub access fails, stop and report the access issue.
 
 Review the change, not the entire codebase. Establish the intended behavior from the PR, issue, and commits. Inspect every changed production file plus relevant callers, callees, contracts, tests, and history. Compare against the base version to distinguish introduced defects from pre-existing issues. Trace concrete failure paths end-to-end and verify each finding before reporting it.
 
@@ -29,7 +35,7 @@ Prioritize review effort in this order:
 4. Tests: meaningful coverage of behavior, failures, and non-obvious edge cases
 5. Code style: readability or maintainability issues that automated tooling cannot enforce
 
-Use formatters, linters, type checkers, and focused tests when available. Do not substitute tool output for semantic review.
+For a PR, rely on CI for formatters, linters, type checkers, and the full test suite. Run a focused test only to confirm a suspected defect. For local changes, which have not been through CI, run the formatters, linters, and type checkers that the repository provides.
 
 ## API design review
 
@@ -45,6 +51,15 @@ For API, protobuf, schema, and message changes, verify:
 - Naming communicates each field's meaning and scope.
 
 ## Findings
+
+Start the report with this header. Omit the `PR` line for a local review.
+
+```text
+Path: <absolute path of the reviewed tree>
+PR: [<repo>#<number>](<url>) <title>
+```
+
+Cite files relative to that tree.
 
 Report both actionable defects and actionable design concerns introduced or exposed by the change. Do not suppress a design concern merely because the current implementation functions correctly. Do not report:
 
@@ -74,7 +89,7 @@ Order defects by severity.
 
 For each design concern:
 
-- Mark it as blocking or non-blocking; do not assign defect severity unless it also causes a concrete failure.
+- Mark it as blocking or non-blocking. Do not assign defect severity unless it also causes a concrete failure.
 - Use a short, imperative title.
 - Cite the smallest relevant file and line range.
 - Give a concrete example using an actual or representative caller, payload, configuration, state transition, or rollout sequence that exposes the concern.
