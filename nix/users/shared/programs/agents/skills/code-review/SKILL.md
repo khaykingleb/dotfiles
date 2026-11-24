@@ -17,7 +17,7 @@ For a GitHub PR URL or number, check out the PR locally. The user walks through 
 - Name the worktree `<repo>-<number>-<short-slug>`, with three or four words from the PR title as the slug. Find an existing worktree by matching `<repo>-<number>-*`, so a renamed PR keeps its worktree.
 - For a new worktree, fetch the review clone, run `git worktree add --detach <path> origin/<base-branch>`, and then run `gh pr checkout <number>` inside the worktree.
 - If the worktree already exists, update it to the latest PR head. If it has uncommitted changes or unpushed commits, stop and ask first. Those are the user's edits.
-- Read files, run tools, and run tests in the worktree, not in another checkout.
+- Work in the worktree, not in another checkout.
 - Never remove review worktrees. The user decides when to clean them up.
 
 ### Local changes
@@ -41,7 +41,7 @@ Prioritize review effort in this order:
 4. Tests: meaningful coverage of behavior, failures, and non-obvious edge cases
 5. Code style: readability or maintainability issues that automated tooling cannot enforce
 
-Use formatters, linters, type checkers, and focused tests when available. Do not substitute tool output for semantic review.
+For a PR, rely on CI for formatters, linters, type checkers, and the full test suite. Run a focused test only to confirm a suspected defect. For local changes, which have not been through CI, run the formatters, linters, and type checkers that the repository provides.
 
 ## API design review
 
