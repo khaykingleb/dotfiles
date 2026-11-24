@@ -5,9 +5,7 @@ description: Performs defect and API-design reviews of code changes, prioritizin
 
 # Code Review
 
-## Preparing the change
-
-### Pull requests
+## Checking out a pull request
 
 For a GitHub PR URL or number, check out the PR locally. The user walks through the review and iterates on the PR in the same tree.
 
@@ -19,10 +17,6 @@ For a GitHub PR URL or number, check out the PR locally. The user walks through 
 - If the worktree already exists, update it to the latest PR head. If it has uncommitted changes or unpushed commits, stop and ask first. Those are the user's edits.
 - Work in the worktree, not in another checkout.
 - Never remove review worktrees. The user decides when to clean them up.
-
-### Local changes
-
-For a local diff, commit, or branch, review the existing checkout in place.
 
 ## Review process
 
