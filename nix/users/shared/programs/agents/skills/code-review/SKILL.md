@@ -11,13 +11,12 @@ description: Performs defect and API-design reviews of code changes, prioritizin
 
 For a GitHub PR URL or number, check out the PR locally. The user walks through the review and iterates on the PR in the same tree.
 
-- Use `gh pr view` and `gh pr diff` to retrieve the exact PR. Read its number, title, base branch, head branch, and head SHA. If GitHub access fails, stop and report the access issue.
+- Use `gh pr view` and `gh pr diff` to retrieve the exact PR. Read its number, title, and base branch. If GitHub access fails, stop and report the access issue.
 - Put review worktrees in the `prs` directory one level above the directory that holds the primary checkout. For a primary checkout at `<root>/<group>/<repo>`, use `<root>/prs`.
 - Add each worktree from the review clone at `prs/<repo>`. If that clone does not exist, clone the repository there first. Never check out a PR in the review clone itself.
-- Name the worktree `<repo>-<ticket-id-lowercase>-<pr-title-slug>`, with the ticket ID from the PR branch or title. Without a ticket ID, use `<repo>-pr-<number>-<pr-title-slug>`.
+- Name the worktree `<repo>-<number>-<short-slug>`, with three or four words from the PR title as the slug. Find an existing worktree by matching `<repo>-<number>-*`, so a renamed PR keeps its worktree.
 - For a new worktree, fetch the review clone, run `git worktree add --detach <path> origin/<base-branch>`, and then run `gh pr checkout <number>` inside the worktree.
 - For an existing worktree, stop and report if `git status --porcelain` shows changes or `git rev-list HEAD --not --remotes` lists commits. These are the user's work. Otherwise, run `gh pr checkout --force <number>` to move it to the latest PR head.
-- After checkout, `git rev-parse HEAD` must equal the PR `headRefOid`. If it does not, stop and report the mismatch.
 - Read files, run tools, and run tests in the worktree, not in another checkout.
 - Never remove review worktrees. The user decides when to clean them up.
 
