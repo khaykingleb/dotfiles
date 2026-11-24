@@ -5,14 +5,27 @@ description: Performs defect and API-design reviews of code changes, prioritizin
 
 # Code Review
 
+## Preparing the change
+
+### Pull requests
+
+For a GitHub PR URL or number, check out the PR locally. The user walks through the review and iterates on the PR in the same tree.
+
+- Use `gh pr view` and `gh pr diff` to retrieve the exact PR. Read its number, title, base branch, head branch, and head SHA. If GitHub access fails, stop and report the access issue.
+- Put review worktrees in the `prs` directory one level above the directory that holds the primary checkout. For a primary checkout at `<root>/<group>/<repo>`, use `<root>/prs`.
+- Add each worktree from the review clone at `prs/<repo>`. If that clone does not exist, clone the repository there first. Never check out a PR in the review clone itself.
+- Name the worktree `<repo>-<ticket-id-lowercase>-<pr-title-slug>`, with the ticket ID from the PR branch or title. Without a ticket ID, use `<repo>-pr-<number>-<pr-title-slug>`.
+- For a new worktree, fetch the review clone, run `git worktree add --detach <path> origin/<base-branch>`, and then run `gh pr checkout <number>` inside the worktree.
+- For an existing worktree, stop and report if `git status --porcelain` shows changes or `git rev-list HEAD --not --remotes` lists commits. These are the user's work. Otherwise, run `gh pr checkout --force <number>` to move it to the latest PR head.
+- After checkout, `git rev-parse HEAD` must equal the PR `headRefOid`. If it does not, stop and report the mismatch.
+- Read files, run tools, and run tests in the worktree, not in another checkout.
+- Never remove review worktrees. The user decides when to clean them up.
+
+### Local changes
+
+For a local diff, commit, or branch, review the existing checkout in place.
+
 ## Review process
-
-When reviewing a GitHub PR URL or number:
-
-- Use `gh pr view` and `gh pr diff` to retrieve the exact PR.
-- Verify the PR number, title, base branch, head branch, and head SHA before reviewing.
-- Never assume the currently checked-out branch corresponds to the PR.
-- If GitHub access fails, stop and report the access issue.
 
 Review the change, not the entire codebase. Establish the intended behavior from the PR, issue, and commits. Inspect every changed production file plus relevant callers, callees, contracts, tests, and history. Compare against the base version to distinguish introduced defects from pre-existing issues. Trace concrete failure paths end-to-end and verify each finding before reporting it.
 
@@ -46,6 +59,8 @@ For API, protobuf, schema, and message changes, verify:
 
 ## Findings
 
+Start the report with the absolute path of the reviewed tree, its branch, and its short head SHA. Cite files relative to that tree.
+
 Report both actionable defects and actionable design concerns introduced or exposed by the change. Do not suppress a design concern merely because the current implementation functions correctly. Do not report:
 
 - Purely stylistic preferences
@@ -74,7 +89,7 @@ Order defects by severity.
 
 For each design concern:
 
-- Mark it as blocking or non-blocking; do not assign defect severity unless it also causes a concrete failure.
+- Mark it as blocking or non-blocking. Do not assign defect severity unless it also causes a concrete failure.
 - Use a short, imperative title.
 - Cite the smallest relevant file and line range.
 - Give a concrete example using an actual or representative caller, payload, configuration, state transition, or rollout sequence that exposes the concern.
