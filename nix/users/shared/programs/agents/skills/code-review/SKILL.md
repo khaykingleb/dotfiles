@@ -52,7 +52,14 @@ For API, protobuf, schema, and message changes, verify:
 
 ## Findings
 
-Start the report with the absolute path of the reviewed tree, its branch, and its short head SHA. Cite files relative to that tree.
+Start the report with this header. Omit the `PR` line for a local review.
+
+```text
+Path: <absolute path of the reviewed tree>
+PR: [<repo>#<number>](<url>) <title>
+```
+
+Cite files relative to that tree.
 
 Report both actionable defects and actionable design concerns introduced or exposed by the change. Do not suppress a design concern merely because the current implementation functions correctly. Do not report:
 
