@@ -52,12 +52,15 @@ For API, protobuf, schema, and message changes, verify:
 
 ## Findings
 
-Start the report with this header. Omit the `PR` line for a local review.
+Start the report with this header. Omit the `PR` line for a local review. Keep the `PR` line outside a code block, so the link renders. Put only the `cd` command in the shell block, so the user can copy and run it.
 
-```text
-Path: <absolute path of the reviewed tree>
+````markdown
 PR: [<repo>#<number>](<url>) <title>
+
+```sh
+cd <absolute path of the reviewed tree>
 ```
+````
 
 Cite files relative to that tree.
 
