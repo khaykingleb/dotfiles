@@ -43,7 +43,7 @@ in
         builtins.map (extension: ''
           if [[ -z "''${currentExtensions[${extension}]+unset}" ]]; then
             echo "Installing ${extension}"
-            $DRY_RUN_CMD "$cursor_bin" --install-extension ${extension} &> /dev/null
+            $DRY_RUN_CMD "$cursor_bin" --install-extension ${extension} > /dev/null
           fi
           unset 'currentExtensions[${extension}]'
         '') managedCursorExtensions
@@ -51,7 +51,7 @@ in
 
       for extension in "''${!currentExtensions[@]}"; do
         echo "Uninstalling $extension"
-        $DRY_RUN_CMD "$cursor_bin" --uninstall-extension "$extension" &> /dev/null
+        $DRY_RUN_CMD "$cursor_bin" --uninstall-extension "$extension" > /dev/null
       done
     fi
   '';
