@@ -68,6 +68,7 @@
   "ms-vsliveshare.vsliveshare"
   "ms-vscode.remote-server"
   "openai.chatgpt"
+  "openai.codex-audio"
   "shd101wyy.markdown-preview-enhanced"
   "yzhang.markdown-all-in-one"
   "davidanson.vscode-markdownlint"

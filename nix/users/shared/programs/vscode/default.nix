@@ -1,7 +1,6 @@
 { config, lib, ... }:
 let
   extensions = (import ./extensions.nix) ++ [
-    "github.copilot-chat"
     "ms-python.vscode-pylance"
     "ms-vscode-remote.remote-containers"
     "ms-vscode-remote.remote-ssh-edit"
@@ -26,29 +25,28 @@ in
 
         if ! command -v "$code_bin" &> /dev/null; then
           echo "VSCode CLI is not available"
-          exit 0
+        else
+          declare -A currentExtensions
+          for extension in $("$code_bin" --list-extensions); do
+            currentExtensions["$extension"]=1;
+          done
+
+          ${builtins.concatStringsSep "\n" (
+            builtins.map (ext: ''
+              if [[ -z "''${currentExtensions[${ext}]+unset}" ]]; then
+                echo "Installing ${ext}"
+                $DRY_RUN_CMD "$code_bin" --install-extension ${ext} > /dev/null
+              fi
+              unset 'currentExtensions[${ext}]'
+            '') extensions
+          )}
+
+          for ext in "''${!currentExtensions[@]}"; do
+            echo "Uninstalling $ext"
+            $DRY_RUN_CMD "$code_bin" --uninstall-extension $ext > /dev/null
+            unset 'currentExtensions[$ext]'
+          done
         fi
-
-        declare -A currentExtensions
-        for extension in $("$code_bin" --list-extensions); do
-          currentExtensions["$extension"]=1;
-        done
-
-        ${builtins.concatStringsSep "\n" (
-          builtins.map (ext: ''
-            if [[ -z "''${currentExtensions[${ext}]+unset}" ]]; then
-              echo "Installing ${ext}"
-              $DRY_RUN_CMD "$code_bin" --install-extension ${ext} &> /dev/null
-            fi
-            unset 'currentExtensions[${ext}]'
-          '') extensions
-        )}
-
-        for ext in "''${!currentExtensions[@]}"; do
-          echo "Uninstalling $ext"
-          $DRY_RUN_CMD "$code_bin" --uninstall-extension $ext &> /dev/null
-          unset 'currentExtensions[$ext]'
-        done
       '';
     };
   };
